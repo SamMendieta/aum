@@ -1,10 +1,21 @@
 # aum.
 
-Artisanal botanical soap brand website. First collection of 7 soap bars, 
-each mapped to one of the body's primary energy centers. Hand-produced 
-in Subachoque, Cundinamarca, Colombia.
+Artisanal botanical soap brand website. Seven bars, each mapped to one of
+the body's primary energy centers. Hand-produced in Subachoque, Colombia.
 
-Live site: [aumbotanicals.pages.dev](https://aumbotanicals.pages.dev)
+**Live:** [aumbotanicals.pages.dev](https://aumbotanicals.pages.dev)
+
+---
+
+## What this is
+
+aum. sells soap the way other people sell the idea of soap. The product is
+real — cold-process bars, olive oil and shea butter base, pure essential
+oils, a crystal inside each one. The website's job is to make that feel
+exactly as considered as it is.
+
+Built with Eleventy. No frameworks. No JS where CSS works. The site ships
+static HTML that a search engine can read and a slow connection can handle.
 
 ---
 
@@ -12,29 +23,29 @@ Live site: [aumbotanicals.pages.dev](https://aumbotanicals.pages.dev)
 
 - [Eleventy (11ty) v3](https://www.11ty.dev/) — static site generator
 - Nunjucks — templating
-- Vanilla CSS — no frameworks
-- Vanilla JavaScript — no frameworks
-- [eleventy-img](https://www.11ty.dev/docs/plugins/image/) — build-time image optimization (AVIF / WebP)
-- Deployed on [Cloudflare Pages](https://pages.cloudflare.com/)
+- Vanilla CSS
+- Vanilla JavaScript
+- [eleventy-img](https://www.11ty.dev/docs/plugins/image/) — AVIF / WebP at build time
+- [Cloudflare Pages](https://pages.cloudflare.com/) — deploys on push to `main`
 
 ---
 
-## Project structure
+## Structure
 ```
 web/
 ├── src/
 │   ├── _data/
-│   │   ├── site.json        # Global brand tokens and site metadata
-│   │   └── soaps.json       # All 7 soap products — single source of truth
+│   │   ├── site.json        # Brand tokens, metadata, global config
+│   │   └── soaps.json       # All 7 soaps — single source of truth
 │   ├── _includes/
 │   │   ├── layouts/
-│   │   │   ├── base.njk     # Base layout — nav, footer, global CSS/JS
-│   │   │   └── product.njk  # Product page layout — extends base
+│   │   │   ├── base.njk     # Nav, footer, global CSS/JS
+│   │   │   └── product.njk  # Extends base — crystal color injected here
 │   │   └── components/
 │   │       ├── nav.njk
 │   │       └── footer.njk
 │   ├── css/
-│   │   ├── tokens.css       # Design tokens — single source of truth
+│   │   ├── tokens.css       # Design tokens — one file, no exceptions
 │   │   ├── base.css
 │   │   ├── nav.css
 │   │   ├── footer.css
@@ -50,13 +61,13 @@ web/
 │   │   ├── product.js
 │   │   ├── coleccion.js
 │   │   └── contacto.js
-│   ├── images/              # Source images (processed at build time)
+│   ├── images/
 │   ├── soaps/
-│   │   └── soaps.njk        # Template — generates all 7 product pages
-│   ├── index.njk            # Home
-│   ├── coleccion.njk        # Collection overview
-│   ├── nosotros.njk         # About
-│   └── contacto.njk         # Contact / WhatsApp CTA
+│   │   └── soaps.njk        # One template → seven product pages
+│   ├── index.njk
+│   ├── coleccion.njk
+│   ├── nosotros.njk
+│   └── contacto.njk
 ├── eleventy.config.js
 ├── package.json
 └── .gitignore
@@ -66,79 +77,80 @@ web/
 
 ## Local development
 
-Requires Node.js 18+.
+Node.js 18+ required.
 ```bash
 cd web
 npm install
 npm start
 ```
 
-Site runs at `http://localhost:3333`. Eleventy watches for changes and 
-rebuilds automatically.
+Runs at `http://localhost:3333`. Eleventy watches and rebuilds on save.
 
-To build for production:
+Production build:
 ```bash
 npm run build
 ```
 
-Output goes to `web/_site/`.
+Output: `web/_site/`
 
 ---
 
 ## Adding or editing a soap
 
-All product content lives in one file: `web/src/_data/soaps.json`.
+Everything lives in `web/src/_data/soaps.json`. One object per soap:
+slug, name, crystal color, energy center, taglines, essential oils
+(common name + INCI), image filenames, WhatsApp message.
 
-Each soap object contains: slug, name, crystal color, energy center, 
-taglines, essential oils (common name + INCI), images, and WhatsApp 
-message. Editing this file updates all instances across the site — 
-collection page cards, product pages, and navigation — simultaneously.
+Edit the file once. The collection page, product pages, and navigation
+all update from the same source. No duplicated content to keep in sync.
 
 ---
 
 ## Deployment
 
-Deployed automatically via Cloudflare Pages on every push to `main`.
+Cloudflare Pages deploys automatically on every push to `main`.
 
 Build settings:
-- **Build command:** `npx @11ty/eleventy`
-- **Build output directory:** `_site`
+- **Command:** `npx @11ty/eleventy`
+- **Output directory:** `_site`
 - **Root directory:** `web`
 
 ---
 
 ## Design system
 
-| Token | Value |
-|---|---|
-| Background | `#f2ede6` |
-| Text | `#0d0d0d` |
-| Accent | `#c9a87c` |
-| Secondary | `#b09080` |
-| Dark sections | `#6b5045` |
+| Token | Value | Use |
+|---|---|---|
+| Background | `#f2ede6` | All surfaces |
+| Text | `#0d0d0d` | Body, nav, structural elements |
+| Accent | `#c9a87c` | Dividers, hover, footer border |
+| Secondary | `#b09080` | Supporting copy |
+| Dark sections | `#6b5045` | Origin strip, footer |
 
-Typefaces: Pierson (display, via @font-face) · Biryani Regular (body, Google Fonts).
+Typefaces: Pierson (display, via `@font-face`) · Biryani Regular (body, Google Fonts).
 
-Crystal accent colors are defined per-product in `soaps.json` and 
-applied as CSS custom properties at the page level.
+Each soap has its own crystal color. It's defined in `soaps.json`,
+applied as a CSS custom property at the page level, and used as the
+accent throughout that product page. One token, one file, no overrides
+scattered across stylesheets.
 
 ---
 
 ## Commit convention
 
-This project follows [Conventional Commits](https://www.conventionalcommits.org/).
+[Conventional Commits](https://www.conventionalcommits.org/).
 ```
-feat:     new page or feature added
-fix:      something broken, now corrected
-content:  copy, text, or media changes
-style:    CSS / visual changes, no logic change
-refactor: code restructured, behavior unchanged
-chore:    dependencies, config, maintenance
+feat:      new page or feature
+fix:       something broken, now working
+content:   copy, text, or media
+style:     CSS / visual, no logic change
+refactor:  restructured, behavior unchanged
+chore:     dependencies, config, maintenance
 ```
 
 ---
 
 ## Brand
 
-aum. is a family project. Not a startup. Not an agency.  
+aum. is a family project. Not a startup. Not an agency.
 A family, a formula, and Subachoque.
