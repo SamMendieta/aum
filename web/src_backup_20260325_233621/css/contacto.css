@@ -1,0 +1,211 @@
+/* contacto.css — Phase 1 (no @layer) */
+/* Page-specific CSS for contacto.html only. */
+/* Includes: page-header, contact-body, wa-panel, soap-list, info-panel, faq, photo-strip. */
+/* NOTE: The FAQ accordion JS is in contacto.js (Phase 2) — not in nav.js or reveal.js. */
+
+/* ── Page header (shared with coleccion — identical structure) ── */
+/* (Already defined in coleccion.css; if page-header is ever shared, move to base.css) */
+.page-header {
+  padding-top: clamp(112px, 14vw, 156px);
+  padding-bottom: clamp(56px, 7vw, 88px);
+  padding-inline: var(--gap-container);
+  border-bottom: 1px solid var(--c-rule);
+}
+.page-header__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: clamp(40px, 6vw, 80px);
+}
+.page-header__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--ff-body);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 22px;
+}
+.page-header__eyebrow::before { content: ''; width: 20px; height: 1px; background-color: var(--c-accent); opacity: 0.5; }
+.page-header__h1 {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(52px, 8vw, 108px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--c-text);
+  text-wrap: balance;
+}
+.page-header__desc {
+  font-family: var(--ff-body);
+  font-size: clamp(13px, 1.3vw, 15px);
+  line-height: 1.82;
+  color: var(--c-secondary);
+  max-width: 380px;
+  padding-bottom: 6px;
+}
+
+/* ── Contact body grid ── */
+.contact-body {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(64px, 9vw, 112px) var(--gap-container);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 7vw, 100px);
+  align-items: start;
+}
+
+/* ── WhatsApp panel ── */
+.wa-panel { display: flex; flex-direction: column; gap: 0; }
+.wa-panel__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--ff-body);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 32px;
+}
+.wa-panel__label::after { content: ''; width: 24px; height: 1px; background-color: var(--c-accent); opacity: 0.5; }
+.soap-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 40px; }
+.soap-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--c-rule);
+  font-family: var(--ff-body);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--c-text);
+  transition: opacity 0.25s;
+  cursor: pointer;
+  text-decoration: none;
+}
+.soap-btn:first-child { border-top: 1px solid var(--c-rule); }
+.soap-btn:hover { opacity: 0.7; }
+.soap-btn:hover .soap-btn__arrow { transform: translateX(4px); color: var(--c-accent); }
+.soap-btn:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 2px; }
+.soap-btn__left { display: flex; align-items: center; gap: 12px; }
+.soap-btn__dot { width: 7px; height: 7px; border-radius: 50%; background-color: var(--dot, var(--c-accent)); flex-shrink: 0; }
+.soap-btn__name { font-family: var(--ff-display); font-weight: 400; font-size: clamp(16px, 1.8vw, 20px); letter-spacing: 0.01em; color: var(--dot-text, var(--dot)); }
+.soap-btn__center { font-family: var(--ff-body); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-secondary); }
+.soap-btn__arrow { font-family: var(--ff-body); font-size: 12px; color: var(--c-secondary); transition: transform 0.3s var(--ease-quart), color 0.25s; }
+.btn-wa-general {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 24px;
+  background-color: var(--c-dark-bg);
+  border: none;
+  font-family: var(--ff-body);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-dark-text);
+  line-height: 1;
+  transition: opacity 0.35s;
+  text-decoration: none;
+  width: 100%;
+  justify-content: center;
+  cursor: pointer;
+}
+.btn-wa-general:hover { opacity: 0.8; }
+.btn-wa-general:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 3px; }
+.btn-wa-general svg { width: 14px; height: 14px; fill: var(--c-dark-text); flex-shrink: 0; }
+
+/* ── Info panel ── */
+.info-panel { display: flex; flex-direction: column; gap: 48px; }
+.info-block { display: flex; flex-direction: column; gap: 0; }
+.info-block__label { font-family: var(--ff-body); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-accent); margin-bottom: 16px; }
+.info-block__content { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--c-rule); }
+.info-row { display: flex; align-items: baseline; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--c-rule); }
+.info-row__key { font-family: var(--ff-body); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-secondary); min-width: 100px; flex-shrink: 0; }
+.info-row__val { font-family: var(--ff-body); font-size: 13px; letter-spacing: 0.03em; color: var(--c-text); line-height: 1.6; }
+.info-row__val a { color: var(--c-accent); transition: opacity 0.25s; }
+.info-row__val a:hover { opacity: 0.7; }
+.info-row__val a:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 2px; }
+
+/* ── FAQ accordion ── */
+/* JS for this accordion lives in contacto.js — NOT in nav.js */
+.faq { border-top: 1px solid var(--c-rule); }
+.faq-item { border-bottom: 1px solid var(--c-rule); }
+.faq-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(15px, 1.6vw, 18px);
+  letter-spacing: 0.01em;
+  color: var(--c-text);
+  text-align: left;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.faq-btn:hover { opacity: 0.7; }
+.faq-btn:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 4px; }
+.faq-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  position: relative;
+  color: var(--c-accent);
+}
+.faq-icon::before, .faq-icon::after {
+  content: '';
+  position: absolute;
+  background-color: currentColor;
+  transition: transform 0.35s var(--ease-expo), opacity 0.25s;
+}
+.faq-icon::before { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.faq-icon::after  { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.faq-btn[aria-expanded="true"] .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+.faq-answer {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--ease-quart);
+}
+.faq-answer.open { grid-template-rows: 1fr; }
+.faq-answer__inner {
+  overflow: hidden;
+  font-family: var(--ff-body);
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--c-secondary);
+  padding-bottom: 20px;
+  min-height: 0;
+}
+
+/* ── Photo strip ── */
+.photo-strip { border-top: 1px solid var(--c-rule); padding: clamp(56px, 7vw, 88px) var(--gap-container); overflow: hidden; }
+.photo-strip__inner { max-width: var(--max-w); margin: 0 auto; }
+.photo-strip__label { display: inline-flex; align-items: center; gap: 14px; font-family: var(--ff-body); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-accent); margin-bottom: 32px; }
+.photo-strip__label::after { content: ''; width: 24px; height: 1px; background-color: var(--c-accent); opacity: 0.5; }
+.photo-strip__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.photo-strip__img { overflow: hidden; aspect-ratio: 3 / 4; }
+.photo-strip__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease-quart); display: block; }
+.photo-strip__img:hover img { transform: scale(1.04); }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .contact-body { grid-template-columns: 1fr; }
+  .photo-strip__grid { grid-template-columns: repeat(2, 1fr); }
+  .page-header__inner { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 768px) {
+  .photo-strip__grid { grid-template-columns: repeat(2, 1fr); }
+}

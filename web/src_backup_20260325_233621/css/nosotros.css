@@ -1,0 +1,281 @@
+/* nosotros.css — Phase 1 (no @layer) */
+/* Page-specific CSS for nosotros.html only. */
+/* Sections: historia, filosofia, pillar-prose, produccion, formula, cierre */
+
+/* ── Historia ── */
+/* First section — accounts for fixed nav (77px) as opening of page */
+/* Thin accent bar at top mirrors the product page crystal bar */
+.historia {
+  padding: calc(var(--gap-section) + var(--nav-h-ed)) var(--gap-container) var(--gap-section);
+  border-top: 2px solid var(--c-accent);
+  border-bottom: 1px solid var(--c-rule);
+}
+.historia__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(56px, 8vw, 120px);
+  align-items: center;
+}
+.historia__photo { aspect-ratio: 3 / 4; overflow: hidden; }
+.historia__photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease-quart);
+}
+.historia__photo:hover img { transform: scale(1.02); }
+.historia__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--ff-body);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 28px;
+}
+.historia__label::after { content: ''; width: 24px; height: 1px; background-color: var(--c-accent); opacity: 0.5; }
+.historia__headline {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(30px, 4vw, 50px);
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  color: var(--c-text);
+  margin-bottom: 32px;
+  text-wrap: balance;
+}
+.historia__body { font-family: var(--ff-body); font-size: 14px; line-height: 1.9; color: var(--c-secondary); }
+.historia__body p + p { margin-top: 20px; }
+.historia__body strong { font-weight: 400; color: var(--c-text); }
+
+/* ── Filosofía ── */
+.filosofia { padding: var(--gap-section) var(--gap-container); }
+.filosofia__inner { max-width: var(--max-w); margin: 0 auto; }
+.filosofia__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 7vw, 96px);
+  align-items: end;
+  margin-bottom: clamp(56px, 8vw, 96px);
+}
+.filosofia__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--ff-body);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 20px;
+}
+.filosofia__label::after { content: ''; width: 24px; height: 1px; background-color: var(--c-accent); opacity: 0.5; }
+.filosofia__headline {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  color: var(--c-text);
+  text-wrap: balance;
+}
+.filosofia__intro {
+  font-family: var(--ff-body);
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--c-secondary);
+  max-width: 420px;
+  align-self: end;
+}
+.filosofia__image-break {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin-bottom: clamp(56px, 8vw, 96px);
+}
+.filosofia__image-break img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.filosofia__pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid var(--c-rule);
+}
+.pillar-prose {
+  padding: clamp(32px, 4vw, 52px) clamp(24px, 3.5vw, 44px);
+  border-right: 1px solid var(--c-rule);
+  border-bottom: 1px solid var(--c-rule);
+}
+.pillar-prose:nth-child(2n) { border-right: none; }
+.pillar-prose:nth-last-child(-n+2) { border-bottom: none; }
+.pillar-prose__num {
+  display: block;
+  font-family: var(--ff-body);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 18px;
+}
+.pillar-prose__name {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(22px, 2.5vw, 32px);
+  letter-spacing: 0.02em;
+  color: var(--c-text);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.pillar-prose__text { font-family: var(--ff-body); font-size: 12px; line-height: 1.85; color: var(--c-secondary); }
+
+/* ── Producción (dark section) ── */
+.produccion { background-color: var(--c-dark-bg); padding: var(--gap-section) var(--gap-container); }
+.produccion__inner { max-width: var(--max-w); margin: 0 auto; }
+.produccion__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 7vw, 96px);
+  align-items: end;
+  margin-bottom: clamp(56px, 8vw, 80px);
+}
+.produccion__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--ff-body);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 20px;
+}
+.produccion__label::after { content: ''; width: 24px; height: 1px; background-color: var(--c-accent); opacity: 0.5; }
+.produccion__headline {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(38px, 6vw, 76px);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: var(--c-dark-text);
+  text-wrap: balance;
+}
+.produccion__body { font-family: var(--ff-body); font-size: 14px; line-height: 1.9; color: var(--c-dark-sub); max-width: 380px; align-self: end; }
+.produccion__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--c-rule-dark);
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+.fact { padding: clamp(28px, 4vw, 44px) clamp(20px, 3vw, 36px); border-right: 1px solid var(--c-rule-dark); }
+.fact:last-child { border-right: none; }
+.fact__value {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(34px, 4.5vw, 56px);
+  letter-spacing: -0.01em;
+  color: var(--c-dark-text);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.fact__label { font-family: var(--ff-body); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(201,168,124,0.8); }
+.produccion__image { width: 100%; aspect-ratio: 16 / 6; overflow: hidden; }
+.produccion__image img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; }
+
+/* ── La Fórmula ── */
+.formula { padding: var(--gap-section) var(--gap-container); border-bottom: 1px solid var(--c-rule); }
+.formula__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(56px, 8vw, 112px);
+  align-items: start;
+}
+.formula__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--ff-body);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 20px;
+}
+.formula__label::after { content: ''; width: 24px; height: 1px; background-color: var(--c-accent); opacity: 0.5; }
+.formula__headline {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3.5vw, 44px);
+  line-height: 1.18;
+  letter-spacing: 0.005em;
+  color: var(--c-text);
+  margin-bottom: 24px;
+  text-wrap: balance;
+}
+.formula__body { font-family: var(--ff-body); font-size: 13px; line-height: 1.9; color: var(--c-secondary); margin-bottom: 40px; }
+.inci-list { list-style: none; border-top: 1px solid var(--c-rule); }
+.inci-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--c-rule);
+}
+.inci-name { font-family: var(--ff-body); font-size: 13px; letter-spacing: 0.03em; color: var(--c-text); flex-shrink: 0; }
+.inci-sci { font-family: var(--ff-body); font-size: 10px; font-style: italic; letter-spacing: 0.04em; color: var(--c-secondary); text-align: right; margin-left: auto; word-break: break-word; hyphens: auto; }
+.formula__image { aspect-ratio: 3 / 4; overflow: hidden; }
+.formula__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--ease-quart); }
+.formula__image:hover img { transform: scale(1.02); }
+
+/* ── Cierre ── */
+.cierre { padding: var(--gap-section) var(--gap-container); }
+.cierre__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 7vw, 96px);
+  align-items: center;
+}
+.cierre__headline {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(36px, 5.5vw, 72px);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  color: var(--c-text);
+  margin-bottom: 32px;
+  text-wrap: balance;
+}
+.cierre__body { font-family: var(--ff-body); font-size: 14px; line-height: 1.9; color: var(--c-secondary); margin-bottom: 44px; }
+/* .btn-ghost inherits from base.css */
+.cierre__image { aspect-ratio: 1; overflow: hidden; }
+.cierre__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--ease-quart); }
+.cierre__image:hover img { transform: scale(1.02); }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .historia__inner,
+  .formula__inner,
+  .cierre__inner { grid-template-columns: 1fr; gap: 48px; }
+  .historia__photo { aspect-ratio: 16 / 9; }
+  .formula__image { aspect-ratio: 16 / 9; }
+  .cierre__image { aspect-ratio: 16 / 9; }
+  .filosofia__header { grid-template-columns: 1fr; gap: 24px; }
+  .filosofia__intro { max-width: 100%; }
+  .produccion__header { grid-template-columns: 1fr; gap: 24px; }
+  .produccion__body { max-width: 100%; }
+}
+@media (max-width: 768px) {
+  .filosofia__pillars { grid-template-columns: 1fr; }
+  .pillar-prose { border-right: none; }
+  .pillar-prose:nth-last-child(-n+2) { border-bottom: 1px solid var(--c-rule); }
+  .pillar-prose:last-child { border-bottom: none; }
+  .produccion__facts { grid-template-columns: 1fr; }
+  .fact { border-right: none; border-bottom: 1px solid var(--c-rule-dark); }
+  .fact:last-child { border-bottom: none; }
+  /* btn-ghost min-height now in base.css */
+}

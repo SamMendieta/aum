@@ -1,0 +1,17 @@
+{
+  "name": "aum-web",
+  "version": "1.0.0",
+  "description": "aum. botanical wellness brand website",
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "keywords": [],
+  "author": "aum.",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "@11ty/eleventy-img": "^6.0.4"
+  }
+}

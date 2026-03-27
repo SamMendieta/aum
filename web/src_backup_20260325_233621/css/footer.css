@@ -1,0 +1,144 @@
+/* footer.css — Phase 1 (no @layer) */
+/* Two footer structures exist in the source HTML. */
+/* Footer A (7 product pages): 3-column grid, .footer__logo + .footer__col-label + .footer__links */
+/* Footer B (4 non-product pages): flex top row, .footer__nav + .footer__wa + .footer__origin */
+/* Both are defined here. Phase 2 creates separate footer components or a conditional template. */
+
+/* ── Footer A: product pages ── */
+.footer {
+  background: var(--c-dbg);
+  color: var(--c-dtext);
+  padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 5vw, 5rem);
+}
+.footer__inner {
+  max-width: var(--mw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+.footer__logo {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 1.75rem;
+  letter-spacing: 0.05em;
+}
+.footer__logo span { color: var(--cx); }
+.footer__sub {
+  font-size: 0.72rem;
+  color: rgba(255, 251, 244, 0.62);
+  margin-top: 0.35rem;
+  letter-spacing: 0.06em;
+}
+.footer__col-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 0.9rem;
+}
+.footer__links { display: flex; flex-direction: column; gap: 0.5rem; }
+.footer__link {
+  font-size: 0.8rem;
+  color: rgba(255, 251, 244, 0.55);
+  transition: color 0.25s;
+}
+.footer__link:hover { color: var(--c-dtext); }
+.footer__bottom {
+  max-width: var(--mw);
+  margin: 2rem auto 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 251, 244, 0.08);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer__copy {
+  font-size: 0.75rem;
+  color: rgba(255, 251, 244, 0.55);
+  letter-spacing: 0.06em;
+}
+
+/* ── Footer B: non-product pages (nosotros, contacto, coleccion, index) ── */
+/* Note: .footer__logo and .footer__bottom are reused; the inner structure differs. */
+.footer--editorial {
+  background-color: var(--c-dark-bg);
+  border-top: 1px solid var(--c-rule-dark);
+  padding: clamp(24px, 3vw, 36px) var(--gap-container);
+}
+.footer--editorial .footer__inner { max-width: var(--max-w); margin: 0 auto; display: block; }
+.footer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--c-rule-dark);
+  margin-bottom: 16px;
+}
+.footer--editorial .footer__logo {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(20px, 2.2vw, 28px);
+  letter-spacing: 0.1em;
+  color: var(--c-dark-text);
+  transition: opacity 0.25s;
+}
+.footer--editorial .footer__logo:hover { opacity: 0.6; }
+.footer--editorial .footer__logo:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 4px; }
+.footer__nav { display: flex; gap: clamp(20px, 3.5vw, 44px); list-style: none; }
+.footer__nav a {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(239, 234, 223, 0.65);
+  transition: color 0.25s;
+}
+.footer__nav a:hover { color: var(--c-dark-text); }
+.footer__nav a:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 4px; }
+.footer__wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border: 1px solid rgba(201, 168, 124, 0.3);
+  font-family: var(--ff-body);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-dark-text);
+  transition: border-color 0.3s, opacity 0.3s;
+}
+.footer__wa:hover { border-color: var(--c-accent); opacity: 0.8; }
+.footer__wa:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 4px; }
+.footer--editorial .footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer--editorial .footer__copy {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(239, 234, 223, 0.55);
+}
+.footer__origin {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(201, 168, 124, 0.70);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .footer__inner { grid-template-columns: 1fr 1fr; }
+  .footer__top { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .footer__inner { grid-template-columns: 1fr; }
+}

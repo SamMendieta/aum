@@ -1,0 +1,16 @@
+# Files not yet migrated to Eleventy -- HTML files in the web root are excluded
+# from processing because dir.input is set to src/ in eleventy.config.js.
+# This file documents migration state -- remove each comment when that page is done.
+#
+# Pages to migrate (all currently at web root, not in src/):
+# - index.html
+# - coleccion.html
+# - nosotros.html
+# - contacto.html
+# - jaspe-brechado.html
+# - cornalina.html
+# - citrino.html
+# - aventurina.html
+# - sodalita.html
+# - amatista.html
+# - cuarzo-transparente.html

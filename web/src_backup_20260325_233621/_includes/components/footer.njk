@@ -1,0 +1,28 @@
+<footer class="footer footer--editorial" role="contentinfo">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <a href="/" class="footer__logo" aria-label="aum. — Inicio">aum.</a>
+      <ul class="footer__nav" role="list" aria-label="Navegación secundaria">
+        {% for link in site.nav %}
+        <li><a href="{{ link.href }}">{{ link.label }}</a></li>
+        {% endfor %}
+        <li>
+          <a href="{{ site.instagram }}" target="_blank" rel="noopener noreferrer"
+             aria-label="Seguir aum. en Instagram">
+            Instagram
+          </a>
+        </li>
+      </ul>
+      <a href="{{ site.whatsapp.baseUrl }}?text={{ site.whatsapp.orderMessage }}"
+         target="_blank" rel="noopener noreferrer"
+         class="footer__wa"
+         aria-label="Hacer un pedido por WhatsApp">
+        Pedir por WhatsApp
+      </a>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">{{ site.copyright }}</p>
+      <p class="footer__origin">{{ site.origin }}</p>
+    </div>
+  </div>
+</footer>
