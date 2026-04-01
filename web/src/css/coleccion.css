@@ -296,6 +296,9 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 .soap-entry__oil:first-child { border-top: 1px solid var(--c-rule); }
 .soap-entry__oil-common { font-family: var(--ff-body); font-size: 12px; letter-spacing: 0.04em; color: var(--c-text); flex-shrink: 0; min-width: 0; }
 .soap-entry__oil-inci { font-family: var(--ff-body); font-size: 0.6875rem; font-style: italic; letter-spacing: 0.02em; color: var(--c-secondary); text-align: right; word-break: break-word; hyphens: manual; min-width: 0; }
+/* Mobile package thumbnail — hidden on desktop, shown via mobile breakpoint */
+.soap-entry__pkg-thumb { display: none; }
+
 .soap-entry__crystal {
   padding: 20px;
   border: 1px solid var(--c-rule);
@@ -384,7 +387,27 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 }
 @media (max-width: 768px) {
   .soap-entry__inner { grid-template-columns: 1fr; padding: clamp(32px, 5vw, 48px) 0 clamp(32px, 5vw, 48px) 20px; }
-  .soap-entry__identity { padding-bottom: 28px; border-bottom: 1px solid var(--c-rule); margin-bottom: 28px; }
+  .soap-entry__identity {
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--c-rule);
+    margin-bottom: 28px;
+    display: grid;
+    grid-template-columns: 1fr 36%;
+    gap: 16px;
+    align-items: start;
+  }
+  .soap-entry__pkg-thumb {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+  .soap-entry__pkg-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+  }
   .soap-entry__details { padding-left: 0; min-width: 0; }
   .soap-entry__oil-inci { font-size: 0.625rem; }
   .soap-entry__bg-num { inset-block-start: auto; inset-block-end: -0.15em; inset-inline-end: 0; font-size: clamp(72px, 20vw, 100px); opacity: 0.03; }

@@ -50,9 +50,17 @@ description: "aum. — La Colección. Siete jabones botánicos artesanales, cada
         <div class="soap-entry__inner">
           <span class="soap-entry__bg-num" aria-hidden="true">{{ entry.number }}</span>
           <div class="soap-entry__identity">
-            <p class="soap-entry__center-label">{{ entry.center }}</p>
-            <h2 class="soap-entry__name" id="name-{{ entry.slug }}">{{ entry.name }}</h2>
-            <p class="soap-entry__tagline">{{ entry.tagline }}</p>
+            <div class="soap-entry__identity-text">
+              <p class="soap-entry__center-label">{{ entry.center }}</p>
+              <h2 class="soap-entry__name" id="name-{{ entry.slug }}">{{ entry.name }}</h2>
+              <p class="soap-entry__tagline">{{ entry.tagline }}</p>
+            </div>
+            <div class="soap-entry__pkg-thumb" aria-hidden="true">
+              <img src="/images/{{ entry.packageImage }}"
+                   alt=""
+                   loading="lazy" decoding="async"
+                   width="300" height="400">
+            </div>
           </div>
           <div class="soap-entry__details">
             <div>
