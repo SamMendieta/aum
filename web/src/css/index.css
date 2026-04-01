@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 var(--gap-container) clamp(64px, 9vw, 104px);
+  padding: 0 var(--gap-container) clamp(40px, min(9vw, 7svh), 104px);
 }
 .hero__eyebrow {
   font-family: var(--ff-body);
@@ -44,12 +44,12 @@
 .hero__headline {
   font-family: var(--ff-display);
   font-weight: 400;
-  font-size: clamp(44px, 7.5vw, 100px);
+  font-size: clamp(44px, min(7.5vw, 9svh), 100px);
   line-height: 1.04;
   letter-spacing: -0.015em;
   color: var(--c-dark-text);
   max-width: 860px;
-  margin-bottom: 40px;
+  margin-bottom: clamp(20px, 3svh, 40px);
   text-wrap: balance;
   opacity: 0;
   transform: translateY(18px);
@@ -60,7 +60,7 @@
   line-height: 1.75;
   color: var(--c-dark-sub);
   max-width: 400px;
-  margin-bottom: 52px;
+  margin-bottom: clamp(24px, 4svh, 52px);
   opacity: 0;
   transform: translateY(10px);
 }
@@ -299,6 +299,7 @@
 }
 .formula__visual {
   aspect-ratio: 3 / 4;
+  max-height: calc(100svh - 2 * var(--gap-section));
   background-color: rgba(201,168,124,0.06);
   border: 1px solid var(--c-rule);
   display: flex;

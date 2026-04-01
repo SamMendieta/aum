@@ -57,7 +57,7 @@
 .nosotros-hero__headline {
   font-family: var(--ff-display);
   font-weight: 400;
-  font-size: clamp(44px, 7.5vw, 100px);
+  font-size: clamp(44px, min(7.5vw, 9svh), 100px);
   line-height: 1.04;
   letter-spacing: -0.015em;
   color: var(--c-dark-text);
@@ -313,6 +313,17 @@
 .cierre__image img { width: 100%; height: auto; display: block; }
 
 /* ── Responsive ── */
+@media (min-width: 1025px) {
+  /* Constrain tall aspect-ratio images so sections fit in one viewport height */
+  .historia__photo {
+    aspect-ratio: unset;
+    height: clamp(360px, 60svh, 640px);
+  }
+  .formula__image {
+    aspect-ratio: unset;
+    max-height: calc(100svh - 2 * var(--gap-section));
+  }
+}
 @media (max-width: 1024px) {
   .historia__inner,
   .formula__inner,
