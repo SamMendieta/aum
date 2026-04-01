@@ -12,7 +12,7 @@
   if (nav) {
     let ticking = false;
     const updateNav = () => {
-      nav.classList.toggle('scrolled', window.scrollY > 56);
+      if (!isOpen) nav.classList.toggle('scrolled', window.scrollY > 56);
       ticking = false;
     };
     window.addEventListener('scroll', () => {
@@ -36,6 +36,7 @@
     drawer.setAttribute('aria-hidden', 'false');
     if (nav) nav.classList.add('drawer-open');
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden'; /* iOS Safari lock */
     if (drawerLinks.length) drawerLinks[0].focus();
   };
 
@@ -47,6 +48,7 @@
     drawer.setAttribute('aria-hidden', 'true');
     if (nav) nav.classList.remove('drawer-open');
     document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
     toggle.focus();
   };
 

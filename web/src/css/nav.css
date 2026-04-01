@@ -256,10 +256,22 @@
   color: rgba(255, 251, 244, 0.3);
 }
 
-/* ── Drawer-open state: hide logo so it doesn't bleed over drawer content ── */
+/* ── Drawer-open state ── */
+/* Nav becomes transparent + non-blocking so drawer links receive taps */
+.nav.drawer-open {
+  background-color: transparent;
+  border-color: transparent;
+  pointer-events: none;       /* nav element no longer intercepts taps */
+}
+.nav.drawer-open .nav__toggle {
+  pointer-events: all;        /* close button remains tappable */
+}
 .nav.drawer-open .nav__logo {
   opacity: 0;
   pointer-events: none;
+}
+.nav.drawer-open .nav__toggle span {
+  background-color: var(--c-dark-text); /* keep bars light on dark drawer */
 }
 
 /* ── Responsive: mobile breakpoint ── */
