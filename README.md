@@ -1,156 +1,123 @@
 # aum.
 
-Artisanal botanical soap brand website. Seven bars, each mapped to one of
-the body's primary energy centers. Hand-produced in Subachoque, Colombia.
+Website for aum. — seven cold-process botanical soaps, hand-produced in Subachoque, Colombia. Each bar mapped to one of the body's primary energy centers.
 
 **Live:** [aumbotanicals.pages.dev](https://aumbotanicals.pages.dev)
-
----
-
-## What this is
-
-aum. sells soap the way other people sell the idea of soap. The product is
-real — cold-process bars, olive oil and shea butter base, pure essential
-oils, a crystal inside each one. The website's job is to make that feel
-exactly as considered as it is.
-
-Built with Eleventy. No frameworks. No JS where CSS works. The site ships
-static HTML that a search engine can read and a slow connection can handle.
 
 ---
 
 ## Stack
 
 - [Eleventy (11ty) v3](https://www.11ty.dev/) — static site generator
-- Nunjucks — templating
-- Vanilla CSS
-- Vanilla JavaScript
-- [eleventy-img](https://www.11ty.dev/docs/plugins/image/) — AVIF / WebP at build time
-- [Cloudflare Pages](https://pages.cloudflare.com/) — deploys on push to `main`
+- Nunjucks templates
+- Vanilla CSS (no framework, no utility classes)
+- Vanilla JavaScript (no bundler)
+- Cloudflare Pages — deploys on push to `main`
 
 ---
 
-## Structure
+## Getting started
+
+Node.js 18+ required.
+
+```bash
+cd web
+npm install
+npm start        # http://localhost:3333 — live reload on save
+npm run build    # production output → web/_site/
+```
+
+---
+
+## Project structure
+
 ```
 web/
 ├── src/
 │   ├── _data/
-│   │   ├── site.json        # Brand tokens, metadata, global config
-│   │   └── soaps.json       # All 7 soaps — single source of truth
+│   │   ├── soaps.json       ← single source of truth for all 7 products
+│   │   └── site.json        ← brand metadata, global config
 │   ├── _includes/
 │   │   ├── layouts/
-│   │   │   ├── base.njk     # Nav, footer, global CSS/JS
-│   │   │   └── product.njk  # Extends base — crystal color injected here
+│   │   │   ├── base.njk     ← nav, footer, global CSS/JS
+│   │   │   └── product.njk  ← extends base; injects crystal color token
 │   │   └── components/
 │   │       ├── nav.njk
 │   │       └── footer.njk
 │   ├── css/
-│   │   ├── tokens.css       # Design tokens — one file, no exceptions
+│   │   ├── tokens.css       ← all design tokens live here
 │   │   ├── base.css
-│   │   ├── nav.css
-│   │   ├── footer.css
-│   │   ├── animations.css
-│   │   ├── product.css
-│   │   ├── coleccion.css
-│   │   ├── index.css
-│   │   ├── nosotros.css
-│   │   └── contacto.css
+│   │   ├── nav.css / footer.css / animations.css
+│   │   ├── index.css / coleccion.css / nosotros.css / contacto.css
+│   │   └── product.css      ← shared across all 7 product pages
 │   ├── js/
-│   │   ├── nav.js
-│   │   ├── reveal.js
-│   │   ├── product.js
-│   │   ├── coleccion.js
-│   │   └── contacto.js
+│   │   ├── nav.js / reveal.js / product.js / coleccion.js / contacto.js
 │   ├── images/
+│   ├── fonts/               ← Pierson (display) · Biryani (body)
 │   ├── soaps/
-│   │   └── soaps.njk        # One template → seven product pages
+│   │   └── soaps.njk        ← one template generates all 7 product pages
 │   ├── index.njk
 │   ├── coleccion.njk
 │   ├── nosotros.njk
 │   └── contacto.njk
 ├── eleventy.config.js
-├── package.json
-└── .gitignore
+└── package.json
 ```
 
 ---
 
-## Local development
+## Managing products
 
-Node.js 18+ required.
-```bash
-cd web
-npm install
-npm start
-```
+All product data lives in `web/src/_data/soaps.json`. Each soap object contains:
+slug, name, crystal hex color, energy center, tagline, essential oils (common name + INCI), image filenames, and the pre-filled WhatsApp message.
 
-Runs at `http://localhost:3333`. Eleventy watches and rebuilds on save.
-
-Production build:
-```bash
-npm run build
-```
-
-Output: `web/_site/`
+Edit once — the collection page, all product pages, and the nav update automatically.
 
 ---
 
-## Adding or editing a soap
+## Design tokens
 
-Everything lives in `web/src/_data/soaps.json`. One object per soap:
-slug, name, crystal color, energy center, taglines, essential oils
-(common name + INCI), image filenames, WhatsApp message.
+All in `web/src/css/tokens.css`.
 
-Edit the file once. The collection page, product pages, and navigation
-all update from the same source. No duplicated content to keep in sync.
+| Token | Hex | Use |
+|---|---|---|
+| `--color-bg` | `#f2ede6` | All light surfaces |
+| `--color-text` | `#0d0d0d` | Body, nav, structural |
+| `--color-accent` | `#c9a87c` | Dividers, hover, borders |
+| `--color-secondary` | `#b09080` | Supporting copy |
+| `--c-dark-bg` | `#6b5045` | Dark sections (hero, footer alt) |
+
+Typefaces: **Pierson** (display, `@font-face` from `/fonts/`) · **Biryani Regular** (body, Google Fonts).
+
+Each soap has its own crystal color defined in `soaps.json`. It's applied as `--cx` at the layout level and used as the accent color throughout that product page — no overrides scattered in stylesheets.
 
 ---
 
 ## Deployment
 
-Cloudflare Pages deploys automatically on every push to `main`.
+Cloudflare Pages builds on every push to `main`.
 
-Build settings:
-- **Command:** `npx @11ty/eleventy`
-- **Output directory:** `_site`
-- **Root directory:** `web`
-
----
-
-## Design system
-
-| Token | Value | Use |
-|---|---|---|
-| Background | `#f2ede6` | All surfaces |
-| Text | `#0d0d0d` | Body, nav, structural elements |
-| Accent | `#c9a87c` | Dividers, hover, footer border |
-| Secondary | `#b09080` | Supporting copy |
-| Dark sections | `#6b5045` | Origin strip, footer |
-
-Typefaces: Pierson (display, via `@font-face`) · Biryani Regular (body, Google Fonts).
-
-Each soap has its own crystal color. It's defined in `soaps.json`,
-applied as a CSS custom property at the page level, and used as the
-accent throughout that product page. One token, one file, no overrides
-scattered across stylesheets.
+| Setting | Value |
+|---|---|
+| Build command | `npx @11ty/eleventy` |
+| Output directory | `_site` |
+| Root directory | `web` |
 
 ---
 
 ## Commit convention
 
-[Conventional Commits](https://www.conventionalcommits.org/).
 ```
-feat:      new page or feature
+feat:      new page or section
 fix:       something broken, now working
-content:   copy, text, or media
-style:     CSS / visual, no logic change
+style:     CSS / visual only, no logic change
+content:   copy, images, or data (soaps.json)
 refactor:  restructured, behavior unchanged
-chore:     dependencies, config, maintenance
+chore:     deps, config, tooling
 ```
 
 ---
 
-## Brand
+## About
 
-aum. is a family project. Not a startup. Not an agency.
-A family, a formula, and Subachoque.
+aum. is a family project, not a startup. Made in Subachoque.
