@@ -239,7 +239,8 @@
 .produccion__image img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
 
 /* ── La Fórmula ── */
-.formula { padding: var(--gap-section) var(--gap-container); border-bottom: 1px solid var(--c-rule); }
+/* Horizontal padding comes from .wrap inside — section only needs vertical padding */
+.formula { padding: var(--gap-section) 0; border-bottom: 1px solid var(--c-rule); }
 .formula__inner {
   max-width: var(--max-w);
   margin: 0 auto;
@@ -286,7 +287,8 @@
 .formula__image:hover img { transform: scale(1.02); }
 
 /* ── Cierre ── */
-.cierre { padding: var(--gap-section) var(--gap-container); }
+/* Horizontal padding comes from .wrap inside — section only needs vertical padding */
+.cierre { padding: var(--gap-section) 0; }
 .cierre__inner {
   max-width: var(--max-w);
   margin: 0 auto;

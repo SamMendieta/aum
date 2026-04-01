@@ -124,7 +124,8 @@
 /* .btn-ghost--dark inherits from base.css */
 
 /* ── Filosofía (index variant — statement + 4-col pillars) ── */
-.filosofia { padding: var(--gap-section) var(--gap-container); }
+/* Horizontal padding comes from .wrap inside — section only needs vertical padding */
+.filosofia { padding: var(--gap-section) 0; }
 .filosofia__statement {
   font-family: var(--ff-display);
   font-weight: 400;
@@ -165,8 +166,9 @@
 .pillar__desc { font-family: var(--ff-body); font-size: 12px; line-height: 1.8; color: var(--c-secondary); }
 
 /* ── Colección section ── */
+/* Horizontal padding comes from .wrap inside — section only needs vertical padding */
 .coleccion {
-  padding: var(--gap-section) var(--gap-container);
+  padding: var(--gap-section) 0;
   border-top: 1px solid var(--c-rule);
 }
 .coleccion__header {
@@ -324,7 +326,6 @@
 .origen__inner {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding-inline: var(--gap-container);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: clamp(40px, 6vw, 80px);
@@ -371,6 +372,7 @@
   .soaps { grid-template-columns: repeat(2, 1fr); }
   .formula { grid-template-columns: 1fr; }
   .formula__visual { aspect-ratio: 4 / 3; }
+  .origen__inner { grid-template-columns: 1fr; gap: clamp(32px, 6vw, 48px); }
   /* btn-ghost min-height now in base.css */
 }
 @media (max-width: 480px) {

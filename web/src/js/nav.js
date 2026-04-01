@@ -34,6 +34,7 @@
     toggle.setAttribute('aria-label', 'Cerrar menú de navegación');
     drawer.classList.add('open');
     drawer.setAttribute('aria-hidden', 'false');
+    if (nav) nav.classList.add('drawer-open');
     document.body.style.overflow = 'hidden';
     if (drawerLinks.length) drawerLinks[0].focus();
   };
@@ -44,6 +45,7 @@
     toggle.setAttribute('aria-label', 'Abrir menú de navegación');
     drawer.classList.remove('open');
     drawer.setAttribute('aria-hidden', 'true');
+    if (nav) nav.classList.remove('drawer-open');
     document.body.style.overflow = '';
     toggle.focus();
   };

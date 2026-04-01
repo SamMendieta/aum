@@ -8,6 +8,7 @@
 }
 
 /* ── Page header (full-viewport hero with bg image) ── */
+/* Horizontal padding comes from .wrap inside — section only needs vertical padding */
 .page-header {
   background-color: var(--c-dark-bg);
   position: relative;
@@ -17,7 +18,7 @@
   display: grid;
   grid-template-rows: 1fr;
   align-items: end;
-  padding: var(--nav-h-ed) var(--gap-container) clamp(56px, 7vw, 88px);
+  padding: var(--nav-h-ed) 0 clamp(56px, 7vw, 88px);
 }
 .page-header__bg {
   position: absolute;
