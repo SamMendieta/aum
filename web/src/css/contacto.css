@@ -37,7 +37,6 @@
   font-size: clamp(52px, 8vw, 108px);
   line-height: 0.98;
   letter-spacing: -0.02em;
-  text-transform: uppercase;
   color: var(--c-text);
   text-wrap: balance;
 }
@@ -151,7 +150,6 @@
   font-weight: 400;
   font-size: clamp(15px, 1.6vw, 18px);
   letter-spacing: 0.01em;
-  text-transform: uppercase;
   color: var(--c-text);
   text-align: left;
   cursor: pointer;

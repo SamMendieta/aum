@@ -139,7 +139,6 @@ a, button, [role="button"], input, select, textarea {
   font-size: clamp(48px, 8vw, 96px);
   font-weight: 400;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
   color: var(--c-accent);
   line-height: 1;
   margin-bottom: 16px;
@@ -149,7 +148,6 @@ a, button, [role="button"], input, select, textarea {
   font-weight: 400;
   font-size: clamp(24px, 3vw, 36px);
   letter-spacing: 0.02em;
-  text-transform: uppercase;
   margin-bottom: 12px;
 }
 .error-page__body {
