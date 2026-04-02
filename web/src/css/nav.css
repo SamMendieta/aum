@@ -71,6 +71,7 @@
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   letter-spacing: 0.05em;
   line-height: 1;
+  text-transform: uppercase;
   transition: color 0.5s var(--ease-quart), opacity 0.25s;
 }
 /* Editorial nav: logo is light on dark hero, darkens on scroll */
@@ -235,6 +236,7 @@
   font-weight: 400;
   font-size: clamp(36px, 9vw, 56px);
   letter-spacing: 0.02em;
+  text-transform: uppercase;
   color: var(--c-dark-text);
   line-height: 1.25;
   opacity: 0.85;

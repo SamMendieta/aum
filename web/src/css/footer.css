@@ -21,6 +21,7 @@
   font-weight: 400;
   font-size: 1.75rem;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 .footer__logo span { color: var(--cx); }
 .footer__sub {
@@ -72,6 +73,7 @@
   font-weight: 400;
   font-size: clamp(20px, 2.2vw, 28px);
   letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--c-dark-text);
   transition: opacity 0.25s;
 }

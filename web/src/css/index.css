@@ -47,6 +47,7 @@
   font-size: clamp(44px, min(7.5vw, 9svh), 100px);
   line-height: 1.04;
   letter-spacing: -0.015em;
+  text-transform: uppercase;
   color: var(--c-dark-text);
   max-width: 860px;
   margin-bottom: clamp(20px, 3svh, 40px);
@@ -132,6 +133,7 @@
   font-size: clamp(22px, 3.2vw, 40px);
   line-height: 1.38;
   letter-spacing: 0.005em;
+  text-transform: uppercase;
   color: var(--c-text);
   max-width: 660px;
   margin-bottom: clamp(56px, 8vw, 96px);
@@ -160,6 +162,7 @@
   font-weight: 400;
   font-size: clamp(17px, 2vw, 24px);
   letter-spacing: 0.03em;
+  text-transform: uppercase;
   color: var(--c-text);
   margin-bottom: 14px;
 }
@@ -184,6 +187,7 @@
   font-size: clamp(30px, 5vw, 60px);
   letter-spacing: -0.01em;
   line-height: 1.08;
+  text-transform: uppercase;
   flex-shrink: 0;
   text-wrap: balance;
 }
@@ -243,6 +247,7 @@
   font-size: clamp(13px, 1.3vw, 16px);
   letter-spacing: 0.02em;
   line-height: 1.25;
+  text-transform: uppercase;
   color: var(--cx-text, var(--cx));
   margin-bottom: 8px;
 }
@@ -313,6 +318,7 @@
   font-size: clamp(26px, 3.5vw, 46px);
   line-height: 1.18;
   letter-spacing: 0.01em;
+  text-transform: uppercase;
   margin-bottom: 24px;
 }
 .formula__body { font-family: var(--ff-body); font-size: 13px; line-height: 1.85; color: var(--c-secondary); margin-bottom: 40px; }
@@ -335,7 +341,7 @@
 .origen__photo { overflow: hidden; align-self: stretch; min-height: 320px; }
 .origen__photo img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.7; transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); }
 .origen__photo img:hover { transform: scale(1.03); }
-.origen__headline { font-family: var(--ff-display); font-weight: 400; font-size: clamp(34px, 5.5vw, 72px); line-height: 1.08; letter-spacing: -0.01em; color: var(--c-dark-text); margin-bottom: 32px; text-wrap: balance; }
+.origen__headline { font-family: var(--ff-display); font-weight: 400; font-size: clamp(34px, 5.5vw, 72px); line-height: 1.08; letter-spacing: -0.01em; text-transform: uppercase; color: var(--c-dark-text); margin-bottom: 32px; text-wrap: balance; }
 .origen__body { font-family: var(--ff-body); font-size: 14px; line-height: 1.8; color: var(--c-dark-sub); max-width: 420px; }
 .origen__right { display: flex; flex-direction: column; gap: 32px; }
 .origen__certs { display: flex; flex-direction: column; border-top: 1px solid var(--c-rule-dark); }
