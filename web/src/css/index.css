@@ -285,8 +285,12 @@
 
 /* Touch devices: always show oils and link */
 @media (hover: none) {
-  .soap__oils { opacity: 1; transform: none; }
-  .soap__link { opacity: 1; transform: none; }
+  .soap__oils { opacity: 1; transform: none; transition: none; }
+  .soap__link { opacity: 1; transform: none; transition: none; }
+}
+@media (max-width: 768px) {
+  .soap__oils { opacity: 1; transform: none; transition: none; }
+  .soap__link { opacity: 1; transform: none; transition: none; }
 }
 
 /* ── La Fórmula (index variant — 2-col with visual placeholder) ── */
