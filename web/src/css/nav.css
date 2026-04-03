@@ -66,19 +66,17 @@
 
 /* ── Logo ── */
 .nav__logo {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  letter-spacing: 0.05em;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
   transition: color 0.5s var(--ease-quart), opacity 0.25s;
 }
-/* Editorial nav: logo is light on dark hero, darkens on scroll */
-.nav--editorial .nav__logo {
-  font-size: clamp(17px, 1.8vw, 21px);
-  letter-spacing: 0.1em;
-  color: var(--c-dark-text);
+.nav__logo svg {
+  height: clamp(13px, 1.4vw, 16px);
+  width: auto;
+  display: block;
 }
+/* Editorial nav: logo is light on dark hero, darkens on scroll */
+.nav--editorial .nav__logo { color: var(--c-dark-text); }
 .nav--editorial.scrolled .nav__logo { color: var(--c-text); }
 /* Product nav: logo always dark */
 .nav--product .nav__logo { color: var(--c-text); }

@@ -1,6 +1,6 @@
 <header role="banner">
   <nav class="nav {% if navMode == 'product' %}nav--product{% elif navLightHero %}nav--editorial nav--light-hero{% else %}nav--editorial{% endif %}" id="nav" aria-label="Navegación principal">
-    <a href="/" class="nav__logo" aria-label="aum. — Inicio">aum.</a>
+    <a href="/" class="nav__logo" aria-label="aum. — Inicio">{% include "components/logo.njk" %}</a>
     <ul class="nav__links" role="list">
       {% for link in site.nav %}
       <li><a href="{{ link.href }}"

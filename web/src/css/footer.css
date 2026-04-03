@@ -17,10 +17,13 @@
   gap: 2rem;
 }
 .footer__logo {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: 1.75rem;
-  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+}
+.footer__logo svg {
+  height: 20px;
+  width: auto;
+  display: block;
 }
 .footer__logo span { color: var(--cx); }
 .footer__sub {
@@ -68,12 +71,11 @@
   padding-bottom: 10px;
 }
 .footer--editorial .footer__logo {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: clamp(20px, 2.2vw, 28px);
-  letter-spacing: 0.1em;
   color: var(--c-dark-text);
   transition: opacity 0.25s;
+}
+.footer--editorial .footer__logo svg {
+  height: clamp(18px, 2vw, 24px);
 }
 .footer--editorial .footer__logo:hover { opacity: 0.6; }
 .footer--editorial .footer__logo:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 4px; }

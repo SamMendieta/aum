@@ -300,7 +300,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(48px, 7vw, 100px);
-  align-items: center;
+  align-items: start;
 }
 .formula__visual {
   aspect-ratio: 3 / 4;
@@ -367,6 +367,10 @@
   .origen__body { max-width: 100%; }
   .hero__bg img { opacity: 0.15; }
 }
+@media (max-width: 960px) {
+  .formula { grid-template-columns: 1fr; }
+  .formula__visual { aspect-ratio: 4 / 3; max-height: 60svh; }
+}
 @media (max-width: 768px) {
   .filosofia__pillars { grid-template-columns: 1fr 1fr; }
   .pillar { border-right: none; border-bottom: 1px solid var(--c-rule); }
@@ -376,8 +380,7 @@
   .coleccion__header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .coleccion__intro { text-align: left; max-width: 100%; }
   .soaps { grid-template-columns: repeat(2, 1fr); }
-  .formula { grid-template-columns: 1fr; }
-  .formula__visual { aspect-ratio: 4 / 3; }
+  .formula__visual { aspect-ratio: 4 / 3; max-height: 50svh; }
   .origen__inner { grid-template-columns: 1fr; gap: clamp(32px, 6vw, 48px); }
   /* btn-ghost min-height now in base.css */
 }
