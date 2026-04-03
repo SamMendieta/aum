@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aum. — Full Color Specification</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #E8E4DE; color: #262626; font-size: 14px; }
+
+  .page-header {
+    text-align: center;
+    padding: 48px 24px 40px;
+  }
+  .page-header h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .page-header p { font-size: 0.8rem; color: #777; }
+
+  /* ── PALETTE STRIP ── */
+  .palette-section {
+    max-width: 1300px;
+    margin: 0 auto 48px;
+    padding: 0 32px;
+  }
+  .palette-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+  .palette-subtitle {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 20px;
+  }
+
+  .swatch-row {
+    display: flex;
+    gap: 0;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .swatch-block {
+    flex: 1;
+    padding: 20px 16px 16px;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .swatch-name {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .swatch-hex-val { font-size: 0.62rem; opacity: 0.7; }
+  .swatch-use {
+    font-size: 0.58rem;
+    opacity: 0.55;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* ── ANNOTATED SECTION ── */
+  .annotated {
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  /* Each text element has a color tag */
+  .color-tag {
+    display: inline-block;
+    font-size: 0.56rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-left: 8px;
+    vertical-align: middle;
+    opacity: 0.85;
+  }
+
+  /* ── ANNOTATED HERO ── */
+  .anno-hero { padding: 40px 32px 36px; }
+  .anno-hero .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .anno-hero .headline {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .anno-hero .body {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    max-width: 400px;
+  }
+
+  /* ── ANNOTATED LIGHT CARD ── */
+  .anno-light { padding: 36px 32px 32px; }
+  .anno-light .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .anno-light .headline {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .anno-light .body {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .anno-light .rule { height: 1px; margin-bottom: 20px; }
+  .anno-light .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .anno-light .pillar-num { font-size: 0.66rem; letter-spacing: 0.06em; margin-bottom: 5px; }
+  .anno-light .pillar-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .anno-light .pillar-desc { font-size: 0.72rem; line-height: 1.5; }
+
+  /* ── PRODUCT ROW ── */
+  .anno-product {
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .crystal-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .anno-product .product-name {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+  }
+  .anno-product .product-tag { font-size: 0.7rem; margin-left: auto; }
+
+  /* ── DARK SECTION ── */
+  .anno-dark { padding: 36px 32px 32px; }
+  .anno-dark .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .anno-dark .headline {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .anno-dark .body { font-size: 0.78rem; line-height: 1.6; margin-bottom: 16px; }
+  .anno-dark .certs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .anno-dark .cert {
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 1px;
+  }
+
+  /* ── TWO-COLUMN LAYOUT ── */
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 32px 60px;
+  }
+  .col-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 14px;
+    border-radius: 3px 3px 0 0;
+  }
+
+  /* ── Inline color annotation styles ── */
+  .tag-light { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
+  .tag-dark { background: rgba(0,0,0,0.08); color: rgba(0,0,0,0.5); }
+
+  /* ── COLOR USAGE TABLE ── */
+  .usage-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    font-size: 0.72rem;
+  }
+  .usage-table th {
+    text-align: left;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .usage-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    vertical-align: top;
+  }
+  .usage-table .color-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 6px;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .section-divider {
+    max-width: 1300px;
+    margin: 0 auto 40px;
+    padding: 0 32px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+
+  @media (max-width: 960px) {
+    .columns { grid-template-columns: 1fr; max-width: 560px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Amber + Forest: full color specification</h1>
+  <p>Every color defined, every usage annotated. Two-tone darks (left) vs. single-depth (right).</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     SHARED PALETTE — colors that are identical in both
+     ══════════════════════════════════════════════════════ -->
+<div class="palette-section">
+  <div class="palette-title">Shared base palette</div>
+  <div class="palette-subtitle">These colors are the same in both options</div>
+
+  <div class="swatch-row">
+    <div class="swatch-block" style="background: #FAF7F1; color: #555;">
+      <div class="swatch-name">Pearl</div>
+      <div class="swatch-hex-val">#FAF7F1</div>
+      <div class="swatch-use">Main background, all light surfaces</div>
+    </div>
+    <div class="swatch-block" style="background: #262626; color: #ccc;">
+      <div class="swatch-name">Leather</div>
+      <div class="swatch-hex-val">#262626</div>
+      <div class="swatch-use">Headlines, nav, primary text</div>
+    </div>
+    <div class="swatch-block" style="background: #A89478; color: #fff;">
+      <div class="swatch-name">Amber</div>
+      <div class="swatch-hex-val">#A89478</div>
+      <div class="swatch-use">Eyebrows, labels, pillar numbers, rules, accents on light bg</div>
+    </div>
+    <div class="swatch-block" style="background: #5C5445; color: #ddd;">
+      <div class="swatch-name">Secondary</div>
+      <div class="swatch-hex-val">#5C5445</div>
+      <div class="swatch-use">Body text, pillar descriptions, ingredient lists</div>
+    </div>
+    <div class="swatch-block" style="background: #283618; color: #ccc;">
+      <div class="swatch-name">Black Forest</div>
+      <div class="swatch-hex-val">#283618</div>
+      <div class="swatch-use">Hero bg, banner bg, darkest surface</div>
+    </div>
+    <div class="swatch-block" style="background: #C9AD88; color: #283618;">
+      <div class="swatch-name">Gold</div>
+      <div class="swatch-hex-val">#C9AD88</div>
+      <div class="swatch-use">Eyebrows + labels on dark bg, cert borders on dark</div>
+    </div>
+  </div>
+
+  <!-- USAGE TABLE -->
+  <table class="usage-table" style="background: #fff; border-radius: 3px;">
+    <tr>
+      <th>Element</th>
+      <th>On light bg (Pearl)</th>
+      <th>On dark bg (Forest)</th>
+    </tr>
+    <tr>
+      <td>Headlines</td>
+      <td><span class="color-dot" style="background:#262626;"></span>#262626 Leather</td>
+      <td><span class="color-dot" style="background:#F5F0E8;"></span>#F5F0E8 Warm white</td>
+    </tr>
+    <tr>
+      <td>Eyebrow / Labels</td>
+      <td><span class="color-dot" style="background:#A89478;"></span>#A89478 Amber</td>
+      <td><span class="color-dot" style="background:#C9AD88;"></span>#C9AD88 Gold</td>
+    </tr>
+    <tr>
+      <td>Body text</td>
+      <td><span class="color-dot" style="background:#5C5445;"></span>#5C5445 Secondary</td>
+      <td><span class="color-dot" style="background:#F5F0E8; opacity:0.72;"></span>#F5F0E8 @ 72% opacity</td>
+    </tr>
+    <tr>
+      <td>Pillar numbers</td>
+      <td><span class="color-dot" style="background:#A89478;"></span>#A89478 Amber</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Pillar descriptions</td>
+      <td><span class="color-dot" style="background:#5C5445;"></span>#5C5445 Secondary</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Rules / Dividers</td>
+      <td><span class="color-dot" style="background:rgba(168,148,120,0.22); border-color:rgba(168,148,120,0.4);"></span>#A89478 @ 22% opacity</td>
+      <td><span class="color-dot" style="background:rgba(201,173,136,0.2); border-color:rgba(201,173,136,0.4);"></span>#C9AD88 @ 20% opacity</td>
+    </tr>
+    <tr>
+      <td>Product name</td>
+      <td colspan="2"><span class="color-dot" style="background:#692a6e;"></span>Crystal color (per product)</td>
+    </tr>
+    <tr>
+      <td>Price tag</td>
+      <td><span class="color-dot" style="background:#A89478;"></span>#A89478 Amber</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Cert badges</td>
+      <td>—</td>
+      <td><span class="color-dot" style="background:#C9AD88;"></span>#C9AD88 Gold text, border @ 30%</td>
+    </tr>
+    <tr>
+      <td>Forest accent text</td>
+      <td><span class="color-dot" style="background:#283618;"></span>#283618 Black Forest (bold accents)</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Nav links</td>
+      <td><span class="color-dot" style="background:#262626;"></span>#262626 Leather</td>
+      <td><span class="color-dot" style="background:#F5F0E8;"></span>#F5F0E8 Warm white</td>
+    </tr>
+    <tr>
+      <td>Ghost button border</td>
+      <td><span class="color-dot" style="background:#262626;"></span>#262626 Leather</td>
+      <td><span class="color-dot" style="background:#C9AD88;"></span>#C9AD88 Gold @ 40%</td>
+    </tr>
+    <tr>
+      <td>WhatsApp CTA bg</td>
+      <td colspan="2"><span class="color-dot" style="background:#283618;"></span>#283618 Black Forest</td>
+    </tr>
+  </table>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     DIFFERENCE: what changes between options
+     ══════════════════════════════════════════════════════ -->
+<div class="palette-section">
+  <div class="palette-title">The difference: Origen / secondary dark section</div>
+  <div class="palette-subtitle">The only thing that changes between the two options</div>
+
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+    <div>
+      <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:10px; text-align:center;">Option A: Two-tone darks</div>
+      <div class="swatch-row">
+        <div class="swatch-block" style="background:#283618; color:#ccc;">
+          <div class="swatch-name">Hero / Banner</div>
+          <div class="swatch-hex-val">#283618</div>
+        </div>
+        <div class="swatch-block" style="background:#344422; color:#ccc;">
+          <div class="swatch-name">Origen / Footer</div>
+          <div class="swatch-hex-val">#344422</div>
+          <div class="swatch-use">Lighter forest — visual hierarchy between dark sections</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:10px; text-align:center;">Option B: Single-depth</div>
+      <div class="swatch-row">
+        <div class="swatch-block" style="background:#283618; color:#ccc;">
+          <div class="swatch-name">Hero / Banner</div>
+          <div class="swatch-hex-val">#283618</div>
+        </div>
+        <div class="swatch-block" style="background:#283618; color:#ccc;">
+          <div class="swatch-name">Origen / Footer</div>
+          <div class="swatch-hex-val">#283618</div>
+          <div class="swatch-use">Same depth everywhere — maximum contrast, decisive</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     ANNOTATED MOCKUPS — side by side
+     ══════════════════════════════════════════════════════ -->
+<div class="columns">
+
+  <!-- ── OPTION A: TWO-TONE ── -->
+  <div>
+    <div class="col-label" style="background:#283618; color:#C9AD88;">Option A — Two-tone darks</div>
+
+    <!-- Hero -->
+    <div class="annotated">
+      <div class="anno-hero" style="background:#283618; color:#F5F0E8;">
+        <div class="eyebrow" style="color:#C9AD88;">
+          Subachoque, Colombia
+          <span class="color-tag tag-light">#C9AD88 Gold</span>
+        </div>
+        <div class="headline" style="color:#F5F0E8;">
+          Jabones botanicos para la piel.
+          <span class="color-tag tag-light">#F5F0E8</span>
+        </div>
+        <div class="body" style="color:rgba(245,240,232,0.72);">
+          Siete jabones elaborados a mano con aceites esenciales puros.
+          <span class="color-tag tag-light">#F5F0E8 @ 72%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Light card -->
+    <div class="annotated">
+      <div class="anno-light" style="background:#FAF7F1;">
+        <div class="eyebrow" style="color:#A89478;">
+          Filosofia
+          <span class="color-tag tag-dark">#A89478 Amber</span>
+        </div>
+        <div class="headline" style="color:#262626;">
+          Las plantas cuidaron la piel.
+          <span class="color-tag tag-dark">#262626 Leather</span>
+        </div>
+        <div class="body" style="color:#5C5445;">
+          aum. retoma esa tradicion y la trae a tu dia.
+          <span class="color-tag tag-dark">#5C5445 Secondary</span>
+        </div>
+        <div class="rule" style="background:rgba(168,148,120,0.22);"></div>
+        <div class="pillars">
+          <div>
+            <div class="pillar-num" style="color:#A89478;">01 <span class="color-tag tag-dark">#A89478</span></div>
+            <div class="pillar-title" style="color:#262626;">Botanica</div>
+            <div class="pillar-desc" style="color:#5C5445;">Las plantas son el nucleo.</div>
+          </div>
+          <div>
+            <div class="pillar-num" style="color:#A89478;">02</div>
+            <div class="pillar-title" style="color:#283618;">Ritual <span class="color-tag tag-dark">#283618 Forest accent</span></div>
+            <div class="pillar-desc" style="color:#5C5445;">Un momento de pausa.</div>
+          </div>
+          <div>
+            <div class="pillar-num" style="color:#A89478;">03</div>
+            <div class="pillar-title" style="color:#262626;">Naturaleza</div>
+            <div class="pillar-desc" style="color:#5C5445;">Nombre y origen. <span class="color-tag tag-dark">#5C5445</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product row -->
+    <div class="annotated">
+      <div class="anno-product" style="background:#FAF7F1;">
+        <div class="crystal-dot" style="background:#692a6e;"></div>
+        <div class="product-name" style="color:#692a6e;">Amatista <span class="color-tag tag-dark">Crystal #692a6e</span></div>
+        <div class="product-tag" style="color:#A89478;">$35.000 <span class="color-tag tag-dark">#A89478</span></div>
+      </div>
+    </div>
+
+    <!-- Dark section: #344422 -->
+    <div class="annotated">
+      <div class="anno-dark" style="background:#344422; color:#F0EBE2;">
+        <div style="font-size:0.56rem; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:8px;">bg: #344422 Forest M</div>
+        <div class="eyebrow" style="color:#C9AD88;">
+          Origen
+          <span class="color-tag tag-light">#C9AD88 Gold</span>
+        </div>
+        <div class="headline" style="color:#F0EBE2;">
+          Hecho a mano en Subachoque.
+          <span class="color-tag tag-light">#F0EBE2</span>
+        </div>
+        <div class="body" style="color:rgba(240,235,226,0.72);">
+          Pequenas producciones, hechas con atencion.
+          <span class="color-tag tag-light">#F0EBE2 @ 72%</span>
+        </div>
+        <div class="certs">
+          <div class="cert" style="border:1px solid rgba(201,173,136,0.3); color:#C9AD88;">100% Natural <span class="color-tag tag-light">#C9AD88</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── OPTION B: SINGLE-DEPTH ── -->
+  <div>
+    <div class="col-label" style="background:#283618; color:#C9AD88;">Option B — Single-depth darks</div>
+
+    <!-- Hero -->
+    <div class="annotated">
+      <div class="anno-hero" style="background:#283618; color:#F5F0E8;">
+        <div class="eyebrow" style="color:#C9AD88;">
+          Subachoque, Colombia
+          <span class="color-tag tag-light">#C9AD88 Gold</span>
+        </div>
+        <div class="headline" style="color:#F5F0E8;">
+          Jabones botanicos para la piel.
+          <span class="color-tag tag-light">#F5F0E8</span>
+        </div>
+        <div class="body" style="color:rgba(245,240,232,0.72);">
+          Siete jabones elaborados a mano con aceites esenciales puros.
+          <span class="color-tag tag-light">#F5F0E8 @ 72%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Light card -->
+    <div class="annotated">
+      <div class="anno-light" style="background:#FAF7F1;">
+        <div class="eyebrow" style="color:#A89478;">
+          Filosofia
+          <span class="color-tag tag-dark">#A89478 Amber</span>
+        </div>
+        <div class="headline" style="color:#262626;">
+          Las plantas cuidaron la piel.
+          <span class="color-tag tag-dark">#262626 Leather</span>
+        </div>
+        <div class="body" style="color:#5C5445;">
+          aum. retoma esa tradicion y la trae a tu dia.
+          <span class="color-tag tag-dark">#5C5445 Secondary</span>
+        </div>
+        <div class="rule" style="background:rgba(168,148,120,0.22);"></div>
+        <div class="pillars">
+          <div>
+            <div class="pillar-num" style="color:#A89478;">01 <span class="color-tag tag-dark">#A89478</span></div>
+            <div class="pillar-title" style="color:#262626;">Botanica</div>
+            <div class="pillar-desc" style="color:#5C5445;">Las plantas son el nucleo.</div>
+          </div>
+          <div>
+            <div class="pillar-num" style="color:#A89478;">02</div>
+            <div class="pillar-title" style="color:#283618;">Ritual <span class="color-tag tag-dark">#283618 Forest accent</span></div>
+            <div class="pillar-desc" style="color:#5C5445;">Un momento de pausa.</div>
+          </div>
+          <div>
+            <div class="pillar-num" style="color:#A89478;">03</div>
+            <div class="pillar-title" style="color:#262626;">Naturaleza</div>
+            <div class="pillar-desc" style="color:#5C5445;">Nombre y origen. <span class="color-tag tag-dark">#5C5445</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product row -->
+    <div class="annotated">
+      <div class="anno-product" style="background:#FAF7F1;">
+        <div class="crystal-dot" style="background:#692a6e;"></div>
+        <div class="product-name" style="color:#692a6e;">Amatista <span class="color-tag tag-dark">Crystal #692a6e</span></div>
+        <div class="product-tag" style="color:#A89478;">$35.000 <span class="color-tag tag-dark">#A89478</span></div>
+      </div>
+    </div>
+
+    <!-- Dark section: #283618 (same as hero) -->
+    <div class="annotated">
+      <div class="anno-dark" style="background:#283618; color:#F0EBE2;">
+        <div style="font-size:0.56rem; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:8px;">bg: #283618 Black Forest (same as hero)</div>
+        <div class="eyebrow" style="color:#C9AD88;">
+          Origen
+          <span class="color-tag tag-light">#C9AD88 Gold</span>
+        </div>
+        <div class="headline" style="color:#F0EBE2;">
+          Hecho a mano en Subachoque.
+          <span class="color-tag tag-light">#F0EBE2</span>
+        </div>
+        <div class="body" style="color:rgba(240,235,226,0.72);">
+          Pequenas producciones, hechas con atencion.
+          <span class="color-tag tag-light">#F0EBE2 @ 72%</span>
+        </div>
+        <div class="certs">
+          <div class="cert" style="border:1px solid rgba(201,173,136,0.3); color:#C9AD88;">100% Natural <span class="color-tag tag-light">#C9AD88</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     CRYSTAL COLORS (unchanged)
+     ══════════════════════════════════════════════════════ -->
+<div class="palette-section">
+  <div class="palette-title">Crystal accent colors (unchanged)</div>
+  <div class="palette-subtitle">Per-product accents — used for product names, accent lines, crystal dots</div>
+
+  <div class="swatch-row">
+    <div class="swatch-block" style="background:#b02c24; color:#fff;">
+      <div class="swatch-name">Jaspe</div>
+      <div class="swatch-hex-val">#b02c24</div>
+    </div>
+    <div class="swatch-block" style="background:#d16b34; color:#fff;">
+      <div class="swatch-name">Cornalina</div>
+      <div class="swatch-hex-val">#d16b34</div>
+    </div>
+    <div class="swatch-block" style="background:#e8cf5b; color:#444;">
+      <div class="swatch-name">Citrino</div>
+      <div class="swatch-hex-val">#e8cf5b</div>
+    </div>
+    <div class="swatch-block" style="background:#35784a; color:#fff;">
+      <div class="swatch-name">Aventurina</div>
+      <div class="swatch-hex-val">#35784a</div>
+    </div>
+    <div class="swatch-block" style="background:#1d4590; color:#fff;">
+      <div class="swatch-name">Sodalita</div>
+      <div class="swatch-hex-val">#1d4590</div>
+    </div>
+    <div class="swatch-block" style="background:#692a6e; color:#fff;">
+      <div class="swatch-name">Amatista</div>
+      <div class="swatch-hex-val">#692a6e</div>
+    </div>
+    <div class="swatch-block" style="background:#5c6670; color:#fff;">
+      <div class="swatch-name">Cuarzo</div>
+      <div class="swatch-hex-val">#5c6670</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
