@@ -353,7 +353,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: clamp(32px, 5vw, 72px);
-  align-items: start;
+  align-items: center;
 }
 .kit__eyebrow {
   display: inline-flex;

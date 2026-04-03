@@ -76,7 +76,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(56px, 8vw, 120px);
-  align-items: start;
+  align-items: center;
 }
 .historia__photo { aspect-ratio: 3 / 4; overflow: hidden; }
 .historia__photo img {
@@ -295,7 +295,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(48px, 7vw, 96px);
-  align-items: start;
+  align-items: center;
 }
 .cierre__headline {
   font-family: var(--ff-display);
