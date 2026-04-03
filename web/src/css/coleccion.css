@@ -142,11 +142,11 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   box-shadow: inset 0 -2px 0 var(--cx, var(--c-accent));
 }
 .soap-nav__dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--cx, var(--c-accent));
+  width: 9px;
+  height: 9px;
   flex-shrink: 0;
+  display: block;
+  overflow: visible;
 }
 
 /* ── Soap entry photo ── */
@@ -316,7 +316,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   opacity: 0.5;
 }
 .soap-entry__crystal-gem { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.soap-entry__crystal-dot { width: 7px; height: 7px; border-radius: 50%; background-color: var(--cx, var(--c-accent)); flex-shrink: 0; }
+.soap-entry__crystal-dot { width: 10px; height: 10px; flex-shrink: 0; display: block; overflow: visible; }
 .soap-entry__crystal-name { font-family: var(--ff-body); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cx, var(--c-accent)); }
 .soap-entry__crystal-desc { font-family: var(--ff-body); font-size: 11px; line-height: 1.7; color: var(--c-secondary); }
 .soap-entry__cta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }

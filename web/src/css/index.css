@@ -230,12 +230,12 @@
 }
 .soap:hover::after, .soap:focus-visible::after { transform: scaleX(1); }
 .soap__dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: var(--cx, var(--c-accent));
-  margin-bottom: 22px;
+  width: 10px;
+  height: 10px;
+  margin-bottom: 20px;
   flex-shrink: 0;
+  display: block;
+  overflow: visible;
 }
 .soap__name {
   font-family: var(--ff-display);
