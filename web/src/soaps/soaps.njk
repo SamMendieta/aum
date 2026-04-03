@@ -6,7 +6,7 @@ pagination:
 permalink: "/coleccion/{{ soap.slug }}/index.html"
 eleventyComputed:
   title: "Jabón de {{ soap.name }}"
-  description: "{{ soap.tagline }} — aum. jabones botánicos artesanales. Producción en Subachoque, Colombia."
+  description: "{{ soap.metaDesc if soap.metaDesc else soap.tagline ~ ' — aum. jabones botánicos artesanales. Producción en Subachoque, Colombia.' }}"
 ---
 
   <nav class="breadcrumb" aria-label="Ruta de navegación">
@@ -152,4 +152,5 @@ eleventyComputed:
     {% endif %}
   </nav>
 
+  <script src="/js/fit-text.js" defer></script>
   <script src="/js/product.js" defer></script>

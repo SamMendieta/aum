@@ -1,0 +1,155 @@
+/* footer.css — Phase 1 (no @layer) */
+/* Two footer structures exist in the source HTML. */
+/* Footer A (7 product pages): 3-column grid, .footer__logo + .footer__col-label + .footer__links */
+/* Footer B (editorial pages): flat link row, no section labels */
+
+/* ── Footer A: product pages ── */
+.footer {
+  background: var(--c-dbg);
+  color: var(--c-dtext);
+  padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 5vw, 5rem);
+}
+.footer__inner {
+  max-width: var(--mw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+.footer__logo {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 1.75rem;
+  letter-spacing: 0.05em;
+}
+.footer__logo span { color: var(--cx); }
+.footer__sub {
+  font-size: 0.72rem;
+  color: rgba(255, 251, 244, 0.62);
+  margin-top: 0.35rem;
+  letter-spacing: 0.06em;
+}
+.footer__col-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 0.9rem;
+}
+.footer__bottom {
+  max-width: var(--mw);
+  margin: 2rem auto 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 251, 244, 0.08);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer__copy {
+  font-size: 0.75rem;
+  color: rgba(255, 251, 244, 0.55);
+  letter-spacing: 0.06em;
+}
+
+/* ── Footer B: editorial pages ── */
+.footer--editorial {
+  background-color: var(--c-dark-bg);
+  border-top: 1px solid var(--c-rule-dark);
+  padding: clamp(16px, 2vw, 24px) var(--gap-container);
+}
+.footer--editorial .footer__inner { max-width: var(--max-w); margin: 0 auto; display: block; }
+.footer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+}
+.footer--editorial .footer__logo {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(20px, 2.2vw, 28px);
+  letter-spacing: 0.1em;
+  color: var(--c-dark-text);
+  transition: opacity 0.25s;
+}
+.footer--editorial .footer__logo:hover { opacity: 0.6; }
+.footer--editorial .footer__logo:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 4px; }
+.footer__wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border: 1px solid rgba(201, 168, 124, 0.3);
+  font-family: var(--ff-body);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-dark-text);
+  transition: border-color 0.3s, opacity 0.3s;
+}
+.footer__wa:hover { border-color: var(--c-accent); opacity: 0.8; }
+.footer__wa:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 4px; }
+
+/* ── Flat link row ── */
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+  padding: 8px 0 10px;
+}
+.footer__link {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(239, 234, 223, 0.45);
+  transition: color 0.25s;
+  white-space: nowrap;
+}
+.footer__link:hover { color: var(--c-dark-text); }
+.footer__link:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 3px; }
+.footer__sep {
+  color: rgba(239, 234, 223, 0.15);
+  font-size: 12px;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* ── Bottom bar ── */
+.footer--editorial .footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(239, 234, 223, 0.06);
+  padding-top: 10px;
+}
+.footer--editorial .footer__copy {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(239, 234, 223, 0.4);
+}
+.footer__origin {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(201, 168, 124, 0.65);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .footer__inner { grid-template-columns: 1fr 1fr; }
+  .footer__top { flex-direction: column; align-items: flex-start; }
+  .footer__wa { min-height: 44px; }
+  .footer__link { padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center; }
+}
+@media (max-width: 480px) {
+  .footer__inner { grid-template-columns: 1fr; }
+}

@@ -66,4 +66,9 @@
     }
   }
 
+  // ── FONT FIT — scale .soap-entry__name so widest word never overflows
+  if (typeof window.fitTextAll === 'function') {
+    window.fitTextAll('.soap-entry__name', { min: 18, max: 42 });
+  }
+
 })();

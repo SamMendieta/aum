@@ -1,0 +1,63 @@
+/* tokens.css — Phase 1 (no @layer — see phase-1.md Critical Decision) */
+/* Canonical values from AUM_MASTER_REFERENCE_v4.md */
+/* Drifted values corrected here: --c-accent (#c4a030 -> #c9a87c on 8 files), */
+/* --c-rule, --gap-section. Crystal --cx stays inline per product page. */
+
+:root {
+  color-scheme: light;
+  /* ── Primitive color tokens ── */
+  --c-bg:        #f2ede6;
+  --c-text:      #0d0d0d;
+  --c-accent:    #c9a87c;
+  --c-secondary: #b09080;
+  --c-dark:      #6b5045;
+  --c-dark-bg:   #6b5045;
+  --c-dbg:       #6b5045;    /* alias used by product pages */
+  --c-dark-text: #fffbf4;
+  --c-dtext:     #fffbf4;    /* alias used by product pages */
+  --c-dark-sub:  #efeadf;
+  --c-rule:      rgba(201, 168, 124, 0.18);
+  --c-rule-dark: rgba(201, 168, 124, 0.1);
+
+  /* ── Crystal tokens — canonical values per AUM_MASTER_REFERENCE (chakra order 01–07) ── */
+  --cx-jasper:      #b02c24;
+  --cx-carnelian:   #d16b34;
+  --cx-citrine:     #e8cf5b;
+  --cx-citrine-text: #e8cf5b;   /* matches --cx-citrine — user prefers pure yellow */
+  --cx-aventurine:  #35784a;
+  --cx-sodalite:    #1d4590;
+  --cx-amethyst:    #692a6e;
+  --cx-quartz:      #5c6670;
+
+  /* ── Typography tokens ── */
+  /* CRITICAL: The site has a font variable name split across two page groups. */
+  /* 7 product pages use --ff-body / --ff-display. */
+  /* 4 non-product pages use --f-body / --f-display. */
+  /* Both names are defined here, aliased to the same value. */
+  --ff-display: 'Pierson', 'Georgia', 'Times New Roman', serif;
+  --ff-body:    'Biryani', Georgia, serif;
+  --f-display:  var(--ff-display);  /* alias: coleccion, contacto, nosotros, index */
+  --f-body:     var(--ff-body);     /* alias: coleccion, contacto, nosotros, index */
+
+  /* ── Spacing tokens ── */
+  --gap-section:   clamp(72px, 10vw, 128px);
+  --gap-container: clamp(24px, 6vw, 80px);
+  --mw:  1280px;   /* used by product pages */
+  --max-w: 1280px; /* used by non-product pages */
+
+  /* ── Nav height tokens (measured from live DOM — nav.css padding 28px × 2 + nav__links 26px) ──
+     Both product and editorial navs measure 82px: 28 + 26 (nav__links) + 28 = 82px.
+     Scrolled state: 16 + 26 + 16 = 58px.
+     --nav-h:    product nav full height  (measured: 82px)
+     --nav-h-ed: editorial nav full height (measured: 82px)
+     --nav-h-sm: any nav when .scrolled   (measured: 58px)
+     UPDATE THESE if nav padding changes in nav.css. */
+  --nav-h:    82px;
+  --nav-h-ed: 82px;
+  --nav-h-sm: 58px;
+
+  /* ── Motion tokens ── */
+  --ease:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+}

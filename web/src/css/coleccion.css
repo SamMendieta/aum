@@ -256,6 +256,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   margin-bottom: 18px;
   word-break: keep-all;
   hyphens: none;
+  overflow: hidden;
 }
 .soap-entry__tagline {
   font-family: var(--ff-display);
