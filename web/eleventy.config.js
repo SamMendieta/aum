@@ -9,6 +9,9 @@ export default function(eleventyConfig) {
   // Fonts: Phase 4 — WOFF2 files now live in src/fonts/
   eleventyConfig.addPassthroughCopy("src/fonts");
 
+  // Palette comparison page — static HTML for founder review
+  eleventyConfig.addPassthroughCopy("src/palette-compare.html");
+
   // Images are now in src/images/ — handled by the plugin, not passthrough
 
   // Image optimisation — transforms every <img> in HTML output
