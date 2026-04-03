@@ -3,8 +3,8 @@
 /* the project's no-layer policy. Old browsers ignored the entire block. */
 
 @font-face {
-  font-family: 'Pierson';
-  src: url('/fonts/Pierson-Regular.woff2?v=2') format('woff2');
+  font-family: 'Instrument Serif';
+  src: url('/fonts/InstrumentSerif-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -12,8 +12,17 @@
 }
 
 @font-face {
-  font-family: 'Biryani';
-  src: url('/fonts/Biryani-Regular.woff2') format('woff2');
+  font-family: 'Instrument Serif';
+  src: url('/fonts/InstrumentSerif-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00C0-00FF, U+0100-024F;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

@@ -34,8 +34,8 @@
   /* 7 product pages use --ff-body / --ff-display. */
   /* 4 non-product pages use --f-body / --f-display. */
   /* Both names are defined here, aliased to the same value. */
-  --ff-display: 'Pierson', 'Georgia', 'Times New Roman', serif;
-  --ff-body:    'Biryani', Georgia, serif;
+  --ff-display: 'Instrument Serif', 'Georgia', 'Times New Roman', serif;
+  --ff-body:    'Inter', Georgia, sans-serif;
   --f-display:  var(--ff-display);  /* alias: coleccion, contacto, nosotros, index */
   --f-body:     var(--ff-body);     /* alias: coleccion, contacto, nosotros, index */
 
