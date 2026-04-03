@@ -33,9 +33,9 @@
     to bottom,
     transparent 0%,
     transparent 35%,
-    rgba(77, 64, 58, 0.35) 60%,
-    rgba(77, 64, 58, 0.7) 80%,
-    rgba(77, 64, 58, 0.85) 100%
+    rgba(40, 54, 24, 0.35) 60%,
+    rgba(40, 54, 24, 0.7) 80%,
+    rgba(40, 54, 24, 0.85) 100%
   );
 }
 .nosotros-hero__inner {
@@ -51,7 +51,7 @@
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(245, 240, 232, 0.6);
   margin-bottom: 28px;
 }
 .nosotros-hero__headline {
@@ -60,7 +60,7 @@
   font-size: clamp(44px, min(7.5vw, 9svh), 100px);
   line-height: 1.04;
   letter-spacing: -0.015em;
-  color: #FFFFFF;
+  color: #F5F0E8;
   max-width: 860px;
   text-wrap: balance;
 }

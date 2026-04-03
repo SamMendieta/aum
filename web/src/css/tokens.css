@@ -1,21 +1,22 @@
-/* tokens.css — Color System v2: Pearl/Leather/Cacao/Taupe/Khaki palette (2026-04-03) */
+/* tokens.css — Color System v3: Amber + Forest Bitonal palette (2026-04-03) */
 /* Crystal --cx stays inline per product page. */
 
 :root {
   color-scheme: light;
   /* ── Primitive color tokens ── */
-  --c-bg:        #FAF8F5;          /* Pearl */
+  --c-bg:        #FAF7F1;          /* Pearl */
   --c-text:      #262626;          /* Leather */
-  --c-accent:    #A3968D;          /* Taupe */
-  --c-secondary: #262626;          /* Leather */
-  --c-dark:      #4D403A;          /* Cacao */
-  --c-dark-bg:   #DFDACF;          /* Khaki */
-  --c-dbg:       #DFDACF;          /* Khaki — alias used by product pages */
-  --c-dark-text: #262626;          /* Leather */
-  --c-dtext:     #262626;          /* Leather — alias used by product pages */
-  --c-dark-sub:  #4D403A;          /* Cacao */
-  --c-rule:      rgba(163, 150, 141, 0.25);  /* Taupe 25% */
-  --c-rule-dark: rgba(163, 150, 141, 0.15);  /* Taupe 15% */
+  --c-accent:    #A89478;          /* Amber */
+  --c-secondary: #5C5445;          /* Secondary — body text, descriptions */
+  --c-dark:      #283618;          /* Black Forest — hero bg, banner bg, darkest surface */
+  --c-dark-bg:   #344422;          /* Forest Medium — Origen/footer dark sections */
+  --c-dbg:       #344422;          /* Forest Medium — alias used by product pages */
+  --c-dark-text: #F5F0E8;          /* Warm white — headlines on dark bg */
+  --c-dtext:     #F5F0E8;          /* Warm white — alias used by product pages */
+  --c-dark-sub:  #C9AD88;          /* Gold — labels/eyebrows on dark bg */
+  --c-gold:      #C9AD88;          /* Gold — explicit token for dark bg accents */
+  --c-rule:      rgba(168, 148, 120, 0.22);  /* Amber 22% */
+  --c-rule-dark: rgba(201, 173, 136, 0.20);  /* Gold 20% */
 
   /* ── Crystal tokens — canonical values per AUM_MASTER_REFERENCE (chakra order 01–07) ── */
   --cx-jasper:      #b02c24;
