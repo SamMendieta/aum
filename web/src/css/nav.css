@@ -76,7 +76,7 @@
   display: block;
 }
 /* Editorial nav: logo is light on dark hero, darkens on scroll */
-.nav--editorial .nav__logo { color: var(--c-dark-text); }
+.nav--editorial .nav__logo { color: #FFFFFF; }
 .nav--editorial.scrolled .nav__logo { color: var(--c-text); }
 /* Product nav: logo always dark */
 .nav--product .nav__logo { color: var(--c-text); }
@@ -106,11 +106,11 @@
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 251, 244, 0.75);
+  color: rgba(255, 255, 255, 0.75);
   transition: color 0.5s var(--ease-quart);
 }
 .nav__links a[aria-current="page"],
-.nav__links a:hover { color: var(--c-dark-text); }
+.nav__links a:hover { color: #FFFFFF; }
 .nav.scrolled .nav__links a { color: var(--c-secondary); }
 .nav.scrolled .nav__links a:hover,
 .nav.scrolled .nav__links a[aria-current="page"] { color: var(--c-text); }
@@ -152,7 +152,7 @@
   display: block;
   width: 22px;
   height: 1px;
-  background-color: var(--c-dark-text);
+  background-color: #FFFFFF;
   transition:
     background-color 0.5s var(--ease-quart),
     transform 0.35s var(--ease-expo),
@@ -251,7 +251,7 @@
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 251, 244, 0.3);
+  color: rgba(38, 38, 38, 0.3);
 }
 
 /* ── Drawer-open state ── */

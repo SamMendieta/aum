@@ -1,23 +1,21 @@
-/* tokens.css — Phase 1 (no @layer — see phase-1.md Critical Decision) */
-/* Canonical values from AUM_MASTER_REFERENCE_v4.md */
-/* Drifted values corrected here: --c-accent (#c4a030 -> #c9a87c on 8 files), */
-/* --c-rule, --gap-section. Crystal --cx stays inline per product page. */
+/* tokens.css — Color System v2: Pearl/Leather/Cacao/Taupe/Khaki palette (2026-04-03) */
+/* Crystal --cx stays inline per product page. */
 
 :root {
   color-scheme: light;
   /* ── Primitive color tokens ── */
-  --c-bg:        #f2ede6;
-  --c-text:      #0d0d0d;
-  --c-accent:    #c9a87c;
-  --c-secondary: #b09080;
-  --c-dark:      #6b5045;
-  --c-dark-bg:   #6b5045;
-  --c-dbg:       #6b5045;    /* alias used by product pages */
-  --c-dark-text: #fffbf4;
-  --c-dtext:     #fffbf4;    /* alias used by product pages */
-  --c-dark-sub:  #efeadf;
-  --c-rule:      rgba(201, 168, 124, 0.18);
-  --c-rule-dark: rgba(201, 168, 124, 0.1);
+  --c-bg:        #FAF8F5;          /* Pearl */
+  --c-text:      #262626;          /* Leather */
+  --c-accent:    #A3968D;          /* Taupe */
+  --c-secondary: #262626;          /* Leather */
+  --c-dark:      #4D403A;          /* Cacao */
+  --c-dark-bg:   #DFDACF;          /* Khaki */
+  --c-dbg:       #DFDACF;          /* Khaki — alias used by product pages */
+  --c-dark-text: #262626;          /* Leather */
+  --c-dtext:     #262626;          /* Leather — alias used by product pages */
+  --c-dark-sub:  #4D403A;          /* Cacao */
+  --c-rule:      rgba(163, 150, 141, 0.25);  /* Taupe 25% */
+  --c-rule-dark: rgba(163, 150, 141, 0.15);  /* Taupe 15% */
 
   /* ── Crystal tokens — canonical values per AUM_MASTER_REFERENCE (chakra order 01–07) ── */
   --cx-jasper:      #b02c24;
