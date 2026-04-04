@@ -350,13 +350,22 @@
 .certs {
   max-width: var(--mw);
   margin: 0 auto;
-  padding: 2rem clamp(1.5rem, 5vw, 5rem);
+  padding: 1.5rem clamp(1.5rem, 5vw, 5rem);
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem 2rem;
   flex-wrap: wrap;
+  justify-content: center;
   border-top: 1px solid var(--c-rule);
 }
-.cert { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-secondary); }
+.cert {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.65rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--c-secondary);
+}
+.cert__icon {
+  width: 16px; height: 16px; flex-shrink: 0;
+  color: var(--c-accent);
+}
 
 /* ── Product nav (prev/next) ── */
 .pnav {

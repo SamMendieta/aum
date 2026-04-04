@@ -9,6 +9,8 @@ eleventyComputed:
   description: "{{ soap.metaDesc if soap.metaDesc else soap.tagline ~ ' — aum. jabones botánicos artesanales. Producción en Subachoque, Colombia.' }}"
 ---
 
+{% include "components/cert-icons.njk" %}
+
   <nav class="breadcrumb" aria-label="Ruta de navegación">
     <ol class="breadcrumb__list">
       <li class="breadcrumb__item"><a href="/">aum.</a></li>
@@ -122,9 +124,12 @@ eleventyComputed:
   </section>
 
   <div class="certs" aria-label="Certificaciones">
-    {% for cert in site.certifications %}
-    <span class="cert">{{ cert }}</span>
-    {% endfor %}
+    <div class="cert"><svg class="cert__icon"><use href="#icon-leaf"/></svg><span>100% Natural</span></div>
+    <div class="cert"><svg class="cert__icon"><use href="#icon-rabbit"/></svg><span>Cruelty Free</span></div>
+    <div class="cert"><svg class="cert__icon"><use href="#icon-shield-x"/></svg><span>Libre de Parabenos</span></div>
+    <div class="cert"><svg class="cert__icon"><use href="#icon-drop-x"/></svg><span>Libre de Sulfatos</span></div>
+    <div class="cert"><svg class="cert__icon"><use href="#icon-hands"/></svg><span>Hecho a Mano</span></div>
+    <div class="cert"><svg class="cert__icon"><use href="#icon-no-palm"/></svg><span>Sin Aceite de Palma</span></div>
   </div>
 
   <nav class="pnav" aria-label="Navegación entre jabones">
