@@ -93,15 +93,17 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 }
 .soap-nav__inner::-webkit-scrollbar { display: none; }
 .soap-nav__item {
-  display: flex; align-items: center; gap: 6px;
-  padding: 14px 12px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 6px;
+  padding: 14px 0;
   border-right: 1px solid var(--c-rule);
   font-family: var(--ff-body); font-size: 8px;
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--c-secondary); white-space: nowrap;
   transition: color 0.25s, background-color 0.25s;
-  flex-shrink: 0;
+  flex: 1;
 }
+.soap-nav__item:last-child { border-right: none; }
 .soap-nav__item:hover { color: var(--c-text); background-color: rgba(0,0,0,0.02); }
 .soap-nav__item:focus-visible { outline: 1px solid var(--c-accent); outline-offset: -1px; }
 .soap-nav__item.active {
