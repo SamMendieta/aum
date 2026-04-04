@@ -142,13 +142,15 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 }
 
 .soap-section__content {
-  padding: clamp(48px, 6vw, 96px) clamp(32px, 5vw, 64px);
+  padding: clamp(32px, 4vw, 64px) clamp(24px, 4vw, 56px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
+  overflow-y: auto;
 }
 
+/* Crystal accent bar — full height left edge */
 .soap-section__crystal-bar {
   position: absolute;
   left: 0; top: 0; bottom: 0;
@@ -156,11 +158,30 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   background: var(--cx);
 }
 
+/* Background number — large faded */
+.soap-section__bg-num {
+  position: absolute;
+  top: -0.1em; right: clamp(16px, 3vw, 48px);
+  font-family: var(--ff-display); font-weight: 400;
+  font-size: clamp(100px, 14vw, 160px);
+  line-height: 1; letter-spacing: -0.04em;
+  color: var(--cx, var(--c-accent));
+  opacity: 0.04;
+  pointer-events: none; user-select: none;
+}
+.soap-section:hover .soap-section__bg-num { opacity: 0.07; }
+
+/* Identity block — meta + name + tagline */
+.soap-section__identity {
+  padding-bottom: clamp(20px, 2.5vw, 32px);
+  border-bottom: 1px solid var(--c-gold, #C9AD88);
+  margin-bottom: clamp(20px, 2.5vw, 32px);
+}
 .soap-section__meta {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 .soap-section__crystal-dot {
   width: 12px; height: 12px;
@@ -174,63 +195,111 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 .soap-section__center {
   font-family: var(--ff-body); font-size: 10px;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--cx);
-  opacity: 0.8;
+  color: var(--cx); opacity: 0.8;
 }
-
 .soap-section__name {
   font-family: var(--ff-display); font-weight: 400;
-  font-size: clamp(32px, 4vw, 56px);
-  line-height: 1.06; letter-spacing: 0.01em;
+  font-size: clamp(26px, 3.5vw, 48px);
+  line-height: 1.06; letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--c-text);
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
-
 .soap-section__tagline {
   font-family: var(--ff-display); font-weight: 400;
   font-style: italic;
-  font-size: clamp(14px, 1.5vw, 18px);
+  font-size: clamp(13px, 1.3vw, 17px);
   line-height: 1.55;
-  color: var(--cx);
-  opacity: 0.85;
-  margin-bottom: 32px;
+  color: var(--cx); opacity: 0.85;
   max-width: 400px;
 }
 
+/* Details block — oils, crystal, CTA */
+.soap-section__details {
+  display: flex; flex-direction: column;
+  gap: clamp(16px, 2vw, 24px);
+}
+.soap-section__oils-label {
+  font-family: var(--ff-body); font-size: 9px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--c-accent); margin-bottom: 10px;
+}
 .soap-section__oils {
   list-style: none;
   border-top: 1px solid var(--c-rule);
-  margin-bottom: 40px;
 }
 .soap-section__oils li {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 16px;
-  padding: 11px 0;
+  padding: 10px 0;
   border-bottom: 1px solid var(--c-rule);
 }
 .soap-section__oil-common {
   font-family: var(--ff-body); font-size: 12px;
   letter-spacing: 0.04em; color: var(--c-text);
+  flex-shrink: 0;
 }
 .soap-section__oil-inci {
-  font-family: var(--ff-body); font-size: 11px;
+  font-family: var(--ff-body); font-size: 0.6875rem;
   font-style: italic; letter-spacing: 0.02em;
   color: var(--c-secondary); text-align: right;
+  word-break: break-word; hyphens: manual;
 }
 
-.soap-section__actions {
-  display: flex; align-items: center; gap: 20px;
+/* Crystal info */
+.soap-section__crystal {
+  padding: 16px;
+  border: 1px solid var(--c-rule);
+  position: relative;
 }
+.soap-section__crystal::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--cx, var(--c-accent));
+  opacity: 0.5;
+}
+.soap-section__crystal-gem {
+  display: flex; align-items: center;
+  gap: 10px; margin-bottom: 8px;
+}
+.soap-section__crystal-icon {
+  width: 10px; height: 10px;
+  flex-shrink: 0; display: block; overflow: visible;
+}
+.soap-section__crystal-name {
+  font-family: var(--ff-body); font-size: 9px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--cx, var(--c-accent));
+}
+.soap-section__crystal-desc {
+  font-family: var(--ff-body); font-size: 11px;
+  line-height: 1.7; color: var(--c-secondary);
+}
+
+/* Actions */
+.soap-section__actions {
+  display: flex; align-items: center;
+  gap: 16px; flex-wrap: wrap;
+}
+.btn-wa-cta {
+  display: inline-flex; align-items: center;
+  padding: 12px 24px;
+  background: #2C1810; color: #FAF7F1;
+  border: 1px solid #2C1810;
+  font-family: var(--ff-body); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  transition: opacity 0.3s;
+}
+.btn-wa-cta:hover { opacity: 0.85; }
 .soap-section__actions .btn-ghost {
-  border: 2px solid var(--cx);
+  border: 1px solid var(--cx);
   color: var(--c-text);
 }
-.soap-section__actions .btn-ghost:hover {
-  opacity: 0.7;
-}
+.soap-section__actions .btn-ghost:hover { opacity: 0.7; }
 
 /* Gold divider between sections */
 .soap-section__divider {
@@ -257,16 +326,18 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 @media (max-width: 768px) {
   .soap-section__inner {
     grid-template-columns: 1fr;
-    grid-template-rows: 45% 1fr;
+    grid-template-rows: 40% 1fr;
   }
   .soap-section__content {
-    padding: clamp(20px, 3vw, 32px) var(--gap-container-sm, 24px);
-    overflow-y: auto;
+    padding: clamp(16px, 3vw, 24px) var(--gap-container-sm, 24px);
   }
   .soap-section__crystal-bar { display: none; }
-  .soap-section__name { font-size: clamp(24px, 5vw, 32px); }
-  .soap-section__tagline { margin-bottom: 16px; }
-  .soap-section__oils { margin-bottom: 20px; }
+  .soap-section__bg-num { font-size: clamp(72px, 20vw, 100px); top: auto; bottom: -0.15em; right: 0; opacity: 0.03; }
+  .soap-section__name { font-size: clamp(22px, 5vw, 30px); }
+  .soap-section__tagline { margin-bottom: 12px; }
+  .soap-section__identity { padding-bottom: 16px; margin-bottom: 16px; }
+  .soap-section__details { gap: 12px; }
+  .soap-section__oil-inci { font-size: 0.625rem; }
   .soap-nav__item { min-height: 44px; }
 }
 

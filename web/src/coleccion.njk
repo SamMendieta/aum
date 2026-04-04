@@ -44,33 +44,55 @@ description: "aum. — La Colección. Siete jabones botánicos, cada uno inspira
     </nav>
 
     {% for entry in soaps %}
-    <section class="soap-section" id="{{ entry.slug }}" style="--cx: var(--{{ entry.cxToken }})" aria-labelledby="soap-{{ entry.slug }}">
+    <section class="soap-section" id="{{ entry.slug }}"
+      style="--cx: var(--{{ entry.cxToken }}){% if entry.cxTextToken %}; --cx-text:var(--{{ entry.cxTextToken }}){% endif %}"
+      aria-labelledby="soap-{{ entry.slug }}">
       <div class="soap-section__inner">
         <div class="soap-section__image">
           <img src="/images/{{ entry.heroImage }}"
-            alt="Jabón de {{ entry.name }}"
+            alt="Jabón de {{ entry.name }} con su empaque"
             loading="lazy" decoding="async"
             width="1667" height="2500">
         </div>
         <div class="soap-section__content">
           <div class="soap-section__crystal-bar" aria-hidden="true"></div>
-          <div class="soap-section__meta">
-            <svg class="soap-section__crystal-dot" aria-hidden="true" focusable="false"><use href="#{{ entry.cxToken }}"/></svg>
-            <span class="soap-section__number">{{ entry.number }} / 07</span>
-            <span class="soap-section__center">{{ entry.center }}</span>
+          <span class="soap-section__bg-num" aria-hidden="true">{{ entry.number }}</span>
+          <div class="soap-section__identity">
+            <div class="soap-section__meta">
+              <svg class="soap-section__crystal-dot" aria-hidden="true" focusable="false"><use href="#{{ entry.cxToken }}"/></svg>
+              <span class="soap-section__number">{{ entry.number }} / 07</span>
+              <span class="soap-section__center">{{ entry.center }}</span>
+            </div>
+            <h2 class="soap-section__name" id="soap-{{ entry.slug }}">{{ entry.name }}</h2>
+            <p class="soap-section__tagline">{{ entry.tagline }}</p>
           </div>
-          <h2 class="soap-section__name" id="soap-{{ entry.slug }}">{{ entry.name }}</h2>
-          <p class="soap-section__tagline">{{ entry.tagline }}</p>
-          <ul class="soap-section__oils" aria-label="Aceites esenciales">
-            {% for oil in entry.oils %}
-            <li>
-              <span class="soap-section__oil-common">{{ oil.common }}</span>
-              <span class="soap-section__oil-inci" lang="la">{{ oil.inci }}</span>
-            </li>
-            {% endfor %}
-          </ul>
-          <div class="soap-section__actions">
-            <a href="/coleccion/{{ entry.slug }}/" class="btn-ghost">Ver producto <span aria-hidden="true">&rarr;</span></a>
+          <div class="soap-section__details">
+            <div>
+              <p class="soap-section__oils-label">Aceites esenciales</p>
+              <ul class="soap-section__oils" aria-label="Aceites esenciales del Jabón de {{ entry.name }}">
+                {% for oil in entry.oils %}
+                <li>
+                  <span class="soap-section__oil-common">{{ oil.common }}</span>
+                  <span class="soap-section__oil-inci" lang="la">{{ oil.inci }}</span>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="soap-section__crystal" aria-label="Cristal incluido">
+              <div class="soap-section__crystal-gem">
+                <svg class="soap-section__crystal-icon" aria-hidden="true" focusable="false"><use href="#{{ entry.cxToken }}"/></svg>
+                <span class="soap-section__crystal-name">{{ entry.name }} — {{ entry.crystalPoetic }}</span>
+              </div>
+              <p class="soap-section__crystal-desc">{{ entry.crystalDescShort }}</p>
+            </div>
+            <div class="soap-section__actions">
+              <a href="https://wa.me/573227762560?text={{ entry.waText }}"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn-wa-cta"
+                 aria-label="Pedir el Jabón de {{ entry.name }} por WhatsApp"
+                 data-track="whatsapp-cta" data-track-soap="{{ entry.slug }}" data-track-location="coleccion">Pedir este jabón</a>
+              <a href="/coleccion/{{ entry.slug }}/" class="btn-ghost">Ver detalle <span aria-hidden="true">&rarr;</span></a>
+            </div>
           </div>
         </div>
       </div>
