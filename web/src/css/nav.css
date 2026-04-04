@@ -40,14 +40,7 @@
   background-color: transparent;
 }
 
-/* System D: light-hero pages — nav starts over cream background, needs dark text immediately */
-/* Uses combined selector (.nav--editorial.nav--light-hero) to beat the specificity of */
-/* .nav--editorial .nav__logo (both are 2-class selectors; combined = 3-class = always wins) */
-.nav--editorial.nav--light-hero .nav__logo { color: var(--c-text); }
-.nav--editorial.nav--light-hero .nav__links a { color: var(--c-secondary); }
-.nav--editorial.nav--light-hero .nav__links a:hover,
-.nav--editorial.nav--light-hero .nav__links a[aria-current="page"] { color: var(--c-text); }
-.nav--editorial.nav--light-hero .nav__toggle span { background-color: var(--c-text); }
+/* Light-hero variant removed — all pages use dark hero with white nav text */
 
 /* ── Scroll state classes (belong in nav.css — apply to any page) ── */
 .nav.scrolled {
