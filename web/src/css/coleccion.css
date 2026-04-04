@@ -142,12 +142,12 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 }
 
 .soap-section__content {
-  padding: clamp(32px, 4vw, 64px) clamp(24px, 4vw, 56px);
+  padding: clamp(24px, 3vw, 48px) clamp(24px, 4vw, 56px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 /* Crystal accent bar — full height left edge */
@@ -173,15 +173,15 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 
 /* Identity block — meta + name + tagline */
 .soap-section__identity {
-  padding-bottom: clamp(20px, 2.5vw, 32px);
+  padding-bottom: clamp(14px, 2vw, 24px);
   border-bottom: 1px solid var(--c-gold, #C9AD88);
-  margin-bottom: clamp(20px, 2.5vw, 32px);
+  margin-bottom: clamp(14px, 2vw, 24px);
 }
 .soap-section__meta {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 .soap-section__crystal-dot {
   width: 12px; height: 12px;
@@ -199,11 +199,11 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 }
 .soap-section__name {
   font-family: var(--ff-display); font-weight: 400;
-  font-size: clamp(26px, 3.5vw, 48px);
+  font-size: clamp(24px, 3vw, 42px);
   line-height: 1.06; letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--c-text);
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 .soap-section__tagline {
   font-family: var(--ff-display); font-weight: 400;
@@ -217,12 +217,12 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 /* Details block — oils, crystal, CTA */
 .soap-section__details {
   display: flex; flex-direction: column;
-  gap: clamp(16px, 2vw, 24px);
+  gap: clamp(12px, 1.5vw, 18px);
 }
 .soap-section__oils-label {
   font-family: var(--ff-body); font-size: 9px;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--c-accent); margin-bottom: 10px;
+  color: var(--c-accent); margin-bottom: 6px;
 }
 .soap-section__oils {
   list-style: none;
@@ -233,7 +233,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   justify-content: space-between;
   align-items: baseline;
   gap: 16px;
-  padding: 10px 0;
+  padding: 7px 0;
   border-bottom: 1px solid var(--c-rule);
 }
 .soap-section__oil-common {
@@ -250,7 +250,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 
 /* Crystal info */
 .soap-section__crystal {
-  padding: 16px;
+  padding: 12px;
   border: 1px solid var(--c-rule);
   position: relative;
 }
