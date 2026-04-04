@@ -118,13 +118,14 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   height: 100svh;
   position: relative;
   scroll-margin-top: calc(var(--nav-h-ed) + 52px);
-  overflow: hidden;
+  border-bottom: 3px solid var(--c-gold, #C9AD88);
 }
 
 .soap-section__inner {
   display: grid;
   grid-template-columns: 55fr 45fr;
   height: 100%;
+  overflow: hidden;
 }
 
 .soap-section__image {
@@ -134,7 +135,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 .soap-section__image img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 65%;
+  object-position: center 55%;
   display: block;
   transition: transform 7s ease;
 }
@@ -302,12 +303,8 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 }
 .soap-section__actions .btn-ghost:hover { opacity: 0.7; }
 
-/* Gold divider between sections */
-.soap-section__divider {
-  height: 3px;
-  background: var(--c-gold, #C9AD88);
-  opacity: 0.6;
-}
+/* Gold divider — now rendered via border-bottom on .soap-section */
+.soap-section__divider { display: none; }
 
 /* ── Buttons ── */
 .btn-text-link {
