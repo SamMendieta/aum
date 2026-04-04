@@ -7,43 +7,7 @@ navLightHero: false
 description: "aum. — La Colección. Siete jabones botánicos, cada uno inspirado en un centro de energía del cuerpo. Aceites esenciales puros, aceite de oliva, karité y coco. Elaborados a mano en Subachoque, Colombia."
 ---
 
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <symbol id="cx-jasper" viewBox="0 0 4.6069055 4.406569">
-    <g transform="translate(-102.69655,-146.29672)">
-      <path d="m 104.48752,146.34334 c 3.41418,-0.57256 3.89855,4.31694 0.48613,4.35963 -3.31611,0.0416 -2.59151,-4.0065 -0.48613,-4.35963" style="fill:#c01818;fill-rule:nonzero;stroke:none"/>
-    </g>
-  </symbol>
-  <symbol id="cx-carnelian" viewBox="0 0 4.6503882 4.4949055">
-    <g transform="translate(-102.6748,-146.25255)">
-      <path d="m 105.044,146.25598 c 0.80927,-0.03 2.29729,0.11289 2.28106,1.38818 -0.004,0.27623 -0.63429,1.90218 -0.79869,2.16394 -1.23155,1.95968 -2.98838,0.50024 -3.63537,-1.16699 -0.77999,-2.01013 0.6925,-2.3308 2.153,-2.38513" style="fill:#e06520;fill-rule:nonzero;stroke:none"/>
-    </g>
-  </symbol>
-  <symbol id="cx-citrine" viewBox="0 0 4.362565 4.6740341">
-    <g transform="translate(-102.81872,-146.16299)">
-      <path d="m 105.56023,146.18197 c 1.87325,-0.27129 1.78541,2.44087 1.38783,3.30235 -0.93874,2.03341 -4.94771,1.78859 -3.97969,-0.83114 0.21061,-0.57009 1.89936,-2.37102 2.59186,-2.47121" style="fill:#edcf40;fill-rule:nonzero;stroke:none"/>
-    </g>
-  </symbol>
-  <symbol id="cx-aventurine" viewBox="0 0 4.2281256 4.5727291">
-    <g transform="translate(-102.88594,-146.21363)">
-      <path d="m 106.43263,146.47423 c 1.17369,0.21378 0.49671,1.68028 0.39687,2.07186 -0.18097,0.70944 0.20638,1.26401 -0.48365,2.05917 -0.47449,0.54716 -3.07517,-0.24166 -3.3902,-1.08585 -0.24729,-0.66322 0.2092,-2.56399 0.65052,-3.00214 0.45685,-0.45297 0.82515,-0.2794 1.40759,-0.22754 0.30339,0.0268 1.23155,0.15028 1.41887,0.1845" style="fill:#047b46;fill-rule:nonzero;stroke:none"/>
-    </g>
-  </symbol>
-  <symbol id="cx-sodalite" viewBox="0 0 4.8749118 4.3623962">
-    <g transform="translate(-102.56254,-146.3188)">
-      <path d="m 105.03854,146.32154 c 1.79105,-0.0836 2.70404,1.76036 2.30717,3.29459 -0.34996,1.35326 -3.20958,1.27212 -4.09893,0.55986 -1.65241,-1.32292 -0.018,-3.76978 1.79176,-3.85445" style="fill:#0f4496;fill-rule:nonzero;stroke:none"/>
-    </g>
-  </symbol>
-  <symbol id="cx-amethyst" viewBox="0 0 4.5195718 4.8416481">
-    <g transform="translate(-102.74021,-146.07918)">
-      <path d="m 103.44006,150.49212 c -1.57374,-1.0481 -0.17251,-3.75955 1.06221,-4.20405 3.81494,-1.37337 3.30095,4.46863 0.70803,4.63197 -0.28787,0.018 -1.54305,-0.27658 -1.77024,-0.42792" style="fill:#732372;fill-rule:nonzero;stroke:none"/>
-    </g>
-  </symbol>
-  <symbol id="cx-quartz" viewBox="0 0 4.6099553 4.6155996">
-    <g transform="translate(-102.69502,-146.1922)">
-      <path d="m 106.70867,146.83661 c 0.34572,0.36936 0.56409,0.90099 0.59302,1.40617 0.0317,0.55422 -0.16898,1.35961 -0.47096,1.82739 -0.48648,0.75248 -1.33244,0.8255 -2.14947,0.67134 -1.07598,-0.20285 -1.67852,-0.81739 -1.89795,-1.88243 -0.13793,-0.66957 -0.20179,-1.76565 0.49248,-2.16429 0.054,-0.0307 0.12277,-0.0628 0.17956,-0.0896 1.03435,-0.48895 2.39148,-0.68933 3.25332,0.23142" style="fill:#5c6670;fill-rule:nonzero;stroke:none"/>
-    </g>
-  </symbol>
-</svg>
+{% include "components/crystal-symbols.njk" %}
 
     <section class="page-header" aria-labelledby="page-title">
       <div class="page-header__bg" aria-hidden="true">
@@ -69,75 +33,50 @@ description: "aum. — La Colección. Siete jabones botánicos, cada uno inspira
 
     <nav class="soap-nav" aria-label="Navegar a cada jabón">
       <div class="soap-nav__inner wrap">
-        <a href="#jaspe-brechado" class="soap-nav__item" style="--cx:var(--cx-jasper)"><svg class="soap-nav__dot" aria-hidden="true" focusable="false"><use href="#cx-jasper"/></svg>Jaspe</a>
-        <a href="#cornalina"      class="soap-nav__item" style="--cx:var(--cx-carnelian)"><svg class="soap-nav__dot" aria-hidden="true" focusable="false"><use href="#cx-carnelian"/></svg>Cornalina</a>
-        <a href="#citrino"        class="soap-nav__item" style="--cx:var(--cx-citrine)"><svg class="soap-nav__dot" aria-hidden="true" focusable="false"><use href="#cx-citrine"/></svg>Citrino</a>
-        <a href="#aventurina"     class="soap-nav__item" style="--cx:var(--cx-aventurine)"><svg class="soap-nav__dot" aria-hidden="true" focusable="false"><use href="#cx-aventurine"/></svg>Aventurina</a>
-        <a href="#sodalita"       class="soap-nav__item" style="--cx:var(--cx-sodalite)"><svg class="soap-nav__dot" aria-hidden="true" focusable="false"><use href="#cx-sodalite"/></svg>Sodalita</a>
-        <a href="#amatista"       class="soap-nav__item" style="--cx:var(--cx-amethyst)"><svg class="soap-nav__dot" aria-hidden="true" focusable="false"><use href="#cx-amethyst"/></svg>Amatista</a>
         <a href="#cuarzo-transparente" class="soap-nav__item" style="--cx:var(--cx-quartz)"><svg class="soap-nav__dot" aria-hidden="true" focusable="false"><use href="#cx-quartz"/></svg>Cuarzo</a>
+        <a href="#amatista" class="soap-nav__item" style="--cx:var(--cx-amethyst)"><svg class="soap-nav__dot" aria-hidden="true" focusable="false"><use href="#cx-amethyst"/></svg>Amatista</a>
+        <a href="#sodalita" class="soap-nav__item" style="--cx:var(--cx-sodalite)"><svg class="soap-nav__dot" aria-hidden="true" focusable="false"><use href="#cx-sodalite"/></svg>Sodalita</a>
+        <a href="#aventurina" class="soap-nav__item" style="--cx:var(--cx-aventurine)"><svg class="soap-nav__dot" aria-hidden="true" focusable="false"><use href="#cx-aventurine"/></svg>Aventurina</a>
+        <a href="#citrino" class="soap-nav__item" style="--cx:var(--cx-citrine)"><svg class="soap-nav__dot" aria-hidden="true" focusable="false"><use href="#cx-citrine"/></svg>Citrino</a>
+        <a href="#cornalina" class="soap-nav__item" style="--cx:var(--cx-carnelian)"><svg class="soap-nav__dot" aria-hidden="true" focusable="false"><use href="#cx-carnelian"/></svg>Cornalina</a>
+        <a href="#jaspe-brechado" class="soap-nav__item" style="--cx:var(--cx-jasper)"><svg class="soap-nav__dot" aria-hidden="true" focusable="false"><use href="#cx-jasper"/></svg>Jaspe</a>
       </div>
     </nav>
 
-    <div class="soaps-list wrap" role="list" aria-label="Los siete jabones de la colección">
-
-      {% for entry in soaps %}
-      <article class="soap-entry" id="{{ entry.slug }}"
-        style="--cx:var(--{{ entry.cxToken }}){% if entry.cxTextToken %}; --cx-text:var(--{{ entry.cxTextToken }}){% endif %}"
-        role="listitem" aria-labelledby="name-{{ entry.slug }}">
-        <div class="soap-entry__inner">
-          <span class="soap-entry__bg-num" aria-hidden="true">{{ entry.number }}</span>
-          <div class="soap-entry__identity">
-            <div class="soap-entry__identity-text">
-              <p class="soap-entry__center-label">{{ entry.center }}</p>
-              <h2 class="soap-entry__name" id="name-{{ entry.slug }}">{{ entry.name }}</h2>
-              <p class="soap-entry__tagline">{{ entry.tagline }}</p>
-            </div>
-            <div class="soap-entry__pkg-thumb" aria-hidden="true">
-              <img src="/images/{{ entry.packageImage }}"
-                   alt=""
-                   loading="lazy" decoding="async"
-                   width="300" height="400">
-            </div>
-          </div>
-          <div class="soap-entry__details">
-            <div>
-              <p class="soap-entry__oils-label">Aceites esenciales</p>
-              <ul class="soap-entry__oils" aria-label="Aceites esenciales del Jabón de {{ entry.name }}">
-                {% for oil in entry.oils %}
-                <li class="soap-entry__oil">
-                  <span class="soap-entry__oil-common">{{ oil.common }}</span>
-                  <span class="soap-entry__oil-inci" lang="la">{{ oil.inci }}</span>
-                </li>
-                {% endfor %}
-              </ul>
-            </div>
-            <div class="soap-entry__crystal" aria-label="Cristal incluido">
-              <div class="soap-entry__crystal-gem">
-                <svg class="soap-entry__crystal-dot" aria-hidden="true" focusable="false"><use href="#{{ entry.cxToken }}"/></svg>
-                <span class="soap-entry__crystal-name">{{ entry.name }} — {{ entry.crystalPoetic }}</span>
-              </div>
-              <p class="soap-entry__crystal-desc">{{ entry.crystalDescShort }}</p>
-            </div>
-            <div class="soap-entry__cta">
-              <a href="https://wa.me/573227762560?text={{ entry.waText }}"
-                 target="_blank" rel="noopener noreferrer"
-                 class="btn-ghost"
-                 aria-label="Pedir el Jabón de {{ entry.name }} por WhatsApp"
-                 data-track="whatsapp-cta" data-track-soap="{{ entry.slug }}" data-track-location="coleccion">Pedir este jabón</a>
-              <a href="/coleccion/{{ entry.slug }}/" class="btn-text-link">Ver detalle</a>
-            </div>
-          </div>
-        </div>
-        <div class="soap-entry__photo" aria-hidden="true">
+    {% for entry in soaps %}
+    <section class="soap-section" id="{{ entry.slug }}" style="--cx: var(--{{ entry.cxToken }})" aria-labelledby="soap-{{ entry.slug }}">
+      <div class="soap-section__inner">
+        <div class="soap-section__image">
           <img src="/images/{{ entry.heroImage }}"
-               alt="Jabón de {{ entry.name }} con su empaque"
-               loading="lazy" width="340" height="480">
+            alt="Jabón de {{ entry.name }}"
+            loading="lazy" decoding="async"
+            width="1667" height="2500">
         </div>
-      </article>
-      {% endfor %}
-
-    </div><!-- /soaps-list -->
+        <div class="soap-section__content">
+          <div class="soap-section__crystal-bar" aria-hidden="true"></div>
+          <div class="soap-section__meta">
+            <svg class="soap-section__crystal-dot" aria-hidden="true" focusable="false"><use href="#{{ entry.cxToken }}"/></svg>
+            <span class="soap-section__number">{{ entry.number }} / 07</span>
+            <span class="soap-section__center">{{ entry.center }}</span>
+          </div>
+          <h2 class="soap-section__name" id="soap-{{ entry.slug }}">{{ entry.name }}</h2>
+          <p class="soap-section__tagline">{{ entry.tagline }}</p>
+          <ul class="soap-section__oils" aria-label="Aceites esenciales">
+            {% for oil in entry.oils %}
+            <li>
+              <span class="soap-section__oil-common">{{ oil.common }}</span>
+              <span class="soap-section__oil-inci" lang="la">{{ oil.inci }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+          <div class="soap-section__actions">
+            <a href="/coleccion/{{ entry.slug }}/" class="btn-ghost">Ver producto <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="soap-section__divider" aria-hidden="true"></div>
+    </section>
+    {% endfor %}
 
 
 {% block schema %}
@@ -149,13 +88,13 @@ description: "aum. — La Colección. Siete jabones botánicos, cada uno inspira
   "description": "Siete jabones botánicos artesanales, cada uno inspirado en un centro de energía del cuerpo.",
   "numberOfItems": 7,
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "url": "{{ site.url }}/coleccion/jaspe-brechado/", "name": "Jabón de Jaspe Brechado" },
-    { "@type": "ListItem", "position": 2, "url": "{{ site.url }}/coleccion/cornalina/", "name": "Jabón de Cornalina" },
-    { "@type": "ListItem", "position": 3, "url": "{{ site.url }}/coleccion/citrino/", "name": "Jabón de Citrino" },
+    { "@type": "ListItem", "position": 1, "url": "{{ site.url }}/coleccion/cuarzo-transparente/", "name": "Jabón de Cuarzo Transparente" },
+    { "@type": "ListItem", "position": 2, "url": "{{ site.url }}/coleccion/amatista/", "name": "Jabón de Amatista" },
+    { "@type": "ListItem", "position": 3, "url": "{{ site.url }}/coleccion/sodalita/", "name": "Jabón de Sodalita" },
     { "@type": "ListItem", "position": 4, "url": "{{ site.url }}/coleccion/aventurina/", "name": "Jabón de Aventurina" },
-    { "@type": "ListItem", "position": 5, "url": "{{ site.url }}/coleccion/sodalita/", "name": "Jabón de Sodalita" },
-    { "@type": "ListItem", "position": 6, "url": "{{ site.url }}/coleccion/amatista/", "name": "Jabón de Amatista" },
-    { "@type": "ListItem", "position": 7, "url": "{{ site.url }}/coleccion/cuarzo-transparente/", "name": "Jabón de Cuarzo Transparente" }
+    { "@type": "ListItem", "position": 5, "url": "{{ site.url }}/coleccion/citrino/", "name": "Jabón de Citrino" },
+    { "@type": "ListItem", "position": 6, "url": "{{ site.url }}/coleccion/cornalina/", "name": "Jabón de Cornalina" },
+    { "@type": "ListItem", "position": 7, "url": "{{ site.url }}/coleccion/jaspe-brechado/", "name": "Jabón de Jaspe Brechado" }
   ]
 }
 </script>

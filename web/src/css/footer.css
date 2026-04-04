@@ -84,15 +84,16 @@
   align-items: center;
   gap: 10px;
   padding: 10px 22px;
-  border: 1px solid rgba(201, 173, 136, 0.40);
+  background: #2C1810;
+  color: #FAF7F1;
+  border: 1px solid #2C1810;
   font-family: var(--ff-body);
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--c-dark-text);
-  transition: border-color 0.3s, opacity 0.3s;
+  transition: opacity 0.3s;
 }
-.footer__wa:hover { border-color: var(--c-accent); opacity: 0.8; }
+.footer__wa:hover { opacity: 0.85; }
 .footer__wa:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 4px; }
 
 /* ── Flat link row ── */
@@ -121,6 +122,14 @@
   pointer-events: none;
   line-height: 1;
 }
+
+/* ── Spectrum bar ── */
+.footer__spectrum {
+  display: flex;
+  height: 2px;
+  margin: 16px 0;
+}
+.footer__spectrum span { flex: 1; }
 
 /* ── Bottom bar ── */
 .footer--editorial .footer__bottom {

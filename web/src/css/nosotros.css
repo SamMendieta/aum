@@ -4,6 +4,7 @@
 
 /* ── Nosotros hero (full-viewport with text overlay) ── */
 .nosotros-hero {
+  background-color: var(--c-dark);
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -24,7 +25,7 @@
   object-position: center 30%;
   display: block;
 }
-/* Gradient only darkens the lower portion where text sits */
+/* Gradient darkens the lower portion where text sits */
 .nosotros-hero__bg::after {
   content: '';
   position: absolute;

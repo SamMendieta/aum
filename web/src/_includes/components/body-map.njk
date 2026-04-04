@@ -1,0 +1,99 @@
+{# body-map.njk — Energy Center Body Map
+   Requires: crystal-symbols.njk included on the page
+   Accepts: variant = "light" (Pearl bg) or "dark" (Black Forest bg)
+#}
+{% set variant = variant or "light" %}
+<div class="body-map body-map--{{ variant }}" role="img" aria-label="Los siete centros de energia y sus jabones correspondientes">
+  <div class="body-map__figure">
+    {# Editorial seated meditation silhouette — continuous line drawing style #}
+    <svg class="body-map__silhouette" viewBox="0 0 300 520" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      {# Single continuous-line silhouette: refined, flowing, editorial #}
+      <path d="
+        M 150 52
+        C 150 52, 131 52, 126 40
+        C 121 28, 125 12, 138 6
+        C 145 3, 155 3, 162 6
+        C 175 12, 179 28, 174 40
+        C 169 52, 150 52, 150 52
+
+        M 150 52
+        C 150 58, 148 68, 147 75
+        C 146 82, 144 88, 142 92
+
+        C 140 96, 130 100, 118 106
+        C 106 112, 90 122, 78 134
+        C 66 146, 58 160, 54 176
+        C 50 192, 52 206, 58 218
+        C 64 230, 74 238, 86 244
+        C 98 250, 112 254, 126 258
+        C 134 260, 142 262, 148 264
+
+        M 150 52
+        C 150 58, 152 68, 153 75
+        C 154 82, 156 88, 158 92
+
+        C 160 96, 170 100, 182 106
+        C 194 112, 210 122, 222 134
+        C 234 146, 242 160, 246 176
+        C 250 192, 248 206, 242 218
+        C 236 230, 226 238, 214 244
+        C 202 250, 188 254, 174 258
+        C 166 260, 158 262, 152 264
+
+        M 148 264
+        C 144 266, 148 268, 150 268
+        C 152 268, 156 266, 152 264
+
+        M 150 92
+        L 150 270
+
+        M 142 92
+        C 138 94, 132 98, 128 102
+        C 120 112, 108 128, 100 144
+        C 92 160, 88 176, 86 188
+        C 84 200, 80 212, 74 224
+        C 68 240, 58 254, 46 266
+        C 34 278, 28 290, 30 302
+        C 32 314, 40 322, 54 326
+        C 68 330, 84 328, 100 322
+        C 116 316, 130 308, 140 298
+        C 146 292, 148 286, 150 280
+
+        M 158 92
+        C 162 94, 168 98, 172 102
+        C 180 112, 192 128, 200 144
+        C 208 160, 212 176, 214 188
+        C 216 200, 220 212, 226 224
+        C 232 240, 242 254, 254 266
+        C 266 278, 272 290, 270 302
+        C 268 314, 260 322, 246 326
+        C 232 330, 216 328, 200 322
+        C 184 316, 170 308, 160 298
+        C 154 292, 152 286, 150 280
+      " stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+
+    {# 7 crystal points positioned along the spine #}
+    {% set points = [
+      { id: "cx-quartz", y: "32", center: "Corona", name: "Cuarzo Transparente", num: "01", slug: "cuarzo-transparente", cx: "var(--cx-quartz)" },
+      { id: "cx-amethyst", y: "68", center: "Tercer Ojo", name: "Amatista", num: "02", slug: "amatista", cx: "var(--cx-amethyst)" },
+      { id: "cx-sodalite", y: "100", center: "Garganta", name: "Sodalita", num: "03", slug: "sodalita", cx: "var(--cx-sodalite)" },
+      { id: "cx-aventurine", y: "148", center: "Corazon", name: "Aventurina", num: "04", slug: "aventurina", cx: "var(--cx-aventurine)" },
+      { id: "cx-citrine", y: "192", center: "Plexo Solar", name: "Citrino", num: "05", slug: "citrino", cx: "var(--cx-citrine)" },
+      { id: "cx-carnelian", y: "232", center: "Sacro", name: "Cornalina", num: "06", slug: "cornalina", cx: "var(--cx-carnelian)" },
+      { id: "cx-jasper", y: "272", center: "Raiz", name: "Jaspe Brechado", num: "07", slug: "jaspe-brechado", cx: "var(--cx-jasper)" }
+    ] %}
+
+    {% for p in points %}
+    <a href="/coleccion/{{ p.slug }}/" class="body-map__point" style="--point-y: {{ p.y }}px; --cx-point: {{ p.cx }}" aria-label="{{ p.name }} — Centro {{ p.center }}">
+      <svg class="body-map__crystal" aria-hidden="true"><use href="#{{ p.id }}"/></svg>
+      <span class="body-map__line" aria-hidden="true"></span>
+      <span class="body-map__label">
+        <span class="body-map__num">{{ p.num }}</span>
+        <span class="body-map__name">{{ p.name }}</span>
+        <span class="body-map__center">Centro {{ p.center }}</span>
+      </span>
+    </a>
+    {% endfor %}
+  </div>
+</div>

@@ -194,7 +194,7 @@ a, button, [role="button"], input, select, textarea {
     right: 20px;
     width: 52px;
     height: 52px;
-    background: var(--c-dark);
+    background: #2C1810;
     color: #FAF7F1;
     border-radius: 50%;
     z-index: 900;

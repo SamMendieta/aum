@@ -1,0 +1,13 @@
+/*
+!/.gitignore
+!/web
+!/web/**
+!/revista
+!/revista/**
+!/docs
+!/docs/**
+
+# Build artifacts and deps in all subprojects
+**/node_modules/
+**/_site/
+**/.cache/

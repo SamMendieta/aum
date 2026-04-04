@@ -1,0 +1,143 @@
+/* body-map.css — Energy Center Body Map */
+
+.body-map {
+  padding: var(--gap-section, 96px) var(--gap-container, 80px);
+  display: flex;
+  justify-content: center;
+}
+
+.body-map__figure {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0;
+  align-items: start;
+}
+
+/* Silhouette */
+.body-map__silhouette {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  width: 100%;
+  height: auto;
+  color: var(--c-secondary);
+}
+.body-map--dark .body-map__silhouette {
+  color: var(--c-gold, var(--c-dark-sub));
+  opacity: 0.3;
+}
+
+/* Crystal points — positioned absolutely over the silhouette */
+.body-map__point {
+  position: absolute;
+  left: 90px;
+  top: var(--point-y);
+  display: flex;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+  transform: translateY(-50%);
+}
+
+.body-map__crystal {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  display: block;
+  overflow: visible;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+.body-map__point:hover .body-map__crystal {
+  transform: scale(1.15);
+}
+
+/* Connecting line from crystal to label */
+.body-map__line {
+  display: block;
+  width: clamp(40px, 6vw, 80px);
+  height: 1px;
+  background: var(--c-accent);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+.body-map--dark .body-map__line {
+  background: var(--c-gold, var(--c-dark-sub));
+  opacity: 0.3;
+}
+
+/* Labels */
+.body-map__label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 12px;
+}
+
+.body-map__num {
+  font-family: var(--ff-body, var(--f-body));
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-gold, var(--c-dark-sub));
+}
+.body-map--light .body-map__num { color: var(--c-accent); }
+
+.body-map__name {
+  font-family: var(--ff-display, var(--f-display));
+  font-weight: 400;
+  font-size: clamp(13px, 1.5vw, 16px);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--c-text);
+}
+.body-map--dark .body-map__name { color: var(--c-dark-text, var(--c-dtext)); }
+
+.body-map__center {
+  font-family: var(--ff-body, var(--f-body));
+  font-size: 11px;
+  color: var(--c-secondary);
+}
+.body-map--dark .body-map__center { color: var(--c-gold, var(--c-dark-sub)); }
+
+/* Hover interaction */
+.body-map__point:hover .body-map__name {
+  color: var(--cx-point);
+}
+
+/* Mobile: labels stack below the figure */
+@media (max-width: 768px) {
+  .body-map {
+    padding: var(--gap-section-sm, 64px) var(--gap-container-sm, 24px);
+  }
+  .body-map__figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+  }
+  .body-map__silhouette {
+    width: 160px;
+    margin-bottom: 32px;
+  }
+  .body-map__point {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    flex-direction: row;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--c-rule);
+    width: 100%;
+  }
+  .body-map__line { display: none; }
+  .body-map__label { padding-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .body-map__crystal { transition: none; }
+}
