@@ -5,10 +5,7 @@
 
 /* ── Breadcrumb ── */
 .breadcrumb {
-  position: absolute;
-  top: calc(var(--nav-h) + 16px);
-  left: clamp(1.5rem, 4vw, 3.5rem);
-  z-index: 10;
+  display: none;
 }
 .breadcrumb__list {
   display: flex;
