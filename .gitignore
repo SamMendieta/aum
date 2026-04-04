@@ -2,12 +2,10 @@
 !/.gitignore
 !/web
 !/web/**
-!/revista
-!/revista/**
 !/docs
 !/docs/**
 
-# Build artifacts and deps in all subprojects
+# Build artifacts and deps
 **/node_modules/
 **/_site/
 **/.cache/
