@@ -82,7 +82,7 @@
   background-color: var(--c-bg);
   border-bottom: 1px solid var(--c-rule);
   transition: top 0.4s var(--ease-quart);
-  margin-left: 55%;
+  margin-left: calc(55% + 3px);
 }
 body:has(#nav.scrolled) .soap-nav { top: var(--nav-h-sm); }
 body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
