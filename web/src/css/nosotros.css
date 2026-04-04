@@ -237,7 +237,7 @@
 .fact__label { font-family: var(--ff-body); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: color-mix(in srgb, var(--c-accent) 80%, transparent); }
 /* Full-bleed panorama — breaks out of inner container */
 .produccion__image { width: 100%; aspect-ratio: 16 / 6; overflow: hidden; }
-.produccion__image img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+.produccion__image img { width: 100%; height: 100%; object-fit: cover; object-position: center 75%; }
 
 /* ── La Fórmula ── */
 /* Horizontal padding comes from .wrap inside — section only needs vertical padding */
@@ -284,7 +284,7 @@
 .inci-name { font-family: var(--ff-body); font-size: 13px; letter-spacing: 0.03em; color: var(--c-text); flex-shrink: 0; }
 .inci-sci { font-family: var(--ff-body); font-size: 10px; font-style: italic; letter-spacing: 0.04em; color: var(--c-secondary); text-align: right; margin-left: auto; word-break: break-word; hyphens: auto; }
 .formula__image { aspect-ratio: 3 / 4; overflow: hidden; }
-.formula__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--ease-quart); }
+.formula__image img { width: 100%; height: 100%; object-fit: cover; object-position: center 80%; transition: transform 0.9s var(--ease-quart); }
 .formula__image:hover img { transform: scale(1.02); }
 
 /* ── Cierre ── */
