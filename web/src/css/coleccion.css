@@ -339,10 +339,10 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   }
   .soap-section__crystal-bar { display: none; }
   .soap-section__bg-num {
-    font-size: clamp(80px, 22vw, 120px);
-    top: 16px; right: 16px;
-    transform: none;
-    opacity: 0.05;
+    font-size: clamp(140px, 35vw, 200px);
+    top: 50%; right: 0;
+    transform: translateY(-50%);
+    opacity: 0.06;
   }
   .soap-section__name { font-size: clamp(24px, 6vw, 32px); }
   .soap-section__tagline { margin-bottom: 12px; font-size: 13px; }
