@@ -125,7 +125,6 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   display: grid;
   grid-template-columns: 55fr 45fr;
   height: 100%;
-  overflow: hidden;
 }
 
 .soap-section__image {
@@ -149,7 +148,6 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   flex-direction: column;
   justify-content: center;
   position: relative;
-  overflow: hidden;
 }
 
 /* Crystal accent bar — full height left edge */
@@ -160,18 +158,20 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   background: var(--cx);
 }
 
-/* Background number — large faded */
+/* Background number — editorial oversized */
 .soap-section__bg-num {
   position: absolute;
-  top: -0.1em; right: clamp(16px, 3vw, 48px);
+  top: 50%; right: 5%;
+  transform: translateY(-50%);
   font-family: var(--ff-display); font-weight: 400;
-  font-size: clamp(100px, 14vw, 160px);
-  line-height: 1; letter-spacing: -0.04em;
+  font-size: clamp(200px, 28vw, 380px);
+  line-height: 0.8; letter-spacing: -0.04em;
   color: var(--cx, var(--c-accent));
-  opacity: 0.04;
+  opacity: 0.07;
   pointer-events: none; user-select: none;
+  transition: opacity 0.5s var(--ease-quart);
 }
-.soap-section:hover .soap-section__bg-num { opacity: 0.07; }
+.soap-section:hover .soap-section__bg-num { opacity: 0.10; }
 
 /* Identity block — meta + name + tagline */
 .soap-section__identity {
