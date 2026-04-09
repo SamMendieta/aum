@@ -39,6 +39,7 @@ eleventyComputed:
         Pedir por WhatsApp
       </a>
       <p class="hero__price">{{ site.price }}</p>
+      <p class="hero__payments">Nequi &nbsp;·&nbsp; Llaves (Bancolombia)</p>
     </div>
   </section>
 
@@ -75,7 +76,10 @@ eleventyComputed:
     <hr class="sec__rule">
     <div class="narr rv">
       <p class="narr__pull">{{ soap.pullQuote }}</p>
-      <p class="narr__body">{{ soap.narrative }}</p>
+      {%- set narrativeParas = soap.narrative.split('\n\n') %}
+      {%- for para in narrativeParas %}
+      <p class="narr__body">{{ para }}</p>
+      {%- endfor %}
     </div>
   </section>
 
@@ -122,6 +126,19 @@ eleventyComputed:
       </div>
     </div>
   </section>
+
+  {% if soap.reflection %}
+  <section class="sec sec--reflection" aria-label="Reflexión — {{ soap.center }}">
+    <h2 class="sec__label">{{ soap.center }}</h2>
+    <hr class="sec__rule">
+    <div class="reflection rv">
+      {%- set reflectionParas = soap.reflection.split('\n\n') %}
+      {%- for para in reflectionParas %}
+      <p class="reflection__{% if loop.last %}question{% else %}body{% endif %}">{{ para }}</p>
+      {%- endfor %}
+    </div>
+  </section>
+  {% endif %}
 
   <div class="certs" aria-label="Certificaciones">
     <div class="cert"><svg class="cert__icon"><use href="#icon-leaf"/></svg><span>100% Natural</span></div>
