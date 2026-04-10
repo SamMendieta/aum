@@ -26,6 +26,7 @@
     "@11ty/eleventy-img": "^6.0.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
     "playwright-core": "^1.59.1"
   }
 }
