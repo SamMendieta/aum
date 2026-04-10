@@ -321,6 +321,9 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 .btn-text-link:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 4px; }
 
 /* ── Responsive ── */
+@media (max-width: 1366px) {
+  .page-header__title { font-size: clamp(44px, 7vw, 84px); }
+}
 @media (max-width: 1024px) {
   .page-header__inner { grid-template-columns: 1fr; gap: 36px; }
   .page-header__desc { max-width: 100%; }
@@ -357,6 +360,16 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   .btn-wa-cta { padding: 10px 20px; }
   .soap-nav { margin-left: 0; }
   .soap-nav__item { min-height: 44px; font-size: 9px; padding: 14px 16px; }
+}
+
+@media (max-height: 768px) and (min-width: 769px) {
+  .soap-section {
+    height: auto;
+    min-height: 100svh;
+  }
+  .soap-section__content {
+    padding-bottom: clamp(24px, 4vh, 48px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
