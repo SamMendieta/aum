@@ -190,8 +190,8 @@ a, button, [role="button"], input, select, textarea {
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: calc(24px + var(--safe-bottom, 0px));
+    right: calc(24px + var(--safe-right, 0px));
     width: 52px;
     height: 52px;
     background: #2C1810;
@@ -208,7 +208,20 @@ a, button, [role="button"], input, select, textarea {
 }
 
 @supports (padding: env(safe-area-inset-bottom)) {
-  .wa-sticky { bottom: calc(20px + env(safe-area-inset-bottom)); }
+  .wa-sticky { bottom: calc(24px + env(safe-area-inset-bottom)); }
   .nav__drawer { padding-bottom: env(safe-area-inset-bottom); }
   .footer { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+/* ── Ultra-narrow viewport (< 320px) guard ── */
+@media (max-width: 320px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+}
+
+/* ── Viewport-fit for iOS safe areas ── */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-left: var(--safe-left, 0px);
+    padding-right: var(--safe-right, 0px);
+  }
 }

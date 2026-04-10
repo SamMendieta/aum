@@ -59,4 +59,25 @@
   --ease:       cubic-bezier(0.16, 1, 0.3, 1);
   --ease-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── Breakpoint reference (documentation only — CSS can't use vars in @media) ──
+     320px  — ultra-narrow (Galaxy Fold, iPhone SE 1st gen)
+     480px  — small mobile (stacked CTAs, single column)
+     768px  — mobile (nav collapses, grids go 1-2 col)
+     1024px — tablet (grids simplify, images go 16:9)
+     1366px — small laptop / MacBook Air 11" / common Windows (grids tighten)
+     1440px — standard laptop / MacBook Air 13"
+     1920px — full HD desktop
+     ---
+     Height queries (for vh-constrained sections):
+     max-height: 768px and min-width: 769px — short laptop (MacBook Air 11", iPad landscape)
+     ---
+     WCAG: 1440px at 200% zoom = 720px effective viewport. Must be usable.
+  */
+
+  /* ── Safe area tokens (for iOS notch / Android nav bar) ── */
+  --safe-top:    env(safe-area-inset-top, 0px);
+  --safe-right:  env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left:   env(safe-area-inset-left, 0px);
 }

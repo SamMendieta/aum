@@ -36,7 +36,7 @@
 
 /* System B/C: editorial pages — transparent hero, scrolls to solid */
 .nav--editorial {
-  padding: 28px var(--gap-container);
+  padding: calc(28px + var(--safe-top, 0px)) var(--gap-container) 28px;
   background-color: transparent;
 }
 
