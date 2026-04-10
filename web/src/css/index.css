@@ -208,7 +208,7 @@
 /* Soap grid — 7-column desktop */
 .soaps {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   border: 1px solid var(--c-rule);
   border-right: none;
   border-bottom: none;
@@ -457,7 +457,6 @@
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .soaps { grid-template-columns: repeat(4, 1fr); }
   .origen__inner { grid-template-columns: 1fr 1fr; gap: 40px; }
   .origen__photo { display: none; }
   .origen__body { max-width: 100%; }
@@ -470,7 +469,6 @@
   .pillar:last-child:nth-child(odd) { border-right: none; border-bottom: none; }
   .coleccion__header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .coleccion__intro { text-align: left; max-width: 100%; }
-  .soaps { grid-template-columns: repeat(2, 1fr); }
   .journal__grid { grid-template-columns: 1fr; }
   .formula { grid-template-columns: 1fr; }
   .formula__visual { aspect-ratio: 4 / 3; }
@@ -478,7 +476,14 @@
   /* btn-ghost min-height now in base.css */
 }
 @media (max-width: 480px) {
-  .soaps { grid-template-columns: 1fr; }
   .hero__actions { flex-direction: column; align-items: flex-start; gap: 20px; }
   .inci-list .inci { min-width: 0; width: 50%; }
+}
+
+@media (max-height: 768px) and (min-width: 769px) {
+  .hero {
+    min-height: auto;
+    padding-top: var(--nav-h-ed);
+    padding-bottom: clamp(48px, 8vh, 96px);
+  }
 }
