@@ -5,7 +5,18 @@
   "type": "module",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "screenshot": "node scripts/screenshot.mjs",
+    "screenshot:andrea": "node scripts/screenshot.mjs --preset andrea",
+    "screenshot:full": "node scripts/screenshot.mjs --preset full",
+    "audit": "node scripts/responsive-audit.mjs",
+    "audit:sweep": "node scripts/responsive-audit.mjs --sweep",
+    "audit:andrea": "node scripts/responsive-audit.mjs --preset andrea",
+    "audit:platforms": "node scripts/responsive-audit.mjs --preset platforms",
+    "test:responsive": "npx playwright test responsive",
+    "test:visual": "npx playwright test visual-regression",
+    "test:all": "npx playwright test",
+    "test:update-goldens": "npx playwright test visual-regression --update-snapshots"
   },
   "keywords": [],
   "author": "aum.",
