@@ -1,35 +1,28 @@
 /**
- * aum. Design Guardian — Screenshot Utility
+ * aum. Design Guardian — Screenshot Utility (v2)
  *
- * Captures full-page screenshots of aum. site pages at desktop and mobile viewports.
- * Uses Brave browser via playwright-core (no bundled Chromium needed).
+ * Captures full-page screenshots using Playwright device descriptors.
+ * Supports all 143 Playwright devices + custom laptop/desktop viewports.
  *
  * Usage:
- *   node scripts/screenshot.mjs                          # All pages, saves to .screenshots/
- *   node scripts/screenshot.mjs --pages index,coleccion  # Specific pages only
- *   node scripts/screenshot.mjs --label baseline         # Custom subfolder: .screenshots/baseline/
- *   node scripts/screenshot.mjs --label after             # Custom subfolder: .screenshots/after/
- *   node scripts/screenshot.mjs --port 8081              # Custom dev server port
- *
- * Expects Eleventy dev server running on localhost (default port 8080).
+ *   node scripts/screenshot.mjs --label baseline                              # Quick preset
+ *   node scripts/screenshot.mjs --label baseline --preset andrea              # Andrea's devices
+ *   node scripts/screenshot.mjs --label baseline --preset breakpoints         # All breakpoint zones
+ *   node scripts/screenshot.mjs --label baseline --preset full                # 15 viewports
+ *   node scripts/screenshot.mjs --label baseline --device "iPhone 15 Pro"     # Specific Playwright device
+ *   node scripts/screenshot.mjs --label baseline --pages index,coleccion      # Specific pages
  */
 
 import { chromium } from 'playwright-core';
-import { mkdirSync, existsSync } from 'fs';
+import { mkdirSync } from 'fs';
 import { resolve, join } from 'path';
 import { fileURLToPath } from 'url';
+import { resolveDevices, PRESET_NAMES } from './viewports.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const PROJECT_ROOT = resolve(__dirname, '..');
 
-// --- Config ---
-
 const BRAVE_PATH = 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe';
-
-const VIEWPORTS = {
-  desktop: { width: 1280, height: 800 },
-  mobile: { width: 375, height: 812 },
-};
 
 const ALL_PAGES = {
   index: '/',
@@ -45,81 +38,78 @@ const ALL_PAGES = {
   'jaspe-brechado': '/soaps/jaspe-brechado/',
 };
 
-// --- Parse CLI args ---
-
 function parseArgs(argv) {
-  const args = { pages: null, label: 'capture', port: 8080 };
+  const args = { pages: null, label: 'capture', port: 8080, preset: null, device: null };
   for (let i = 2; i < argv.length; i++) {
-    if (argv[i] === '--pages' && argv[i + 1]) {
-      args.pages = argv[++i].split(',').map(p => p.trim());
-    } else if (argv[i] === '--label' && argv[i + 1]) {
-      args.label = argv[++i];
-    } else if (argv[i] === '--port' && argv[i + 1]) {
-      args.port = parseInt(argv[++i], 10);
-    }
+    if (argv[i] === '--pages' && argv[i + 1]) args.pages = argv[++i].split(',').map(p => p.trim());
+    else if (argv[i] === '--label' && argv[i + 1]) args.label = argv[++i];
+    else if (argv[i] === '--port' && argv[i + 1]) args.port = parseInt(argv[++i], 10);
+    else if (argv[i] === '--preset' && argv[i + 1]) args.preset = argv[++i];
+    else if (argv[i] === '--device' && argv[i + 1]) args.device = argv[++i];
   }
   return args;
 }
 
-// --- Main ---
-
 async function captureScreenshots() {
-  const { pages, label, port } = parseArgs(process.argv);
+  const { pages, label, port, preset, device: deviceArg } = parseArgs(process.argv);
   const baseUrl = `http://localhost:${port}`;
   const outDir = join(PROJECT_ROOT, '.screenshots', label);
 
-  // Determine which pages to capture
+  const input = deviceArg || preset || 'quick';
+  const deviceList = resolveDevices(input);
+
   const targetPages = pages
-    ? Object.fromEntries(
-        Object.entries(ALL_PAGES).filter(([key]) => pages.includes(key))
-      )
+    ? Object.fromEntries(Object.entries(ALL_PAGES).filter(([key]) => pages.includes(key)))
     : ALL_PAGES;
 
   if (Object.keys(targetPages).length === 0) {
-    console.error('No matching pages found. Available:', Object.keys(ALL_PAGES).join(', '));
+    console.error('No matching pages. Available:', Object.keys(ALL_PAGES).join(', '));
     process.exit(1);
   }
 
-  // Ensure output directory
   mkdirSync(outDir, { recursive: true });
 
   console.log(`\n  aum. Screenshot Capture`);
-  console.log(`  Label:  ${label}`);
-  console.log(`  Pages:  ${Object.keys(targetPages).join(', ')}`);
-  console.log(`  Output: ${outDir}\n`);
+  console.log(`  Label:   ${label}`);
+  console.log(`  Devices: ${deviceList.map(([n]) => n).join(', ')}`);
+  console.log(`  Pages:   ${Object.keys(targetPages).join(', ')}`);
+  console.log(`  Output:  ${outDir}\n`);
 
   let browser;
   try {
-    browser = await chromium.launch({
-      executablePath: BRAVE_PATH,
-      headless: true,
-    });
+    browser = await chromium.launch({ executablePath: BRAVE_PATH, headless: true });
+    let count = 0;
 
-    const context = await browser.newContext();
-    const page = await context.newPage();
+    for (const [deviceName, device] of deviceList) {
+      const context = await browser.newContext({
+        viewport: device.viewport,
+        deviceScaleFactor: device.deviceScaleFactor || 1,
+        isMobile: device.isMobile || false,
+        hasTouch: device.hasTouch || false,
+      });
+      const page = await context.newPage();
 
-    for (const [name, path] of Object.entries(targetPages)) {
-      const url = `${baseUrl}${path}`;
+      const safeDeviceName = deviceName.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase();
 
-      for (const [viewport, size] of Object.entries(VIEWPORTS)) {
-        await page.setViewportSize(size);
-        await page.goto(url, { waitUntil: 'networkidle', timeout: 15000 });
-
-        // Wait for reveal animations to complete
+      for (const [name, path] of Object.entries(targetPages)) {
+        await page.goto(`${baseUrl}${path}`, { waitUntil: 'networkidle', timeout: 15000 });
         await page.waitForTimeout(1200);
 
-        const filename = `${name}-${viewport}.png`;
+        const filename = `${name}-${safeDeviceName}.png`;
         const filepath = join(outDir, filename);
         await page.screenshot({ path: filepath, fullPage: true });
 
-        console.log(`  ✓ ${filename}`);
+        console.log(`  + ${filename} (${device.viewport.width}x${device.viewport.height} @${device.deviceScaleFactor}x)`);
+        count++;
       }
+
+      await context.close();
     }
 
-    console.log(`\n  Done. ${Object.keys(targetPages).length * 2} screenshots saved to ${outDir}\n`);
+    console.log(`\n  Done. ${count} screenshots saved.\n`);
   } catch (err) {
-    if (err.message.includes('ECONNREFUSED') || err.message.includes('ERR_CONNECTION_REFUSED')) {
-      console.error('\n  Error: Dev server not running. Start it first:\n    cd aum/web && npm start\n');
+    if (err.message.includes('ECONNREFUSED')) {
+      console.error('\n  Dev server not running. Start first:\n    cd aum/web && npm start\n');
     } else {
       console.error('\n  Error:', err.message, '\n');
     }
