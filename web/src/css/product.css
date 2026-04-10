@@ -423,6 +423,16 @@
 .pnav__mid { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-secondary); padding: 1.5rem; transition: color 0.25s; }
 .pnav__mid:hover { color: var(--c-text); }
 
+@media (max-width: 1366px) {
+  .hero { grid-template-columns: 55fr 45fr; }
+}
+@media (max-height: 768px) and (min-width: 769px) {
+  .hero {
+    height: auto;
+    min-height: calc(100svh - var(--nav-h));
+  }
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .hero { grid-template-columns: 1fr; height: auto; min-height: 0; }
