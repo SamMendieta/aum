@@ -19,7 +19,6 @@
 .footer__logo {
   display: inline-flex;
   align-items: center;
-  min-height: var(--touch-min);
 }
 .footer__logo svg {
   height: 20px;
@@ -156,11 +155,11 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 1080px) {
+@media (max-width: 768px) {
   .footer__inner { grid-template-columns: 1fr 1fr; }
   .footer__top { flex-direction: column; align-items: flex-start; }
-  .footer__wa { min-height: var(--touch-min); }
-  .footer__link { padding: 12px 0; min-height: var(--touch-min); display: inline-flex; align-items: center; }
+  .footer__wa { min-height: 44px; }
+  .footer__link { padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center; }
   .footer { padding-bottom: calc(48px + var(--safe-bottom, 0px)); }
 }
 @media (max-width: 480px) {

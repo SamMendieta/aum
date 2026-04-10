@@ -44,9 +44,6 @@
   --mw:  1280px;   /* used by product pages */
   --max-w: 1280px; /* used by non-product pages */
 
-  /* ── Accessibility tokens ── */
-  --touch-min: 44px;              /* WCAG 2.5.5 minimum touch target */
-
   /* ── Nav height tokens (measured from live DOM — nav.css padding 28px × 2 + nav__links 26px) ──
      Both product and editorial navs measure 82px: 28 + 26 (nav__links) + 28 = 82px.
      Scrolled state: 16 + 26 + 16 = 58px.

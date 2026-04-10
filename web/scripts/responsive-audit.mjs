@@ -120,24 +120,9 @@ async function checkHorizontalOverflow(page) {
   return page.evaluate(() => {
     const vw = document.documentElement.clientWidth;
     const issues = [];
-    // Check if element is visually clipped by an ancestor with overflow containment
-    function isClippedByAncestor(el) {
-      let parent = el.parentElement;
-      while (parent && parent !== document.body) {
-        const style = getComputedStyle(parent);
-        const ov = style.overflow;
-        const ovx = style.overflowX;
-        if (ov === 'hidden' || ov === 'clip' || ovx === 'hidden' || ovx === 'clip' || ovx === 'auto' || ovx === 'scroll') {
-          const parentRect = parent.getBoundingClientRect();
-          if (parentRect.right <= vw + 1) return true;
-        }
-        parent = parent.parentElement;
-      }
-      return false;
-    }
     for (const el of document.querySelectorAll('body *')) {
       const rect = el.getBoundingClientRect();
-      if (rect.right > vw + 1 && !isClippedByAncestor(el)) {
+      if (rect.right > vw + 1) {
         const selector = el.tagName.toLowerCase() +
           (el.className && typeof el.className === 'string' ? '.' + [...el.classList].join('.') : '') +
           (el.id ? '#' + el.id : '');

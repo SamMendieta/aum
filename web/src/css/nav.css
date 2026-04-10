@@ -61,7 +61,6 @@
 .nav__logo {
   display: inline-flex;
   align-items: center;
-  min-height: var(--touch-min);
   transition: color 0.5s var(--ease-quart), opacity 0.25s;
 }
 .nav__logo svg {
@@ -92,9 +91,6 @@
   text-transform: uppercase;
   color: var(--c-secondary);
   transition: color 0.25s;
-  min-height: var(--touch-min);
-  display: inline-flex;
-  align-items: center;
 }
 .nav__link:hover { color: var(--c-text); }
 /* Editorial link style */
@@ -105,9 +101,6 @@
   text-transform: uppercase;
   color: rgba(245, 240, 232, 0.75);
   transition: color 0.5s var(--ease-quart);
-  min-height: var(--touch-min);
-  display: inline-flex;
-  align-items: center;
 }
 .nav__links a[aria-current="page"],
 .nav__links a:hover { color: #F5F0E8; }
