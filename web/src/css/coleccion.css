@@ -83,6 +83,7 @@
   border-bottom: 1px solid var(--c-rule);
   transition: top 0.4s var(--ease-quart);
   margin-left: calc(55% + 3px);
+  overflow: hidden;
 }
 body:has(#nav.scrolled) .soap-nav { top: var(--nav-h-sm); }
 body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
@@ -96,6 +97,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   display: flex; align-items: center; justify-content: center;
   gap: 6px;
   padding: 10px 4px;
+  min-height: var(--touch-min);
   border-right: 1px solid var(--c-rule);
   font-family: var(--ff-body); font-size: 8px;
   letter-spacing: 0.12em; text-transform: uppercase;
@@ -294,6 +296,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 .btn-wa-cta {
   display: inline-flex; align-items: center;
   padding: 12px 24px;
+  min-height: var(--touch-min);
   background: #2C1810; color: #FAF7F1;
   border: 1px solid #2C1810;
   font-family: var(--ff-body); font-size: 10px;
@@ -359,7 +362,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   .soap-section__actions { gap: 12px; }
   .btn-wa-cta { padding: 10px 20px; }
   .soap-nav { margin-left: 0; }
-  .soap-nav__item { min-height: 44px; font-size: 9px; padding: 14px 16px; }
+  .soap-nav__item { min-height: var(--touch-min); font-size: 9px; padding: 14px 16px; flex: 0 0 auto; white-space: nowrap; }
 }
 
 @media (max-height: 768px) and (min-width: 769px) {

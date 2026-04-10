@@ -88,6 +88,7 @@ a, button, [role="button"], input, select, textarea {
   align-items: center;
   gap: 12px;
   padding: 14px 28px;
+  min-height: var(--touch-min);
   border: 1px solid var(--c-text);
   font-family: var(--ff-body);
   font-size: 10px;
@@ -107,6 +108,7 @@ a, button, [role="button"], input, select, textarea {
   align-items: center;
   gap: 12px;
   padding: 14px 28px;
+  min-height: var(--touch-min);
   border: 1px solid rgba(201, 173, 136, 0.40);
   font-family: var(--ff-body);
   font-size: 10px;
@@ -122,7 +124,7 @@ a, button, [role="button"], input, select, textarea {
 
 @media (max-width: 768px) {
   .btn-ghost,
-  .btn-ghost--dark { min-height: 44px; justify-content: center; }
+  .btn-ghost--dark { justify-content: center; }
 }
 
 /* ── 404 Page ── */
@@ -164,6 +166,9 @@ a, button, [role="button"], input, select, textarea {
   border-bottom: 1px solid var(--c-accent);
   padding-bottom: 2px;
   transition: opacity 0.3s;
+  min-height: var(--touch-min);
+  display: inline-flex;
+  align-items: center;
 }
 .error-page__link:hover { opacity: 0.7; }
 

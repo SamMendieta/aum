@@ -126,6 +126,9 @@
   color: rgba(245, 240, 232, 0.65);
   transition: color 0.3s;
   white-space: nowrap;
+  min-height: var(--touch-min);
+  display: inline-flex;
+  align-items: center;
 }
 .btn-text:hover { color: #F5F0E8; }
 .btn-text:focus-visible { outline: 1px solid rgba(245, 240, 232, 0.5); outline-offset: 4px; }
@@ -305,6 +308,8 @@
 .formula {
   padding: var(--gap-section) var(--gap-container);
   border-top: 1px solid var(--c-rule);
+  max-width: calc(var(--max-w) + 2 * var(--gap-container));
+  margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(48px, 7vw, 100px);
