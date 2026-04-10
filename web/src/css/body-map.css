@@ -137,6 +137,17 @@
   .body-map__line { display: none; }
   .body-map__label { padding-left: 0; }
 }
+@media (max-width: 480px) {
+  .body-map__figure {
+    grid-template-columns: 140px 1fr;
+  }
+}
+@media (max-width: 360px) {
+  .body-map__figure {
+    grid-template-columns: 1fr;
+  }
+  .body-map__figure { max-width: 180px; margin: 0 auto; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .body-map__crystal { transition: none; }
