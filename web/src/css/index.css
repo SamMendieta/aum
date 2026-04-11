@@ -129,6 +129,9 @@
 }
 .btn-text:hover { color: #F5F0E8; }
 .btn-text:focus-visible { outline: 1px solid rgba(245, 240, 232, 0.5); outline-offset: 4px; }
+@media (pointer: coarse) {
+  .btn-text { min-height: 44px; display: inline-flex; align-items: center; }
+}
 /* .btn-ghost--dark inherits from base.css */
 
 /* ── Filosofía (index variant — statement + 4-col pillars) ── */

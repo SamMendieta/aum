@@ -414,12 +414,12 @@
   justify-content: space-between;
   align-items: center;
 }
-.pnav__item { display: flex; flex-direction: column; gap: 0.2rem; padding: 2rem 0; transition: opacity 0.3s; }
+.pnav__item { display: flex; flex-direction: column; gap: 0.2rem; padding: 2rem 0; transition: opacity 0.3s; min-width: 0; }
 .pnav__item:hover { opacity: 0.6; }
 .pnav__item--empty { pointer-events: none; opacity: 0; }
 .pnav__item--next { text-align: right; }
 .pnav__dir { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-secondary); }
-.pnav__name { font-family: var(--ff-display); font-weight: 400; font-size: 1.1rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--c-text); }
+.pnav__name { font-family: var(--ff-display); font-weight: 400; font-size: 1.1rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--c-text); overflow-wrap: break-word; }
 .pnav__mid { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-secondary); padding: 1.5rem; transition: color 0.25s; }
 .pnav__mid:hover { color: var(--c-text); }
 

@@ -162,6 +162,11 @@
   .footer__link { padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center; }
   .footer { padding-bottom: calc(48px + var(--safe-bottom, 0px)); }
 }
+
+/* ── Touch targets (coarse pointer only) ── */
+@media (pointer: coarse) {
+  .footer__logo { min-height: 44px; }
+}
 @media (max-width: 480px) {
   .footer__inner { grid-template-columns: 1fr; }
 }

@@ -271,3 +271,8 @@
   .nav__toggle { display: flex; }
   .nav--product .nav__toggle { display: flex; font-size: 1.3rem; }
 }
+
+/* ── Touch targets (coarse pointer only) ── */
+@media (pointer: coarse) {
+  .nav__logo { min-height: 44px; }
+}

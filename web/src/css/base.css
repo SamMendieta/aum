@@ -213,6 +213,11 @@ a, button, [role="button"], input, select, textarea {
   .footer { padding-bottom: env(safe-area-inset-bottom); }
 }
 
+/* ── Touch targets (coarse pointer only) ── */
+@media (pointer: coarse) {
+  .error-page__link { min-height: 44px; display: inline-flex; align-items: center; }
+}
+
 /* ── Ultra-narrow viewport (< 320px) guard ── */
 @media (max-width: 320px) {
   .wrap { padding-left: 16px; padding-right: 16px; }

@@ -30,13 +30,13 @@ const ALL_PAGES = {
   coleccion: '/coleccion/',
   nosotros: '/nosotros/',
   contacto: '/contacto/',
-  'cuarzo-transparente': '/soaps/cuarzo-transparente/',
-  amatista: '/soaps/amatista/',
-  sodalita: '/soaps/sodalita/',
-  aventurina: '/soaps/aventurina/',
-  citrino: '/soaps/citrino/',
-  cornalina: '/soaps/cornalina/',
-  'jaspe-brechado': '/soaps/jaspe-brechado/',
+  'cuarzo-transparente': '/coleccion/cuarzo-transparente/',
+  amatista: '/coleccion/amatista/',
+  sodalita: '/coleccion/sodalita/',
+  aventurina: '/coleccion/aventurina/',
+  citrino: '/coleccion/citrino/',
+  cornalina: '/coleccion/cornalina/',
+  'jaspe-brechado': '/coleccion/jaspe-brechado/',
 };
 
 function parseArgs(argv) {
