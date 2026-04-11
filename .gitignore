@@ -1,11 +1,13 @@
 /*
 !/.gitignore
+!/README.md
+!/CLAUDE.md
+!/brain
+!/brain/**
+!/decisions
+!/decisions/**
 !/web
 !/web/**
-!/docs
-!/docs/**
-!/.claude
-!/.claude/**
 
 # Build artifacts and deps
 **/node_modules/
