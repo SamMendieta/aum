@@ -84,6 +84,8 @@
   transition: top 0.4s var(--ease-quart);
   margin-left: calc(55% + 3px);
 }
+body:has(#nav.scrolled) .soap-nav { top: var(--nav-h-sm); }
+body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 .soap-nav__inner {
   display: flex; align-items: center;
   overflow-x: auto; scrollbar-width: none;
@@ -356,7 +358,7 @@
   .soap-section__oil-inci { font-size: 0.625rem; }
   .soap-section__actions { gap: 12px; }
   .btn-wa-cta { padding: 10px 20px; }
-  .soap-nav { margin-left: 0; }
+  .soap-nav { margin-left: 0; top: 100px; }
   .soap-nav__item { min-height: 44px; font-size: 9px; padding: 14px 16px; }
 }
 

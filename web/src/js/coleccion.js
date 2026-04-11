@@ -22,17 +22,9 @@
     soapSections.forEach(s => navObs.observe(s));
   }
 
-  // ── SOAP NAV — sync sticky top with actual nav height
+  // ── SMOOTH SCROLL for soap-nav links (offset for fixed nav height)
   const navEl = document.getElementById('nav');
   const soapNavEl = document.querySelector('.soap-nav');
-
-  if (navEl && soapNavEl) {
-    const syncSoapNavTop = () => {
-      soapNavEl.style.top = navEl.offsetHeight + 'px';
-    };
-    syncSoapNavTop();
-    new ResizeObserver(syncSoapNavTop).observe(navEl);
-  }
 
   soapNavItems.forEach(item => {
     item.addEventListener('click', e => {
