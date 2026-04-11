@@ -25,7 +25,8 @@ import { writeFileSync, mkdirSync } from 'fs';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const PROJECT_ROOT = resolve(__dirname, '..');
 
-const BRAVE_PATH = 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe';
+const BRAVE_PATH = process.env.BRAVE_PATH ||
+  'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe';
 
 const ALL_PAGES = {
   index: '/',

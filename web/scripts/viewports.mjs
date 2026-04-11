@@ -66,6 +66,12 @@ const CUSTOM_VIEWPORTS = {
     isMobile: false,
     hasTouch: false,
   },
+  'galaxy-s24-plus': {
+    viewport: { width: 384, height: 832 },
+    deviceScaleFactor: 3,
+    isMobile: true,
+    hasTouch: true,
+  },
 };
 
 /**
@@ -144,6 +150,22 @@ export const PRESETS = {
     'macbook-pro-14',
     'windows-125-scale',
     'windows-laptop-fhd',
+    'wcag-zoom-200',
+  ],
+  responsive: [
+    'Galaxy S24',
+    'iPhone 14',
+    'iPhone 14 Pro',
+    'iPhone XR',
+    'Galaxy A55',
+    'iPhone 14 Pro Max',
+    'iPad Mini',
+    'iPad Pro 11',
+    'Desktop Chrome',
+    'macbook-air-11',
+    'macbook-air-13',
+    'windows-laptop-fhd',
+    'iPhone SE',
     'wcag-zoom-200',
   ],
 };

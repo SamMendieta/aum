@@ -2,10 +2,11 @@
 import { defineConfig } from '@playwright/test';
 import { resolveDevices } from './scripts/viewports.mjs';
 
-const BRAVE_PATH = 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe';
+const BRAVE_PATH = process.env.BRAVE_PATH ||
+  'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe';
 
-// Build a Playwright project for each device in the 'breakpoints' preset.
-const deviceList = resolveDevices('breakpoints');
+// Build a Playwright project for each device in the 'responsive' preset.
+const deviceList = resolveDevices('responsive');
 
 const projects = deviceList.map(([name, device]) => ({
   name: name.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase(),

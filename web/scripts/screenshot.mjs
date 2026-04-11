@@ -22,7 +22,8 @@ import { resolveDevices, PRESET_NAMES } from './viewports.mjs';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const PROJECT_ROOT = resolve(__dirname, '..');
 
-const BRAVE_PATH = 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe';
+const BRAVE_PATH = process.env.BRAVE_PATH ||
+  'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe';
 
 const ALL_PAGES = {
   index: '/',
@@ -93,7 +94,8 @@ async function captureScreenshots() {
 
       for (const [name, path] of Object.entries(targetPages)) {
         await page.goto(`${baseUrl}${path}`, { waitUntil: 'networkidle', timeout: 15000 });
-        await page.waitForTimeout(1200);
+        await page.waitForFunction(() => document.fonts.ready.then(() => true), { timeout: 5000 });
+        await page.waitForLoadState('networkidle');
 
         const filename = `${name}-${safeDeviceName}.png`;
         const filepath = join(outDir, filename);

@@ -13,6 +13,8 @@
     "audit:sweep": "node scripts/responsive-audit.mjs --sweep",
     "audit:andrea": "node scripts/responsive-audit.mjs --preset andrea",
     "audit:platforms": "node scripts/responsive-audit.mjs --preset platforms",
+    "audit:responsive": "node scripts/responsive-audit.mjs --preset responsive",
+    "audit:responsive:json": "node scripts/responsive-audit.mjs --preset responsive --json",
     "test:responsive": "npx playwright test responsive",
     "test:visual": "npx playwright test visual-regression",
     "test:all": "npx playwright test",
