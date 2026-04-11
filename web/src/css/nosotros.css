@@ -345,9 +345,4 @@
   .fact { border-right: none; border-bottom: 1px solid var(--c-rule-dark); }
   .fact:last-child { border-bottom: none; }
 }
-@media (max-height: 768px) and (min-width: 769px) {
-  .nosotros-hero {
-    min-height: auto;
-    padding-bottom: clamp(48px, 8vh, 96px);
-  }
-}
+/* max-height override removed — hero always min-height: 100svh (matches coleccion) */

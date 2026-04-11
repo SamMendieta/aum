@@ -483,10 +483,4 @@
   .inci-list .inci { min-width: 0; width: 50%; }
 }
 
-@media (max-height: 768px) and (min-width: 769px) {
-  .hero {
-    min-height: auto;
-    padding-top: var(--nav-h-ed);
-    padding-bottom: clamp(48px, 8vh, 96px);
-  }
-}
+/* max-height override removed — hero always min-height: 100svh (matches coleccion) */
