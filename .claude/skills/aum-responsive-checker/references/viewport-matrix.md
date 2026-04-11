@@ -30,6 +30,7 @@ Run `npm run audit:responsive` to validate against 14 real-world viewports repre
 | Standard | windows-laptop-fhd | 1920 | 1080 | Full HD Windows laptop |
 | Edge | iphone-se | 320 | 568 | Smallest active viewport in the wild |
 | Edge | wcag-zoom-200 | 720 | 450 | Simulates 200% browser zoom for WCAG |
+| Edge | desktop-zoomed-133 | 1444 | 720 | 1080p at 133% zoom with browser chrome. Catches `max-height` media queries that collapse heroes on zoomed desktops. |
 
 ## Width Bands
 
@@ -43,6 +44,7 @@ Run `npm run audit:responsive` to validate against 14 real-world viewports repre
 | Small desktop | 1024-1365 | Older laptops, small monitors |
 | Desktop | 1366-1920 | Core laptop and monitor range |
 | Wide | 1921+ | Large monitors; test at 2560 edge case |
+| Short desktop | any width, < 768 height | Zoomed browsers, browser with bookmarks/devtools. Catches `max-height` queries. |
 
 ## Commands
 

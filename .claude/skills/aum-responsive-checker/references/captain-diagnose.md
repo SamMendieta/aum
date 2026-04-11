@@ -113,6 +113,37 @@ page.evaluate(() => {
 | 3 | All fit except at 320px |
 | 4 | Every section fits every viewport in the test matrix |
 
+### Additional Check: Hero Height Collapse
+
+At the `desktop-zoomed-133` viewport (1444×720), verify that hero sections still fill the viewport. A hero with `min-height: 100svh` that gets overridden to `min-height: auto` at `@media (max-height: 768px)` will collapse if it has little content.
+
+```js
+// Check hero fills at least 80% of viewport at short-desktop viewports
+page.evaluate(() => {
+  const heroes = document.querySelectorAll('.hero, .page-header, .nosotros-hero, [class*="hero"]');
+  return [...heroes].map(h => ({
+    selector: h.className,
+    height: Math.round(h.getBoundingClientRect().height),
+    vh: window.innerHeight,
+    ratio: Math.round(h.getBoundingClientRect().height / window.innerHeight * 100)
+  })).filter(h => h.ratio < 80);
+})
+```
+
+Any hero below 80% viewport height at a desktop-width viewport = root cause.
+
+### Additional Check: Cross-Page Hero Consistency
+
+Editorial pages (index, coleccion, nosotros) should have heroes that behave identically at matching viewports. Compare hero heights across these three pages at each viewport:
+
+```
+For each viewport in the test matrix:
+  Measure hero height on index, coleccion, nosotros
+  If any differs by > 10% from the others → flag as inconsistency
+```
+
+This catches divergent `@media` overrides, missing padding, or different height strategies across pages that should match.
+
 ---
 
 ## Step 3: Root Cause Classification

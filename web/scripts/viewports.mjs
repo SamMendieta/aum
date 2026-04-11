@@ -72,6 +72,12 @@ const CUSTOM_VIEWPORTS = {
     isMobile: true,
     hasTouch: true,
   },
+  'desktop-zoomed-133': {
+    viewport: { width: 1444, height: 720 },
+    deviceScaleFactor: 1,
+    isMobile: false,
+    hasTouch: false,
+  },
 };
 
 /**
@@ -167,6 +173,7 @@ export const PRESETS = {
     'windows-laptop-fhd',
     'iPhone SE',
     'wcag-zoom-200',
+    'desktop-zoomed-133',
   ],
 };
 
