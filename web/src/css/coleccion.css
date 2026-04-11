@@ -87,7 +87,7 @@
 body:has(#nav.scrolled) .soap-nav { top: var(--nav-h-sm); }
 body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 .soap-nav__inner {
-  display: flex; align-items: center;
+  display: flex; align-items: stretch;
   overflow-x: auto; scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
