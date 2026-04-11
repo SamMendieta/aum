@@ -20,19 +20,22 @@ Note: Benzoin Tincture stays in INCI label but NOT in consumer-facing formula co
 ## Certifications
 100% Natural · Cruelty Free · Libre de Parabenos · Libre de Sulfatos · Hecho a Mano · Sin Aceite de Palma
 
-## Canonical Crystal Names (brand order: Crown → Root)
+## Canonical Crystal Names
+
+**Numbering** = energy center order, Root (#1) → Crown (#7). Traditional chakra direction.  
+**Website display order** = Crown → Root (inverted). Numbers and display order are intentionally opposite.
 
 | # | Soap | Center | Crystal Name |
 |---|---|---|---|
-| 01 | Cuarzo Transparente | Corona | Cristal del maestro sanador |
-| 02 | Amatista | Tercer Ojo | El cristal de la Humildad |
-| 03 | Sodalita | Garganta | El cristal de la comunicación |
+| 01 | Jaspe Brechado | Raíz | el cristal de la conexión a tierra |
+| 02 | Cornalina | Sacro | Cristal de vitalidad |
+| 03 | Citrino | Plexo Solar | El cristal de la abundancia |
 | 04 | Aventurina | Corazón | El cristal del amor |
-| 05 | Citrino | Plexo Solar | El cristal de la abundancia |
-| 06 | Cornalina | Sacro | Cristal de vitalidad |
-| 07 | Jaspe Brechado | Raíz | el cristal de la conexión a tierra |
+| 05 | Sodalita | Garganta | El cristal de la comunicación |
+| 06 | Amatista | Tercer Ojo | El cristal de la Humildad |
+| 07 | Cuarzo Transparente | Corona | Cristal del maestro sanador |
 
-**Ordinal rule:** Crown (01) → Root (07). NOT traditional chakra order. "La cornalina conecta con el sexto centro" ✓ (not "segundo").
+**Ordinal rule:** Root (01) → Crown (07). "La cornalina conecta con el segundo centro" ✓ (not "sexto").
 
 **Naming rules:** "cristal de" always — never "piedra de". Exact capitalization from this table. No mineral-science aliases ("jaspe rojo", "cuarzo hialino") in web copy.
 
