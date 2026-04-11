@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "aum-responsive-audit-state",
+  "title": "aum-responsive-audit-state",
+  "type": "object",
+  "required": ["version", "timestamp", "iteration", "maxIterations", "baseline", "diagnosis", "fixes", "verification", "history"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "5.0"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "iteration": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3
+    },
+    "maxIterations": {
+      "type": "integer",
+      "const": 3
+    },
+    "baseline": {
+      "type": "object",
+      "required": ["screenshotLabel", "screenshotPreset", "capturedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "screenshotLabel": {
+          "type": "string"
+        },
+        "screenshotPreset": {
+          "type": "string"
+        },
+        "capturedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "diagnosis": {
+      "type": "object",
+      "required": ["structuralScore", "rootCauses", "routingPlanApproved"],
+      "additionalProperties": false,
+      "properties": {
+        "structuralScore": {
+          "type": "object",
+          "required": ["layout", "typography", "spacing", "interactivity", "visual", "total"],
+          "additionalProperties": false,
+          "properties": {
+            "layout": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "typography": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "spacing": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "interactivity": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "visual": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 20
+            }
+          }
+        },
+        "rootCauses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "description", "domain", "targetSkill", "cssFiles", "severity", "viewportsAffected"],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^RC-[0-9]{3}$"
+              },
+              "description": {
+                "type": "string"
+              },
+              "domain": {
+                "type": "string",
+                "enum": ["layout", "visual"]
+              },
+              "targetSkill": {
+                "type": "string"
+              },
+              "cssFiles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["critical", "high", "medium", "low"]
+              },
+              "viewportsAffected": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "routingPlanApproved": {
+          "type": "boolean"
+        }
+      }
+    },
+    "fixes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rootCauseId", "skill", "description", "cssFile", "status", "screenshotLabel", "regressionDetected", "revertCommand"],
+        "additionalProperties": false,
+        "properties": {
+          "rootCauseId": {
+            "type": "string",
+            "pattern": "^RC-[0-9]{3}$"
+          },
+          "skill": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "cssFile": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["pending", "applied", "verified", "reverted"]
+          },
+          "screenshotLabel": {
+            "type": "string"
+          },
+          "regressionDetected": {
+            "type": "boolean"
+          },
+          "revertCommand": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": ["viewportContainment", "visualRegression", "brandCoherence", "playwrightTests", "failedViewports", "verdict"],
+      "additionalProperties": false,
+      "properties": {
+        "viewportContainment": {
+          "type": "string",
+          "enum": ["pass", "fail"]
+        },
+        "visualRegression": {
+          "type": "string",
+          "enum": ["pass", "fail"]
+        },
+        "brandCoherence": {
+          "type": "string",
+          "enum": ["pass", "fail"]
+        },
+        "playwrightTests": {
+          "type": "string",
+          "enum": ["pass", "fail"]
+        },
+        "failedViewports": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "verdict": {
+          "type": "string",
+          "enum": ["PASS", "SHIP_WITH_FIXES", "FAIL", "NEEDS_ITERATION"]
+        }
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["iteration", "diagnosisScore", "fixesApplied", "fixesReverted", "verdict", "regressionDetails"],
+        "additionalProperties": false,
+        "properties": {
+          "iteration": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "diagnosisScore": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 20
+          },
+          "fixesApplied": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fixesReverted": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "verdict": {
+            "type": "string",
+            "enum": ["PASS", "SHIP_WITH_FIXES", "FAIL", "NEEDS_ITERATION"]
+          },
+          "regressionDetails": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

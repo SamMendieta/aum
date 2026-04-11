@@ -4,6 +4,8 @@
 !/web/**
 !/docs
 !/docs/**
+!/.claude
+!/.claude/**
 
 # Build artifacts and deps
 **/node_modules/
