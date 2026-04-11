@@ -2,7 +2,7 @@
 
 /* ── Scroll snap — desktop only, proximity for subtle magnetic pull ── */
 @media (min-width: 769px) {
-  html { scroll-snap-type: y proximity; scroll-padding-top: var(--nav-h-ed); }
+  html { scroll-snap-type: y proximity; }
   .soap-section { scroll-snap-align: start; }
 }
 
