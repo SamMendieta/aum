@@ -211,7 +211,7 @@
 /* Soap grid — 7-column desktop */
 .soaps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(7, 1fr);
   border: 1px solid var(--c-rule);
   border-right: none;
   border-bottom: none;
@@ -470,6 +470,7 @@
   .pillar:nth-child(odd) { border-right: 1px solid var(--c-rule); }
   .pillar:nth-last-child(-n+2) { border-bottom: none; }
   .pillar:last-child:nth-child(odd) { border-right: none; border-bottom: none; }
+  .soaps { grid-template-columns: repeat(2, 1fr); }
   .coleccion__header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .coleccion__intro { text-align: left; max-width: 100%; }
   .journal__grid { grid-template-columns: 1fr; }
