@@ -84,8 +84,6 @@
   transition: top 0.4s var(--ease-quart);
   margin-left: calc(55% + 3px);
 }
-body:has(#nav.scrolled) .soap-nav { top: var(--nav-h-sm); }
-body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 .soap-nav__inner {
   display: flex; align-items: center;
   overflow-x: auto; scrollbar-width: none;
@@ -121,7 +119,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   height: 100vh;
   height: 100svh;
   position: relative;
-  scroll-margin-top: calc(var(--nav-h-ed) + 52px);
+  scroll-margin-top: var(--nav-h-ed);
   border-bottom: 3px solid var(--c-gold, #C9AD88);
 }
 

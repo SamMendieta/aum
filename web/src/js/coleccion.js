@@ -6,7 +6,7 @@
 
   // ── SOAP NAV — active highlight on scroll
   const soapNavItems = document.querySelectorAll('.soap-nav__item');
-  const soapSections = [...document.querySelectorAll('.soap-entry[id]')];
+  const soapSections = [...document.querySelectorAll('.soap-section[id]')];
 
   if ('IntersectionObserver' in window && soapSections.length) {
     const navObs = new IntersectionObserver((entries) => {
@@ -22,9 +22,17 @@
     soapSections.forEach(s => navObs.observe(s));
   }
 
-  // ── SMOOTH SCROLL for soap-nav links (offset for fixed nav + soap-nav height)
+  // ── SOAP NAV — sync sticky top with actual nav height
   const navEl = document.getElementById('nav');
   const soapNavEl = document.querySelector('.soap-nav');
+
+  if (navEl && soapNavEl) {
+    const syncSoapNavTop = () => {
+      soapNavEl.style.top = navEl.offsetHeight + 'px';
+    };
+    syncSoapNavTop();
+    new ResizeObserver(syncSoapNavTop).observe(navEl);
+  }
 
   soapNavItems.forEach(item => {
     item.addEventListener('click', e => {
@@ -33,8 +41,7 @@
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          const offset = (navEl ? navEl.offsetHeight : 66) +
-                         (soapNavEl ? soapNavEl.offsetHeight : 44);
+          const offset = navEl ? navEl.offsetHeight : 66;
           const top = target.getBoundingClientRect().top + window.scrollY - offset;
           const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
           window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
