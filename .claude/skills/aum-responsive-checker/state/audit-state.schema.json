@@ -3,13 +3,8 @@
   "$id": "aum-responsive-audit-state",
   "title": "aum-responsive-audit-state",
   "type": "object",
-  "required": ["version", "timestamp", "iteration", "maxIterations", "baseline", "diagnosis", "fixes", "verification", "history"],
-  "additionalProperties": false,
+  "required": ["timestamp", "iteration", "phase"],
   "properties": {
-    "version": {
-      "type": "string",
-      "const": "5.0"
-    },
     "timestamp": {
       "type": "string",
       "format": "date-time"
@@ -19,220 +14,83 @@
       "minimum": 1,
       "maximum": 3
     },
-    "maxIterations": {
-      "type": "integer",
-      "const": 3
+    "phase": {
+      "type": "string",
+      "enum": ["baseline", "diagnose", "fix", "verify", "verify-complete"]
     },
-    "baseline": {
+    "structural_score": {
       "type": "object",
-      "required": ["screenshotLabel", "screenshotPreset", "capturedAt"],
-      "additionalProperties": false,
       "properties": {
-        "screenshotLabel": {
-          "type": "string"
-        },
-        "screenshotPreset": {
-          "type": "string"
-        },
-        "capturedAt": {
-          "type": "string",
-          "format": "date-time"
-        }
-      }
-    },
-    "diagnosis": {
-      "type": "object",
-      "required": ["structuralScore", "rootCauses", "routingPlanApproved"],
-      "additionalProperties": false,
-      "properties": {
-        "structuralScore": {
+        "before": { "type": "integer", "minimum": 0, "maximum": 20 },
+        "after": { "type": "integer", "minimum": 0, "maximum": 20 },
+        "max": { "type": "integer", "const": 20 },
+        "dimensions": {
           "type": "object",
-          "required": ["layout", "typography", "spacing", "interactivity", "visual", "total"],
-          "additionalProperties": false,
           "properties": {
-            "layout": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 4
-            },
-            "typography": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 4
-            },
-            "spacing": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 4
-            },
-            "interactivity": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 4
-            },
-            "visual": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 4
-            },
-            "total": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 20
-            }
+            "global_protections": { "$ref": "#/$defs/dimension" },
+            "fluid_sizing": { "$ref": "#/$defs/dimension" },
+            "layout_adaptability": { "$ref": "#/$defs/dimension" },
+            "touch_interaction": { "$ref": "#/$defs/dimension" },
+            "viewport_containment": { "$ref": "#/$defs/dimension" }
           }
-        },
-        "rootCauses": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["id", "description", "domain", "targetSkill", "cssFiles", "severity", "viewportsAffected"],
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": "string",
-                "pattern": "^RC-[0-9]{3}$"
-              },
-              "description": {
-                "type": "string"
-              },
-              "domain": {
-                "type": "string",
-                "enum": ["layout", "visual"]
-              },
-              "targetSkill": {
-                "type": "string"
-              },
-              "cssFiles": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "severity": {
-                "type": "string",
-                "enum": ["critical", "high", "medium", "low"]
-              },
-              "viewportsAffected": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "routingPlanApproved": {
-          "type": "boolean"
         }
       }
     },
-    "fixes": {
+    "root_causes": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["rootCauseId", "skill", "description", "cssFile", "status", "screenshotLabel", "regressionDetected", "revertCommand"],
-        "additionalProperties": false,
+        "required": ["id", "title", "domain", "severity", "status"],
         "properties": {
-          "rootCauseId": {
+          "id": { "type": "string", "pattern": "^RC-[0-9]+$" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "domain": {
             "type": "string",
-            "pattern": "^RC-[0-9]{3}$"
+            "enum": ["layout", "visual", "infrastructure"]
           },
-          "skill": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "cssFile": {
-            "type": "string"
+          "skill": { "type": "string" },
+          "files": { "type": "array", "items": { "type": "string" } },
+          "severity": {
+            "type": "string",
+            "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"]
           },
           "status": {
             "type": "string",
-            "enum": ["pending", "applied", "verified", "reverted"]
+            "enum": ["pending", "FIXED", "BLOCKED", "SKIPPED", "FALSE_POSITIVE"]
           },
-          "screenshotLabel": {
-            "type": "string"
-          },
-          "regressionDetected": {
-            "type": "boolean"
-          },
-          "revertCommand": {
-            "type": "string"
-          }
+          "fix": { "type": "string" },
+          "note": { "type": "string" },
+          "affected_viewports": { "type": "array", "items": { "type": "string" } }
         }
       }
     },
     "verification": {
       "type": "object",
-      "required": ["viewportContainment", "visualRegression", "brandCoherence", "playwrightTests", "failedViewports", "verdict"],
-      "additionalProperties": false,
       "properties": {
-        "viewportContainment": {
-          "type": "string",
-          "enum": ["pass", "fail"]
-        },
-        "visualRegression": {
-          "type": "string",
-          "enum": ["pass", "fail"]
-        },
-        "brandCoherence": {
-          "type": "string",
-          "enum": ["pass", "fail"]
-        },
-        "playwrightTests": {
-          "type": "string",
-          "enum": ["pass", "fail"]
-        },
-        "failedViewports": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
+        "iteration": { "type": "integer" },
+        "auditResponsive": { "type": "string" },
+        "testResponsive": { "type": "string" },
+        "screenshotLabel": { "type": "string" },
+        "gate1ViewportContainment": { "type": "string", "enum": ["PASS", "FAIL"] },
+        "gate2VisualRegression": { "type": "string", "enum": ["PASS", "FAIL"] },
+        "gate3BrandCoherence": { "type": "string", "enum": ["PASS", "FAIL"] },
         "verdict": {
           "type": "string",
-          "enum": ["PASS", "SHIP_WITH_FIXES", "FAIL", "NEEDS_ITERATION"]
+          "enum": ["PASS", "SHIP_WITH_FIXES", "NEEDS_ITERATION", "FAIL"]
         }
       }
     },
-    "history": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["iteration", "diagnosisScore", "fixesApplied", "fixesReverted", "verdict", "regressionDetails"],
-        "additionalProperties": false,
-        "properties": {
-          "iteration": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 3
-          },
-          "diagnosisScore": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 20
-          },
-          "fixesApplied": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "fixesReverted": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "verdict": {
-            "type": "string",
-            "enum": ["PASS", "SHIP_WITH_FIXES", "FAIL", "NEEDS_ITERATION"]
-          },
-          "regressionDetails": {
-            "type": "string"
-          }
-        }
+    "fixes_applied": { "type": "array", "items": { "type": "string" } },
+    "fixes_reverted": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": {
+    "dimension": {
+      "type": "object",
+      "properties": {
+        "score": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "max": { "type": "integer", "const": 4 },
+        "note": { "type": "string" }
       }
     }
   }

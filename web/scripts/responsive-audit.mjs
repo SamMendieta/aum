@@ -121,9 +121,31 @@ async function checkHorizontalOverflow(page) {
   return page.evaluate(() => {
     const vw = document.documentElement.clientWidth;
     const issues = [];
+
+    // Build set of scroll containers — elements inside these are expected to exceed viewport
+    const scrollContainers = new Set();
+    for (const el of document.querySelectorAll('body *')) {
+      const style = getComputedStyle(el);
+      if (style.overflowX === 'auto' || style.overflowX === 'scroll') {
+        scrollContainers.add(el);
+      }
+    }
+
+    function isInsideScrollContainer(el) {
+      let parent = el.parentElement;
+      while (parent && parent !== document.body) {
+        if (scrollContainers.has(parent)) return true;
+        parent = parent.parentElement;
+      }
+      return false;
+    }
+
     for (const el of document.querySelectorAll('body *')) {
       const rect = el.getBoundingClientRect();
       if (rect.right > vw + 1) {
+        // Skip elements inside horizontal scroll containers — their overflow is intentional
+        if (isInsideScrollContainer(el)) continue;
+
         const selector = el.tagName.toLowerCase() +
           (el.className && typeof el.className === 'string' ? '.' + [...el.classList].join('.') : '') +
           (el.id ? '#' + el.id : '');

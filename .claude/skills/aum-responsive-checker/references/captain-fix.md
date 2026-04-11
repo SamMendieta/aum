@@ -44,18 +44,36 @@ These rules are non-negotiable. Violating any one of them requires an immediate 
 
 ---
 
+## Complexity Threshold
+
+Not every fix needs a subagent. Use this decision:
+
+- **Direct fix** (< 5 lines, single file, well-understood root cause): Apply CSS directly. Examples: adding `min-width: 0`, `min-height: 44px` in a media query, `overflow-wrap: break-word`.
+- **Subagent dispatch** (multi-file structural change, uncertain approach, or complex layout reflow): Invoke the leaf skill as a subagent with the prompt template below.
+
+The overhead of dispatching a subagent for a 1-line `min-width: 0` fix burns context for no benefit.
+
+---
+
 ## Per-Fix Protocol
 
 Follow these 5 steps for every single fix. No exceptions.
 
-1. **MAKE** one change — invoke the appropriate leaf skill as a SUBAGENT with the prompt template below.
+1. **MAKE** one change — apply directly (simple fix) or invoke the appropriate leaf skill as a SUBAGENT (complex fix) with the prompt template below.
 
 2. **SCREENSHOT** all viewports immediately after the change:
    ```bash
    node scripts/screenshot.mjs --label after-fix-NNN --preset responsive
    ```
 
-3. **READ** screenshots at EVERY viewport. For each screenshot, verify:
+3. **READ** screenshots using this priority order (not all 154 every time):
+   - **P0 (always):** Affected page at affected viewport — verify the fix works
+   - **P1 (always):** Same page at a desktop viewport (1440px) — check for regression (v4 failure pattern)
+   - **P2 (always):** index + coleccion at 360px and 1440px — canary pages for cross-page impact
+   - **P3 (if fix touches shared CSS like base.css, nav.css, footer.css):** One product page at 360px + 1440px
+   - **P4 (only if regression suspected):** Read all remaining viewports
+   
+   For each screenshot, verify:
    - Is the intended fix visible?
    - Is there any unintended change elsewhere?
    - Does any section exceed viewport height?

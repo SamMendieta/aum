@@ -81,9 +81,9 @@ Check where touch targets are defined:
 | Score | Meaning |
 |-------|---------|
 | 0 | No touch targets defined |
-| 1 | Touch targets exist but in base rules |
-| 2 | In queries but incomplete coverage |
-| 3 | Good coverage with minor gaps |
+| 1 | Touch targets exist but in base rules (affects desktop) |
+| 2 | Some targets correctly scoped, others missing or undersized |
+| 3 | Good coverage with minor gaps (1-2 elements missing) |
 | 4 | All interactive elements ≥ 44px, scoped to `@media (pointer: coarse)` only |
 
 ---
@@ -129,8 +129,11 @@ Map every finding to a root cause, domain, and target skill.
 | Font sizes feel wrong or overflow | visual | `/typeset` |
 | Images overflow or distort | visual | `/optimize` |
 | Final visual quality / polish | visual | `/polish` |
-| Touch targets in base rules | layout | Fix directly — `@media (pointer: coarse)` ONLY |
+| Touch targets in base rules or missing | layout | Fix directly — `@media (pointer: coarse)` ONLY |
 | Design feels off / not aum | visual | `/aum-design-guardian` via Verify |
+| Script URLs wrong / pages return 404 | infrastructure | Fix directly in `scripts/*.mjs` |
+| Build config error / missing dependency | infrastructure | Fix directly |
+| Audit false positives (scroll containers, scrollbar artifacts) | infrastructure | Document and skip — not a CSS issue |
 
 ---
 

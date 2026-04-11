@@ -7,7 +7,7 @@ description: Use when making any CSS, layout, or template change to the aum. sit
 
 Tiered orchestrator for responsive design on the aum. website. Diagnoses structural CSS problems, dispatches specialized skills to fix them, and visually verifies every change across 14 viewports weighted for the Colombian market.
 
-**This skill NEVER touches CSS itself.** It diagnoses, routes to captains, and verifies. All CSS changes happen through leaf skills dispatched as subagents.
+**This skill diagnoses, routes to captains, and verifies.** For simple fixes (< 5 lines, single file, well-understood root cause), apply CSS directly. For multi-file structural changes or uncertain approaches, dispatch leaf skills as subagents.
 
 ---
 
@@ -46,8 +46,23 @@ Do NOT pre-read captains. Load only when entering that phase.
 ```bash
 cd web
 npm start                                                         # Dev server (if not running)
+```
+
+**Port check:** Note the port Eleventy reports (may be 8080, 8082, etc. if port is in use). Pass `--port NNNN` to all screenshot/audit commands if not 8080.
+
+**URL validation (mandatory):** Before running audits, verify ALL pages resolve (no 404s):
+```bash
+for page in / /coleccion/ /nosotros/ /contacto/ /coleccion/cuarzo-transparente/ /coleccion/amatista/ /coleccion/sodalita/ /coleccion/aventurina/ /coleccion/citrino/ /coleccion/cornalina/ /coleccion/jaspe-brechado/; do
+  code=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:8080$page")
+  [ "$code" != "200" ] && echo "FAIL: $page → $code"
+done
+```
+If any page returns non-200: **STOP. Fix the URL in the scripts before proceeding.** Prior audit data for that page is invalid.
+
+```bash
 node scripts/screenshot.mjs --label baseline --preset responsive  # 14 viewports × 11 pages
-npm run audit:sweep -- --json                                     # Every 50px, 320-1920
+npm run audit:responsive -- --json                                # Primary audit (14 viewports)
+npm run audit:sweep -- --json                                     # Supplementary: every 50px, 320-1920 (optional if audit:responsive provides sufficient data)
 npm run test:responsive                                           # Playwright gate
 ```
 
@@ -101,6 +116,7 @@ These are shortcuts you WILL attempt. Each has an explicit counter.
 | You Will Think | The Truth |
 |---|---|
 | "Audit passes, skip visual check" | NO. Audit metrics lie. The v4 failure proved this. Run screenshots. |
+| "Audit says HIGH overflow, must be real" | MAYBE NOT. Elements inside `overflow-x: auto/scroll` containers legitimately exceed viewport bounds. Check if the BODY scrolls horizontally — if not, it's a false positive. Also: 1-4px overflow on Windows is typically a scrollbar-width measurement artifact. |
 | "Fix works at target viewport, skip others" | NO. v4 broke desktop fixing mobile. Screenshot ALL viewports after EVERY change. |
 | "Touch targets are safe in base rules" | NO. `min-height: 44px` in base rules stretches nav/buttons on desktop. ONLY in `@media (pointer: coarse)` or mobile media queries. |
 | "I know what the captain would say, skip loading it" | NO. Load the captain file. It contains constraints you will forget under context pressure. |

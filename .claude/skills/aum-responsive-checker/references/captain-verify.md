@@ -16,14 +16,16 @@ npm run test:responsive
 node scripts/screenshot.mjs --label final --preset responsive
 ```
 
-Then invoke leaf skills as needed:
+Then invoke leaf skills **based on fix scope** (not all of them every time):
 
 | Leaf Skill | Evaluates | When to Invoke |
 |------------|-----------|----------------|
-| `/aum-design-guardian` | Visual integrity + emotional coherence | Always |
-| `/browser-qa` | Smoke tests + interaction + axe-core accessibility | When interactive elements changed |
-| `/e2e-testing` | Playwright full-page gate | Always |
-| `/aum-brand-sync` | Token alignment across CSS files | After token, spacing, or color changes |
+| `/aum-design-guardian` | Visual integrity + emotional coherence | Only when structural layout, color, or spacing changes were made. Skip for touch targets, min-width, or overflow-wrap fixes. |
+| `/browser-qa` | Smoke tests + interaction + axe-core accessibility | Only when interactive elements or navigation changed |
+| `/e2e-testing` | Playwright full-page gate | Only when layout or content structure changed. `npm run test:responsive` already covers responsive gates. |
+| `/aum-brand-sync` | Token alignment across CSS files | Only after token, spacing, or color changes |
+
+**Lightweight verification** (for simple fixes like touch targets, min-width, overflow-wrap): Screenshots + Playwright pass is sufficient. Don't invoke leaf skills for 1-2 line scoped CSS additions.
 
 ---
 
