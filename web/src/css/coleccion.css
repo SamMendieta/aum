@@ -1,11 +1,5 @@
 /* coleccion.css — Full-viewport soap sections layout */
 
-/* ── Scroll snap — desktop only, proximity for subtle magnetic pull ── */
-@media (min-width: 769px) {
-  html { scroll-snap-type: y proximity; }
-  .soap-section { scroll-snap-align: start; }
-}
-
 /* ── Page header (full-viewport hero with bg image) ── */
 .page-header {
   background-color: var(--c-dark);
@@ -378,5 +372,4 @@
 
 @media (prefers-reduced-motion: reduce) {
   .soap-section__image img { transition: none; }
-  html { scroll-snap-type: none; }
 }
