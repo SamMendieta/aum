@@ -10,6 +10,7 @@ eleventyComputed:
 ---
 
 {% include "components/cert-icons.njk" %}
+{% include "components/crystal-symbols.njk" %}
 
   <nav class="breadcrumb" aria-label="Ruta de navegación">
     <ol class="breadcrumb__list">
@@ -150,27 +151,20 @@ eleventyComputed:
   </div>
 
   <nav class="pnav" aria-label="Navegación entre jabones">
-    {% if soap.prevSlug %}
-    <a href="/coleccion/{{ soap.prevSlug }}/" class="pnav__item pnav__item--prev"
-       aria-label="Anterior: {{ soap.prevName }}">
-      <span class="pnav__dir">&#8592; Anterior</span>
-      <span class="pnav__name">{{ soap.prevName }}</span>
-    </a>
-    {% else %}
-    <span class="pnav__item pnav__item--empty"></span>
-    {% endif %}
-
+    <div class="pnav__strip">
+      {% for s in soaps %}
+      <a href="/coleccion/{{ s.slug }}/"
+         class="pnav__soap{% if s.slug == soap.slug %} pnav__soap--active{% endif %}"
+         style="--cx:var(--{{ s.cxToken }})"
+         {% if s.slug == soap.slug %}aria-current="page"{% endif %}
+         aria-label="Jabón de {{ s.name }}">
+        <svg class="pnav__dot" aria-hidden="true" focusable="false"><use href="#{{ s.cxToken }}"/></svg>
+        <span class="pnav__name">{{ s.name }}</span>
+        <span class="pnav__center">{{ s.center | replace("Centro ", "") }}</span>
+      </a>
+      {% endfor %}
+    </div>
     <a href="/coleccion/" class="pnav__mid">Ver colección completa</a>
-
-    {% if soap.nextSlug %}
-    <a href="/coleccion/{{ soap.nextSlug }}/" class="pnav__item pnav__item--next"
-       aria-label="Siguiente: {{ soap.nextName }}">
-      <span class="pnav__dir">Siguiente &#8594;</span>
-      <span class="pnav__name">{{ soap.nextName }}</span>
-    </a>
-    {% else %}
-    <span class="pnav__item pnav__item--empty"></span>
-    {% endif %}
   </nav>
 
   <script src="/js/fit-text.js" defer></script>
