@@ -1,6 +1,6 @@
 ---
 owner: Sam
-last-updated: 2026-04-06
+last-updated: 2026-04-11
 review: Quarterly
 ---
 
@@ -37,10 +37,11 @@ Plants have cared for skin for thousands of years. aum. adapts that tradition to
 Colombian artisanal soap market = 100% lo-fi. No editorial presence exists. aum. occupies uncontested territory. Do NOT claim as primary: "Natural / artesanal / hecho a mano / sin químicos" — only use when backed by specific ingredient or process.
 
 ## Confirmed Brand Decisions
-- Crystal role = symbolic only — never therapeutic claims
+*Source of truth: decisions/DECISIONS.md — BRD numbers for traceability*
+- Crystal role = symbolic only — never therapeutic claims (BRD-021)
 - Energy centers = bienestar contemporáneo lens, not religious doctrine
 - Ingredient transparency = innegociable
-- The period in "aum." = the only graphic element of the brand
-- No palm oil in any formula — emphasize subtly
+- The period in "aum." = the only graphic element of the brand (logos/images only; copy uses "aum" without period)
+- No palm oil in any formula — emphasize subtly (BRD-005)
 - Saponification + natural glycerin = key differentiator story
 - Communication = sencilla, entendible, cercana, respetuosa

@@ -7,8 +7,8 @@
   background-color: var(--c-dark);
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
-  min-height: 100svh;
+  height: 100vh;
+  height: 100svh;
   display: grid;
   grid-template-rows: 1fr;
   align-items: end;
@@ -94,7 +94,7 @@
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--c-accent);
+  color: var(--c-secondary);
   margin-bottom: 28px;
 }
 .historia__label::after { content: ''; width: 24px; height: 1px; background-color: var(--c-accent); opacity: 0.5; }
@@ -130,7 +130,7 @@
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--c-accent);
+  color: var(--c-secondary);
   margin-bottom: 20px;
 }
 .filosofia__label::after { content: ''; width: 24px; height: 1px; background-color: var(--c-accent); opacity: 0.5; }
@@ -171,7 +171,7 @@
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--c-accent);
+  color: var(--c-secondary);
   margin-bottom: 18px;
 }
 .pillar-prose__name {
@@ -203,7 +203,7 @@
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--c-accent);
+  color: var(--c-dark-sub);
   margin-bottom: 20px;
 }
 .produccion__label::after { content: ''; width: 24px; height: 1px; background-color: var(--c-accent); opacity: 0.5; }
@@ -258,7 +258,7 @@
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--c-accent);
+  color: var(--c-secondary);
   margin-bottom: 20px;
 }
 .formula__label::after { content: ''; width: 24px; height: 1px; background-color: var(--c-accent); opacity: 0.5; }
@@ -313,6 +313,38 @@
 .cierre__image { }
 .cierre__image img { width: 100%; height: auto; display: block; }
 
+/* ── Desktop: one section, one screen (Design Principle #6) ── */
+@media (min-width: 769px) {
+  .historia,
+  .filosofia,
+  .produccion,
+  .formula,
+  .cierre {
+    height: 100svh;
+    overflow: hidden;
+  }
+  /* Scale vertical padding to viewport height */
+  .historia   { padding: clamp(32px, 5svh, 128px) var(--gap-container); }
+  .filosofia  { padding: clamp(32px, 5svh, 128px) var(--gap-container); }
+  .produccion { padding: clamp(32px, 5svh, 128px) 0 0; }
+  .formula    { padding: clamp(32px, 5svh, 128px) 0; }
+  .cierre     { padding: clamp(32px, 5svh, 128px) 0; }
+  /* Constrain images to available viewport height */
+  .historia__inner { height: 100%; }
+  .historia__photo { max-height: calc(100svh - clamp(64px, 10svh, 256px)); }
+  .produccion__image { max-height: 22svh; }
+  .produccion__facts { margin-bottom: clamp(12px, 1.5svh, 72px); }
+  .produccion__header { margin-bottom: clamp(12px, 2svh, 80px); }
+  .cierre__inner { height: 100%; }
+  .cierre__image img { max-height: 40svh; width: 100%; object-fit: cover; }
+  .filosofia__header { margin-bottom: clamp(16px, 2.5svh, 72px); }
+  .filosofia__pillars { gap: 0; }
+  .pillar-prose { padding: clamp(16px, 2.5svh, 52px) clamp(24px, 3.5vw, 44px); }
+  /* Formula image constrained at all desktop widths */
+  .formula__image { max-height: 35svh; }
+  .formula__inner { align-items: center; }
+}
+
 /* ── Responsive ── */
 @media (min-width: 1025px) {
   /* Constrain tall aspect-ratio images so sections fit in one viewport height */
@@ -337,6 +369,12 @@
   .produccion__body { max-width: 100%; }
 }
 @media (max-width: 768px) {
+  .nosotros-hero { height: auto; min-height: 100svh; }
+  .historia,
+  .filosofia,
+  .produccion,
+  .formula,
+  .cierre { height: auto; overflow: visible; }
   .filosofia__pillars { grid-template-columns: 1fr; }
   .pillar-prose { border-right: none; }
   .pillar-prose:nth-last-child(-n+2) { border-bottom: 1px solid var(--c-rule); }
@@ -345,4 +383,4 @@
   .fact { border-right: none; border-bottom: 1px solid var(--c-rule-dark); }
   .fact:last-child { border-bottom: none; }
 }
-/* max-height override removed — hero always min-height: 100svh (matches coleccion) */
+/* Hero always height: 100svh on desktop (Design Principle #6) */

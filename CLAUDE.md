@@ -18,12 +18,13 @@ aum. is an artisanal botanical soap brand from Subachoque, Colombia.
 - `/aum-copy-review` — review copy against brand voice (loads brand-voice + content-rules)
 - `/aum-instagram` — generate Instagram content (loads brand-voice + content-rules + audience + product-reference)
 - `/aum-site-update` — apply founder feedback to website (loads product-reference + visual-identity)
+- `/aum-brain-updater` — route finalized brand info to correct brain/ file (classify → route → write → verify)
 - `/aum-brand-sync` — check and fix knowledge drift across all docs (loads all brain files)
 - `/aum-design-guardian` — visual change verification with automated screenshots (loads visual-identity + positioning)
 
 ## Founder Decisions
 - `decisions/DECISIONS.md` — resolved decisions with rationale
-- `decisions/pending-alignment.md` — active Andrea/Camila disagreements (24 items)
+- `decisions/pending-alignment.md` — active Andrea/Camila disagreements (3 items)
 
 ## Session State
 - `COORDINATION.md` — what's in flight, last sync date, next priorities. Read at session start, update at end.

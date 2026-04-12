@@ -102,11 +102,11 @@
   color: rgba(245, 240, 232, 0.75);
   transition: color 0.5s var(--ease-quart);
 }
-.nav__links a[aria-current="page"],
+.nav__links a[aria-current="page"] { color: #F5F0E8; border-bottom: 1px solid rgba(245, 240, 232, 0.5); padding-bottom: 2px; }
 .nav__links a:hover { color: #F5F0E8; }
 .nav.scrolled .nav__links a { color: var(--c-secondary); }
-.nav.scrolled .nav__links a:hover,
-.nav.scrolled .nav__links a[aria-current="page"] { color: var(--c-text); }
+.nav.scrolled .nav__links a:hover { color: var(--c-text); }
+.nav.scrolled .nav__links a[aria-current="page"] { color: var(--c-text); border-bottom: 1px solid var(--c-accent); padding-bottom: 2px; }
 .nav__links a:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 4px; }
 /* Product pages — cream bg, needs dark link colors */
 .nav--product .nav__links a { color: var(--c-secondary); }

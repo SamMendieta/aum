@@ -1,6 +1,6 @@
 ---
 owner: Sam (sync with soaps.json when products change)
-last-updated: 2026-04-06
+last-updated: 2026-04-11
 review: When products change
 ---
 
@@ -57,7 +57,7 @@ Each soap now has these text fields approved by both founders:
 - **crystalDesc** — crystal description for product page (2–3 sentences)
 - **crystalDescShort** — short crystal description for collection page (1–2 sentences)
 - **metaDesc** — Google search snippet (not visible on site)
-- **reflection** — NEW: philosophical text about the energy center, ends with personal question. Not yet rendered on site — soaps.njk needs update to display.
+- **reflection** — philosophical text about the energy center, ends with personal question. Rendered on site (added 2026-04-08 in soaps.njk as `.reflection__body` / `.reflection__question`).
 
 ### Copy Voice Rules (extracted from approved texts)
 - Fragrance paragraph: oils first, name each contribution, end with overall impression

@@ -2,7 +2,7 @@
 
 Website for aum. — seven cold-process botanical soaps, hand-produced in Subachoque, Colombia. Each bar mapped to one of the body's seven energy centers, infused with a natural crystal.
 
-**Live:** https://aumbotanicals.com/
+**Live:** [aumbotanicals.com](https://www.aumbotanicals.com)
 
 ---
 

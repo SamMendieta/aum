@@ -1,6 +1,6 @@
 ---
 owner: Sam
-last-updated: 2026-04-06
+last-updated: 2026-04-11
 review: After every founder feedback session
 ---
 
@@ -45,7 +45,7 @@ These are STYLE REFERENCES. Study for voice, register, emotional temperature. Pa
 - Body: short sentences, breathing rhythm, no filler, no em dashes
 - Crystal: always "cristal de" — never "piedra de"
 - Energy: always "centro de energía" — never "chakra" (in web copy)
-- Brand name: always `aum.` — lowercase, with period. Never AUM, Aum, aum
+- Brand name in copy: `aum` — lowercase, no period. Never AUM, Aum. The period (`aum.`) is for logos and images only.
 - Español: cálido, limpio, sin relleno corporativo
 - Approved sensory verbs: disfruta, déjate envolver, déjate seducir, sumérgete, experimenta
 - The founders' spiritual register ("vibraciones positivas", "nutre tu ser") is genuine voice — do not flatten

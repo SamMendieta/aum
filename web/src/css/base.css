@@ -167,6 +167,23 @@ a, button, [role="button"], input, select, textarea {
 }
 .error-page__link:hover { opacity: 0.7; }
 
+/* ── Section labels (shared across pages) ── */
+/* Used on index, nosotros, contacto — eyebrow-style labels above sections */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--ff-body);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-secondary);
+  margin-bottom: 20px;
+}
+.label--dark {
+  color: var(--c-dark-sub);
+}
+
 /* ── Visually hidden (a11y) ── */
 .visually-hidden {
   position: absolute;

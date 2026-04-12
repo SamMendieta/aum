@@ -8,9 +8,9 @@
 .hero {
   background-color: var(--c-dark);
   position: relative;
-  overflow: hidden;
-  min-height: 100vh;
-  min-height: 100svh;
+  overflow: hidden; /* clips bg image AND ensures no vertical spill */
+  height: 100vh;
+  height: 100svh;
   display: grid;
   grid-template-rows: 1fr auto;
   padding-top: var(--nav-h-ed);
@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 var(--gap-container) clamp(40px, min(9vw, 7svh), 104px);
+  padding: 0 var(--gap-container) clamp(32px, 5svh, 104px);
 }
 .hero__eyebrow {
   font-family: var(--ff-body);
@@ -45,7 +45,7 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(245, 240, 232, 0.6);
-  margin-bottom: 28px;
+  margin-bottom: clamp(14px, 2svh, 28px);
   opacity: 0;
   transform: translateY(10px);
 }
@@ -57,7 +57,7 @@
   letter-spacing: -0.015em;
   color: #F5F0E8;
   max-width: 860px;
-  margin-bottom: clamp(20px, 3svh, 40px);
+  margin-bottom: clamp(12px, 2svh, 40px);
   text-wrap: balance;
   opacity: 0;
   transform: translateY(18px);
@@ -68,7 +68,7 @@
   line-height: 1.75;
   color: rgba(245, 240, 232, 0.75);
   max-width: 400px;
-  margin-bottom: clamp(24px, 4svh, 52px);
+  margin-bottom: clamp(16px, 3svh, 52px);
   opacity: 0;
   transform: translateY(10px);
 }
@@ -82,7 +82,7 @@
 .hero__foot {
   position: relative;
   z-index: 1;
-  padding: 0 var(--gap-container) 32px;
+  padding: 0 var(--gap-container) clamp(16px, 2.5svh, 32px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -163,7 +163,7 @@
   font-size: 9px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--c-accent);
+  color: var(--c-secondary);
   margin-bottom: 20px;
 }
 .pillar__name {
@@ -216,6 +216,7 @@
   border-right: none;
   border-bottom: none;
 }
+.soaps > li { display: contents; }
 .soap {
   border-right: 1px solid var(--c-rule);
   border-bottom: 1px solid var(--c-rule);
@@ -255,7 +256,7 @@
   letter-spacing: 0.02em;
   line-height: 1.25;
   text-transform: uppercase;
-  color: var(--cx-text, var(--cx));
+  color: var(--c-text);
   margin-bottom: 8px;
 }
 .soap__center {
@@ -263,9 +264,8 @@
   font-size: 9px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cx-text, var(--cx));
+  color: var(--c-secondary);
   margin-bottom: 20px;
-  opacity: 0.85;
 }
 .soap__oils {
   font-family: var(--ff-body);
@@ -286,7 +286,7 @@
   font-size: 9px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--cx, var(--c-accent));
+  color: var(--c-secondary);
   opacity: 0;
   transform: translateX(-6px);
   transition: opacity 0.3s var(--ease-quart) 0.05s, transform 0.3s var(--ease-quart) 0.05s;
@@ -343,7 +343,7 @@
 /* Index inci-list uses different class names: .inci and .common (vs nosotros .inci-name/.inci-sci) */
 .inci-list { list-style: none; border-top: 1px solid var(--c-rule); }
 .inci-list li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--c-rule); }
-.inci-list .inci { font-family: var(--ff-body); font-size: 10px; font-style: italic; letter-spacing: 0.06em; color: var(--c-accent); min-width: 190px; flex-shrink: 0; word-break: break-word; hyphens: auto; }
+.inci-list .inci { font-family: var(--ff-body); font-size: 10px; font-style: italic; letter-spacing: 0.06em; color: var(--c-secondary); min-width: 190px; flex-shrink: 0; word-break: break-word; hyphens: auto; }
 .inci-list .common { font-family: var(--ff-body); font-size: 12px; letter-spacing: 0.04em; color: var(--c-secondary); }
 
 /* ── Origen (dark section) ── */
@@ -438,7 +438,7 @@
   font-size: 9px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--c-accent);
+  color: var(--c-secondary);
   padding: 20px 20px 0;
 }
 .journal__card-title {
@@ -458,6 +458,28 @@
   padding: 8px 20px 24px;
 }
 
+/* ── Desktop: one section, one screen (Design Principle #6) ── */
+@media (min-width: 769px) {
+  .filosofia,
+  .coleccion,
+  .formula,
+  .origen,
+  .journal {
+    height: 100svh;
+    overflow: hidden;
+  }
+  /* Scale vertical padding to viewport height */
+  .filosofia { padding: clamp(40px, 6svh, 128px) 0; }
+  .coleccion { padding: clamp(40px, 6svh, 128px) 0; }
+  .formula   { padding: clamp(40px, 6svh, 128px) var(--gap-container); }
+  .origen    { padding: clamp(40px, 6svh, 128px) var(--gap-container); }
+  .journal   { padding: clamp(40px, 6svh, 128px) 0; }
+  /* Constrain formula image so it doesn't push section beyond viewport */
+  .formula__visual {
+    max-height: calc(100svh - clamp(80px, 12svh, 256px));
+  }
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .origen__inner { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -465,6 +487,12 @@
   .origen__body { max-width: 100%; }
 }
 @media (max-width: 768px) {
+  .hero { height: auto; min-height: 100svh; }
+  .filosofia,
+  .coleccion,
+  .formula,
+  .origen,
+  .journal { height: auto; overflow: visible; }
   .filosofia__pillars { grid-template-columns: 1fr 1fr; }
   .pillar { border-right: none; border-bottom: 1px solid var(--c-rule); }
   .pillar:nth-child(odd) { border-right: 1px solid var(--c-rule); }
@@ -484,4 +512,4 @@
   .inci-list .inci { min-width: 0; width: 50%; }
 }
 
-/* max-height override removed — hero always min-height: 100svh (matches coleccion) */
+/* Hero always height: 100svh on desktop (Design Principle #6) */

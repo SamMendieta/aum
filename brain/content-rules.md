@@ -1,6 +1,6 @@
 ---
 owner: Sam
-last-updated: 2026-04-06
+last-updated: 2026-04-11
 review: After every founder feedback session
 ---
 
@@ -33,7 +33,7 @@ review: After every founder feedback session
 "cristal simbólico" (standalone) · "su función es simbólica" · "simplemente decora/solo acompaña"
 
 ## Approved Replacements (already implemented on site)
-- "hacia quien lo recibe" → "hasta tus manos"
+- "hacia quien lo recibe" → use direct second-person ("a ti", "para ti", "a tus manos")
 - "Nada de líneas de ensamblaje" → "Sin prisa, sin producción masiva"
 - "a esto se suman" → "Los aceites esenciales puros completan cada fórmula"
 - "verdaderos" → "jabones de aceite saponificado"

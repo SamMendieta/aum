@@ -5,12 +5,12 @@
   background-color: var(--c-dark);
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
-  min-height: 100svh;
+  height: 100vh;
+  height: 100svh;
   display: grid;
   grid-template-rows: 1fr;
   align-items: end;
-  padding: var(--nav-h-ed) 0 clamp(56px, 7vw, 88px);
+  padding: var(--nav-h-ed) 0 clamp(40px, 6svh, 88px);
 }
 .page-header__bg { position: absolute; inset: 0; z-index: 0; }
 .page-header__bg img {
@@ -147,11 +147,12 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 }
 
 .soap-section__content {
-  padding: clamp(24px, 3vw, 48px) clamp(24px, 4vw, 56px);
+  padding: clamp(24px, 3svh, 48px) clamp(24px, 4vw, 56px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
 /* Crystal accent bar — full height left edge */
@@ -179,9 +180,9 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 
 /* Identity block — meta + name + tagline */
 .soap-section__identity {
-  padding-bottom: clamp(14px, 2vw, 24px);
+  padding-bottom: clamp(10px, 1.5svh, 24px);
   border-bottom: 1px solid var(--c-gold, #C9AD88);
-  margin-bottom: clamp(14px, 2vw, 24px);
+  margin-bottom: clamp(10px, 1.5svh, 24px);
 }
 .soap-section__meta {
   display: flex;
@@ -196,12 +197,12 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 .soap-section__number {
   font-family: var(--ff-body); font-size: 10px;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--cx);
+  color: var(--c-secondary);
 }
 .soap-section__center {
   font-family: var(--ff-body); font-size: 10px;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--cx); opacity: 0.8;
+  color: var(--c-secondary);
 }
 .soap-section__name {
   font-family: var(--ff-display); font-weight: 400;
@@ -216,19 +217,19 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   font-style: italic;
   font-size: clamp(13px, 1.3vw, 17px);
   line-height: 1.55;
-  color: var(--cx); opacity: 0.85;
+  color: var(--c-secondary);
   max-width: 400px;
 }
 
 /* Details block — oils, crystal, CTA */
 .soap-section__details {
   display: flex; flex-direction: column;
-  gap: clamp(12px, 1.5vw, 18px);
+  gap: clamp(8px, 1svh, 18px);
 }
 .soap-section__oils-label {
   font-family: var(--ff-body); font-size: 9px;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--c-accent); margin-bottom: 6px;
+  color: var(--c-secondary); margin-bottom: 6px;
 }
 .soap-section__oils {
   list-style: none;
@@ -239,7 +240,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   justify-content: space-between;
   align-items: baseline;
   gap: 16px;
-  padding: 7px 0;
+  padding: clamp(4px, 0.6svh, 7px) 0;
   border-bottom: 1px solid var(--c-rule);
 }
 .soap-section__oil-common {
@@ -256,7 +257,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 
 /* Crystal info */
 .soap-section__crystal {
-  padding: 12px;
+  padding: clamp(8px, 1svh, 12px);
   border: 1px solid var(--c-rule);
   position: relative;
 }
@@ -279,7 +280,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
 .soap-section__crystal-name {
   font-family: var(--ff-body); font-size: 9px;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--cx, var(--c-accent));
+  color: var(--c-secondary);
 }
 .soap-section__crystal-desc {
   font-family: var(--ff-body); font-size: 11px;
@@ -329,6 +330,10 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   .page-header__desc { max-width: 100%; }
 }
 @media (max-width: 768px) {
+  .page-header {
+    height: auto;
+    min-height: 50vh;
+  }
   .soap-section {
     height: auto;
     border-bottom: 3px solid var(--c-gold, #C9AD88);
@@ -362,15 +367,7 @@ body.nav-scrolled .soap-nav { top: var(--nav-h-sm); }
   .soap-nav__item { min-height: 44px; font-size: 9px; padding: 14px 16px; }
 }
 
-@media (max-height: 768px) and (min-width: 769px) {
-  .soap-section {
-    height: auto;
-    min-height: 100svh;
-  }
-  .soap-section__content {
-    padding-bottom: clamp(24px, 4vh, 48px);
-  }
-}
+/* max-height override removed — soap-section always height: 100svh on desktop (Design Principle #6) */
 
 @media (prefers-reduced-motion: reduce) {
   .soap-section__image img { transition: none; }

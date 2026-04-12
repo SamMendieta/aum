@@ -1,6 +1,6 @@
 ---
 owner: Sam
-last-updated: 2026-04-06
+last-updated: 2026-04-12
 review: When design system changes
 ---
 
@@ -13,6 +13,11 @@ review: When design system changes
 | Body / Labels / Nav / UI | **Inter** | Regular 400 | Local @font-face /fonts/ |
 
 Rules: sentence case, generous tracking (0.04-0.08em), clamp() fluid scale. Never bold display. Never all-caps except 2-word labels. Both fonts always together on every page.
+
+**CSS token gotcha:** Two naming conventions coexist:
+- `--ff-display` / `--ff-body` — product pages
+- `--f-display` / `--f-body` — editorial pages
+Both alias to the same fonts (Instrument Serif / Inter). Defined in tokens.css.
 
 ## Typography (Packaging — printed, unchanged)
 Pierson (display) + Biryani (body). Physical packaging predates web font changes.
@@ -48,6 +53,7 @@ Pierson (display) + Biryani (body). Physical packaging predates web font changes
 3. Ingredients are the argument — INCI + common names, always visible
 4. Zero decorative noise — no icons, gradients, pill shapes, shadows >0 4px 12px rgba(0,0,0,0.06)
 5. Mobile ≠ desktop shrunk — different compositions per breakpoint
+6. One section, one screen — each content block fills exactly one viewport (100svh). Interior content scales to fit; scroll reveals the next section, never more of the current one. Desktop only; mobile stacks freely with natural height. **Exception:** Contacto page is excluded — content density (7 soap buttons + FAQ + info panel) exceeds single-viewport constraint.
 
 ## Layout
 Grid: 12 col, 24px gutter, 80px margins desktop / 24px mobile, 1280px max.
