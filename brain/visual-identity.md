@@ -27,14 +27,25 @@ Pierson (display) + Biryani (body). Physical packaging predates web font changes
 |---|---|---|---|
 | --c-bg | #FAF7F1 | Pearl | All light surfaces |
 | --c-text | #262626 | Leather | Primary text, nav |
-| --c-accent | #A89478 | Amber | Dividers, hover, borders. Never large fills. |
+| --c-accent | #A89478 | Amber | Dividers, hover, borders. Never large fills except dark-bg CTA. |
 | --c-secondary | #5C5445 | Secondary | Body text, descriptions |
-| --c-dark | #283618 | Black Forest | Hero bg, banner bg |
+| --c-dark | #283618 | Black Forest | Solid dark sections (product .sec), banner bg |
 | --c-dark-bg | #344422 | Forest Medium | Footer, origin strip, produccion |
 | --c-dark-text | #F5F0E8 | Warm White | Headlines on dark bg |
 | --c-dark-sub | #C9AD88 | Gold | Labels/eyebrows on dark bg |
+| --c-cta | #2C1810 | Espresso | WhatsApp CTA fill on light bg only |
 | --c-rule | rgba(168,148,120,0.22) | Amber 22% | Dividers on light bg |
 | --c-rule-dark | rgba(201,173,136,0.20) | Gold 20% | Dividers on Forest bg |
+
+### CTA Color Context-Switching
+- **Light backgrounds:** Espresso (`--c-cta`) fill + Pearl text — default WhatsApp CTA
+- **Dark/green backgrounds (footer):** Amber (`--c-accent`) fill + Dark Forest text — avoids brown-on-green clash
+
+### Hero Overlay Strategy
+- **Index, Colección:** Photo at 55% opacity over warm neutral fallback (#1A1816). No gradient overlay.
+- **Nosotros:** Full-opacity photo, no overlay.
+- **Contacto:** Full-opacity photo + original dark forest green gradient overlay (top + bottom darken for text legibility). Only hero that uses green transparency — intentional due to dense text content.
+- **Rationale:** Green transparencies over photos created muddy olive cast. Solid green sections (origen, produccion, footer bg, product .sec) remain unchanged.
 
 ## Crystal Colors (per product page — accent only, never large fills)
 | Soap | Hex | Token |
