@@ -6,7 +6,7 @@
 /* ── Page header (shared with coleccion — identical structure) ── */
 /* (Already defined in coleccion.css; if page-header is ever shared, move to base.css) */
 .page-header {
-  background-color: var(--c-dark);
+  background-color: #1A1816;
   position: relative;
   overflow: hidden;
   min-height: 50vh;
@@ -131,7 +131,7 @@
   align-items: center;
   gap: 12px;
   padding: 18px 24px;
-  background-color: #2C1810;
+  background-color: var(--c-cta);
   border: none;
   font-family: var(--ff-body);
   font-size: 10px;

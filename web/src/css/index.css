@@ -6,7 +6,7 @@
 
 /* ── Hero (index — dark full-screen with BG image) ── */
 .hero {
-  background-color: var(--c-dark);
+  background-color: #1A1816;
   position: relative;
   overflow: hidden; /* clips bg image AND ensures no vertical spill */
   height: 100vh;
@@ -19,14 +19,14 @@
 .hero__bg img {
   width: 100%; height: 100%;
   object-fit: cover;
-  opacity: 0.15;
+  opacity: 0.55;
   transition: transform 10s ease;
 }
 .hero__bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 70% 40%, rgba(168, 148, 120, 0.06) 0%, transparent 60%);
+  background: none;
   z-index: 1;
   pointer-events: none;
 }

@@ -84,9 +84,9 @@
   align-items: center;
   gap: 10px;
   padding: 10px 22px;
-  background: #2C1810;
-  color: #FAF7F1;
-  border: 1px solid #2C1810;
+  background: var(--c-accent);
+  color: var(--c-dark);
+  border: 1px solid var(--c-accent);
   font-family: var(--ff-body);
   font-size: 10px;
   letter-spacing: 0.14em;

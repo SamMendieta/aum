@@ -15,6 +15,7 @@
   --c-dtext:     #F5F0E8;          /* Warm white — alias used by product pages */
   --c-dark-sub:  #C9AD88;          /* Gold — labels/eyebrows on dark bg */
   --c-gold:      #C9AD88;          /* Gold — explicit token for dark bg accents */
+  --c-cta:       #2C1810;          /* Espresso — WhatsApp CTA fill on light bg */
   --c-rule:      rgba(168, 148, 120, 0.22);  /* Amber 22% */
   --c-rule-dark: rgba(201, 173, 136, 0.20);  /* Gold 20% */
 
