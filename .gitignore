@@ -1,9 +1,7 @@
+# Only /web and README.md live on GitHub. Everything else stays local.
 /*
 !/.gitignore
 !/README.md
-!/CLAUDE.md
-!/brain
-!/brain/**
 !/web
 !/web/**
 
