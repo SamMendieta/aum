@@ -46,7 +46,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 88%;
+  object-position: var(--focus, center 88%);
   transition: transform 7s ease;
 }
 .hero:hover .hero__img {
@@ -337,7 +337,7 @@
   align-items: center;
 }
 .cblock__photo { overflow: hidden; aspect-ratio: 3 / 4; }
-.cblock__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 75%; display: block; opacity: 0.85; transition: opacity 0.6s; }
+.cblock__photo img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, center 75%); display: block; opacity: 0.85; transition: opacity 0.6s; }
 .cblock__crystal-name {
   font-family: var(--ff-display);
   font-weight: 400;
@@ -495,7 +495,7 @@
   .narr { grid-template-columns: 1fr; gap: 2rem; }
   .ingr { grid-template-columns: 1fr; }
   .cblock__inner { grid-template-columns: 1fr; }
-  .cblock__photo { aspect-ratio: 16 / 9; }
+  .cblock__photo { aspect-ratio: 4 / 5; }
   .gallery__thumb { width: clamp(80px, 20vw, 120px); }
   .lightbox__close,
   .lightbox__prev,

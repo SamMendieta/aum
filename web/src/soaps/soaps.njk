@@ -26,7 +26,8 @@ eleventyComputed:
         alt="Jabón de {{ soap.name }} con cristal de {{ soap.name }}"
         class="hero__img" loading="eager" fetchpriority="high" decoding="async"
         width="1920" height="1280"
-        sizes="(max-width: 768px) 100vw, 55vw">
+        sizes="(max-width: 768px) 100vw, 55vw"
+        style="--focus: {{ soap.heroFocus or 'center 70%' }};">
     </div>
     <div class="hero__body">
       <span class="hero__meta">{{ soap.number }} / 07 &nbsp;·&nbsp; Crystal Infused Face and Body Soap</span>
@@ -117,7 +118,8 @@ eleventyComputed:
         <img src="/images/{{ soap.crystalImage }}"
           alt="{{ soap.crystalPoetic }}"
           loading="lazy" decoding="async"
-          width="600" height="800">
+          width="600" height="800"
+          style="--focus: {{ soap.cblockFocus or 'center 60%' }};">
       </div>
       <h2 class="cblock__crystal-name rv">{{ soap.name }}</h2>
       <div class="rv">
