@@ -72,6 +72,6 @@ jobs:
           args: >-
             --offline
             --no-progress
-            --base _site
+            --root-dir ${{ github.workspace }}/_site
             ./_site
           fail: true
