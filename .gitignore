@@ -1,9 +1,11 @@
-# Only /web and README.md live on GitHub. Everything else stays local.
+# Only /web, /.github, and README.md live on GitHub. Everything else stays local.
 /*
 !/.gitignore
 !/README.md
 !/web
 !/web/**
+!/.github
+!/.github/**
 
 # Build artifacts and deps
 **/node_modules/
