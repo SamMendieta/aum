@@ -73,5 +73,6 @@ jobs:
             --offline
             --no-progress
             --root-dir ${{ github.workspace }}/_site
+            --exclude "/journal/?$"
             ./_site
           fail: true
