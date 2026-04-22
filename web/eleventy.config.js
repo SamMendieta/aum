@@ -12,6 +12,11 @@ export default function(eleventyConfig) {
   // Palette comparison page — static HTML for founder review
   eleventyConfig.addPassthroughCopy("src/palette-compare.html");
 
+  // Favicons — served from site root
+  eleventyConfig.addPassthroughCopy("src/favicon.svg");
+  eleventyConfig.addPassthroughCopy("src/favicon.ico");
+  eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
+
   // Images are now in src/images/ — handled by the plugin, not passthrough
 
   // Image optimisation — transforms every <img> in HTML output
