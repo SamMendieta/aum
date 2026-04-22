@@ -72,7 +72,6 @@ jobs:
           args: >-
             --offline
             --no-progress
-            --exclude-mail
             --base _site
-            _site/**/*.html
+            ./_site
           fail: true
